@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout Wireframe - Grayscale Blueprint</title>
+  <!-- Tailwind CSS v3 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Space Grotesk for monospaced UI labels & Inter for base UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Space Grotesk', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Styling to look like a high-fidelity Figma Wireframe */
+    .wireframe-text-long {
+      height: 8px;
+      width: 100%;
+      background-color: #e5e5e5;
+      border-radius: 4px;
+    }
+    .wireframe-text-medium {
+      height: 8px;
+      width: 75%;
+      background-color: #e5e5e5;
+      border-radius: 4px;
+    }
+    .wireframe-text-short {
+      height: 8px;
+      width: 40%;
+      background-color: #e5e5e5;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-[#fafafa] text-black font-mono antialiased">
+
+  <!-- Main Blueprint Dashboard Header -->
+  <header class="bg-white border-b-2 border-black sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      
+      <!-- Wireframe Project Info -->
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 border-2 border-black bg-black flex items-center justify-center text-white font-bold text-lg select-none">FP</div>
+        <div>
+          <h1 class="font-bold text-base uppercase tracking-tight">[FITPANTHER LAYOUT WIREFRAME]</h1>
+          <p class="text-[10px] text-neutral-400 uppercase tracking-widest">[Theme: Pure Monochrome / No Copy / No Images]</p>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs to Swap Pages -->
+      <nav class="flex flex-wrap items-center justify-center gap-1 bg-neutral-100 p-1 border border-neutral-300">
+        <button onclick="switchPage('home')" id="tab-home" class="px-3 py-1.5 text-xs font-bold uppercase transition-all bg-black text-white">
+          [Home Page]
+        </button>
+        <button onclick="switchPage('plans')" id="tab-plans" class="px-3 py-1.5 text-xs font-bold uppercase transition-all hover:bg-neutral-200">
+          [Plans Page]
+        </button>
+        <button onclick="switchPage('menu')" id="tab-menu" class="px-3 py-1.5 text-xs font-bold uppercase transition-all hover:bg-neutral-200">
+          [Menu Page]
+        </button>
+        <button onclick="switchPage('results')" id="tab-results" class="px-3 py-1.5 text-xs font-bold uppercase transition-all hover:bg-neutral-200">
+          [Results Page]
+        </button>
+        <button onclick="switchPage('blog')" id="tab-blog" class="px-3 py-1.5 text-xs font-bold uppercase transition-all hover:bg-neutral-200">
+          [Blog Page]
+        </button>
+        <button onclick="switchPage('contact')" id="tab-contact" class="px-3 py-1.5 text-xs font-bold uppercase transition-all hover:bg-neutral-200">
+          [Contact Page]
+        </button>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Info Annotation Bar -->
+  <div class="bg-neutral-200 border-b border-black text-[10px] py-1.5 px-4 text-center select-none uppercase tracking-wider font-bold">
+    Current View: <span id="current-view-label" class="underline">Home Page Layout</span> | Annotation blocks specify section layouts
+  </div>
+
+  <main class="max-w-7xl mx-auto px-4 py-8">
+
+    <!-- PAGE 1: HOME LAYOUT -->
+    <div id="page-home" class="page-container space-y-12">
+
+      <!-- Section: Navigation Bar Wireframe -->
+      <div class="border-2 border-black bg-white p-4">
+        <div class="text-[10px] text-neutral-400 mb-2">[SECTION: GLOBAL HEADER / NAVBAR]</div>
+        <div class="flex items-center justify-between border border-dashed border-neutral-300 p-2">
+          <span class="font-bold text-sm">[BRAND LOGO]</span>
+          <div class="hidden md:flex gap-6 text-xs text-neutral-500 font-bold">
+            <span>[LINK A]</span>
+            <span>[LINK B]</span>
+            <span>[LINK C]</span>
+            <span>[LINK D]</span>
+            <span>[LINK E]</span>
+          </div>
+          <span class="px-3 py-1 bg-black text-white text-xs font-bold uppercase select-none">[WHATSAPP CTA]</span>
+        </div>
+      </div>
+
+      <!-- Section: Hero Header -->
+      <div class="border-2 border-black bg-white p-6 relative">
+        <div class="text-[10px] text-neutral-400 mb-4">[SECTION: HERO HEADER LAYOUT]</div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <!-- Hero Copy Blocks Left -->
+          <div class="lg:col-span-7 space-y-5">
+            <div class="h-6 w-48 bg-neutral-100 border border-neutral-300 flex items-center justify-center text-[10px] text-neutral-500 font-bold uppercase tracking-wider">[SUBTITLE BADGE]</div>
+            <div class="space-y-2">
+              <h2 class="text-3xl font-bold uppercase">[MAIN HERO HEADING]</h2>
+              <div class="wireframe-text-long"></div>
+              <div class="wireframe-text-medium"></div>
+            </div>
+            
+            <div class="border border-dashed border-neutral-300 p-4 space-y-2.5">
+              <div class="text-[10px] text-neutral-400 font-bold">[METRICS / VALUE POINTS GRID]</div>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-1.5"><div class="h-3 w-1/2 bg-neutral-300"></div><div class="wireframe-text-medium"></div></div>
+                <div class="space-y-1.5"><div class="h-3 w-1/2 bg-neutral-300"></div><div class="wireframe-text-medium"></div></div>
+                <div class="space-y-1.5"><div class="h-3 w-1/2 bg-neutral-300"></div><div class="wireframe-text-medium"></div></div>
+                <div class="space-y-1.5"><div class="h-3 w-1/2 bg-neutral-300"></div><div class="wireframe-text-medium"></div></div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-4 pt-2">
+              <span class="px-4 py-2 border-2 border-black bg-black text-white text-xs font-bold uppercase select-none">[PRIMARY ACTION BUTTON]</span>
+              <span class="px-4 py-2 border-2 border-black text-xs font-bold uppercase select-none">[SECONDARY ACTION BUTTON]</span>
+            </div>
+
+            <div class="flex items-center gap-3 pt-2">
+              <div class="w-12 h-6 border border-neutral-300 bg-neutral-100 text-[8px] flex items-center justify-center">[AVATARS]</div>
+              <div class="space-y-1 w-full"><div class="wireframe-text-medium"></div><div class="wireframe-text-short"></div></div>
+            </div>
+          </div>
+
+          <!-- Hero Media Box Right -->
+          <div class="lg:col-span-5 space-y-3">
+            <div class="aspect-[4/3] border-2 border-dashed border-neutral-400 bg-neutral-50 flex flex-col items-center justify-center p-4">
+              <div class="w-12 h-12 border-2 border-black rounded-full flex items-center justify-center font-bold text-lg mb-2">▶</div>
+              <span class="text-xs uppercase font-bold">[VIDEO / HERO IMAGE PLACEHOLDER]</span>
+            </div>
+            
+            <div class="grid grid-cols-4 gap-2">
+              <div class="border border-neutral-300 p-1.5 text-center text-[8px] bg-neutral-50 font-bold">[THUMB A]</div>
+              <div class="border border-neutral-300 p-1.5 text-center text-[8px] bg-neutral-50 font-bold">[THUMB B]</div>
+              <div class="border border-neutral-300 p-1.5 text-center text-[8px] bg-neutral-50 font-bold">[THUMB C]</div>
+              <div class="border border-neutral-300 p-1.5 text-center text-[8px] bg-neutral-50 font-bold">[THUMB D]</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Section: Problem & Solution -->
+      <div class="border-2 border-black bg-white p-6 relative">
+        <div class="text-[10px] text-neutral-400 mb-4">[SECTION: PROBLEM DEFINITION & GOAL MATCH]</div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Column 1: Problem List -->
+          <div class="border border-black p-4 space-y-4">
+            <h3 class="font-bold text-sm uppercase">[PROBLEM STATEMENT HEADING]</h3>
+            <div class="space-y-3">
+              <div class="flex items-center gap-2"><span class="text-red-500 font-bold">✕</span><div class="wireframe-text-long"></div></div>
+              <div class="flex items-center gap-2"><span class="text-red-500 font-bold">✕</span><div class="wireframe-text-medium"></div></div>
+              <div class="flex items-center gap-2"><span class="text-red-500 font-bold">✕</span><div class="wireframe-text-long"></div></div>
+              <div class="flex items-center gap-2"><span class="text-red-500 font-bold">✕</span><div class="wireframe-text-short"></div></div>
+            </div>
+            <div class="aspect-[16/7] border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[10px] font-bold">[STRESSED STATE IMAGE PLACEHOLDER]</div>
+          </div>
+
+          <!-- Column 2: Solution Matcher -->
+          <div class="border border-black p-4 space-y-4">
+            <h3 class="font-bold text-sm uppercase">[SOLUTION STATEMENT HEADING]</h3>
+            <div class="wireframe-text-long"></div>
+            <div class="wireframe-text-medium"></div>
+            <div class="h-7 w-48 bg-neutral-100 border border-neutral-300 flex items-center justify-center text-[10px] font-bold select-none">[BENEFIT SPECIFICATION TAG]</div>
+            <div class="aspect-[16/7] border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[10px] font-bold">[NUTRITION CASE IMAGE PLACEHOLDER]</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Section: How It Works -->
+      <div class="border-2 border-black bg-white p-6">
+        <div class="text-[10px] text-neutral-400 mb-6">[SECTION: PROCESS STEPS FLOWBAR]</div>
+        <div class="text-center mb-8">
+          <h3 class="font-bold text-base uppercase">[STEPS SYSTEM HEADER]</h3>
+          <div class="wireframe-text-medium mx-auto mt-2"></div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Step 1 -->
+          <div class="border border-neutral-300 p-4 text-center space-y-2">
+            <div class="w-8 h-8 border border-black rounded-full flex items-center justify-center font-bold text-xs mx-auto">1</div>
+            <h4 class="font-bold text-xs uppercase">[STEP 1 TITLE]</h4>
+            <div class="wireframe-text-medium mx-auto"></div>
+            <div class="wireframe-text-short mx-auto"></div>
+          </div>
+          <!-- Step 2 -->
+          <div class="border border-neutral-300 p-4 text-center space-y-2">
+            <div class="w-8 h-8 border border-black rounded-full flex items-center justify-center font-bold text-xs mx-auto">2</div>
+            <h4 class="font-bold text-xs uppercase">[STEP 2 TITLE]</h4>
+            <div class="wireframe-text-medium mx-auto"></div>
+            <div class="wireframe-text-short mx-auto"></div>
+          </div>
+          <!-- Step 3 -->
+          <div class="border border-neutral-300 p-4 text-center space-y-2">
+            <div class="w-8 h-8 border border-black rounded-full flex items-center justify-center font-bold text-xs mx-auto">3</div>
+            <h4 class="font-bold text-xs uppercase">[STEP 3 TITLE]</h4>
+            <div class="wireframe-text-medium mx-auto"></div>
+            <div class="wireframe-text-short mx-auto"></div>
+          </div>
+          <!-- Step 4 -->
+          <div class="border border-neutral-300 p-4 text-center space-y-2">
+            <div class="w-8 h-8 border border-black rounded-full flex items-center justify-center font-bold text-xs mx-auto">4</div>
+            <h4 class="font-bold text-xs uppercase">[STEP 4 TITLE]</h4>
+            <div class="wireframe-text-medium mx-auto"></div>
+            <div class="wireframe-text-short mx-auto"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Choose Your Goal -->
+      <div class="border-2 border-black bg-white p-6">
+        <div class="text-[10px] text-neutral-400 mb-6">[SECTION: TARGET GOAL SELECTION GRID]</div>
+        <div class="text-center mb-8">
+          <h3 class="font-bold text-base uppercase">[CHOOSE PLAN STRUCTURE]</h3>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Card A -->
+          <div class="border border-black p-4 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-xs font-bold uppercase border border-black px-2 py-0.5 bg-neutral-100">[GOAL TITLE A]</span>
+                <span class="text-[9px] text-neutral-400">[CAT A]</span>
+              </div>
+              <div class="wireframe-text-long mb-2"></div>
+              <div class="wireframe-text-medium mb-4"></div>
+              <div class="aspect-[16/9] border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[GOAL REPRESENTATION IMAGE]</div>
+            </div>
+            <div class="flex justify-between items-center pt-3 border-t border-neutral-200">
+              <span class="text-[9px] font-bold">[METRIC DETAIL]</span>
+              <span class="px-2 py-1 bg-black text-white text-[10px] font-bold uppercase select-none">[CTA]</span>
+            </div>
+          </div>
+          <!-- Card B -->
+          <div class="border border-black p-4 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-xs font-bold uppercase border border-black px-2 py-0.5 bg-neutral-100">[GOAL TITLE B]</span>
+                <span class="text-[9px] text-neutral-400">[CAT B]</span>
+              </div>
+              <div class="wireframe-text-long mb-2"></div>
+              <div class="wireframe-text-medium mb-4"></div>
+              <div class="aspect-[16/9] border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[GOAL REPRESENTATION IMAGE]</div>
+            </div>
+            <div class="flex justify-between items-center pt-3 border-t border-neutral-200">
+              <span class="text-[9px] font-bold">[METRIC DETAIL]</span>
+              <span class="px-2 py-1 bg-black text-white text-[10px] font-bold uppercase select-none">[CTA]</span>
+            </div>
+          </div>
+          <!-- Card C -->
+          <div class="border border-black p-4 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-xs font-bold uppercase border border-black px-2 py-0.5 bg-neutral-100">[GOAL TITLE C]</span>
+                <span class="text-[9px] text-neutral-400">[CAT C]</span>
+              </div>
+              <div class="wireframe-text-long mb-2"></div>
+              <div class="wireframe-text-medium mb-4"></div>
+              <div class="aspect-[16/9] border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[GOAL REPRESENTATION IMAGE]</div>
+            </div>
+            <div class="flex justify-between items-center pt-3 border-t border-neutral-200">
+              <span class="text-[9px] font-bold">[METRIC DETAIL]</span>
+              <span class="px-2 py-1 bg-black text-white text-[10px] font-bold uppercase select-none">[CTA]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Why Choose FitPanther Grid -->
+      <div class="border-2 border-black bg-white p-6">
+        <div class="text-[10px] text-neutral-400 mb-6">[SECTION: BENEFIT POINTS GRID - 8 COLUMNS]</div>
+        <div class="text-center mb-8">
+          <h3 class="font-bold text-base uppercase">[WHY CHOOSE LAYOUT]</h3>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <!-- Card 1-8 -->
+          <div class="border border-neutral-300 p-4 space-y-2">
+            <span class="text-[9px] font-bold text-neutral-400">[VALUE 01]</span>
+            <h4 class="font-bold text-xs uppercase">[VALUE PROP 1]</h4>
+            <div class="wireframe-text-long"></div>
+          </div>
+          <div class="border border-neutral-300 p-4 space-y-2">
+            <span class="text-[9px] font-bold text-neutral-400">[VALUE 02]</span>
+            <h4 class="font-bold text-xs uppercase">[VALUE PROP 2]</h4>
+            <div class="wireframe-text-long"></div>
+          </div>
+          <div class="border border-neutral-300 p-4 space-y-2">
+            <span class="text-[9px] font-bold text-neutral-400">[VALUE 03]</span>
+            <h4 class="font-bold text-xs uppercase">[VALUE PROP 3]</h4>
+            <div class="wireframe-text-long"></div>
+          </div>
+          <div class="border border-neutral-300 p-4 space-y-2">
+            <span class="text-[9px] font-bold text-neutral-400">[VALUE 04]</span>
+            <h4 class="font-bold text-xs uppercase">[VALUE PROP 4]</h4>
+            <div class="wireframe-text-long"></div>
+          </div>
+          <div class="border border-neutral-300 p-4 space-y-2">
+            <span class="text-[9px] font-bold text-neutral-400">[VALUE 05]</span>
+            <h4 class="font-bold text-xs uppercase">[VALUE PROP 5]</h4>
+            <div class="wireframe-text-long"></div>
+          </div>
+          <div class="border border-neutral-300 p-4 space-y-2">
+            <span class="text-[9px] font-bold text-neutral-400">[VALUE 06]</span>
+            <h4 class="font-bold text-xs uppercase">[VALUE PROP 6]</h4>
+            <div class="wireframe-text-long"></div>
+          </div>
+          <div class="border border-neutral-300 p-4 space-y-2">
+            <span class="text-[9px] font-bold text-neutral-400">[VALUE 07]</span>
+            <h4 class="font-bold text-xs uppercase">[VALUE PROP 7]</h4>
+            <div class="wireframe-text-long"></div>
+          </div>
+          <div class="border border-neutral-300 p-4 space-y-2">
+            <span class="text-[9px] font-bold text-neutral-400">[VALUE 08]</span>
+            <h4 class="font-bold text-xs uppercase">[VALUE PROP 8]</h4>
+            <div class="wireframe-text-long"></div>
+          </div>
+        </div>
+
+        <div class="mt-6 border border-black p-3 text-center bg-neutral-100 font-bold text-xs uppercase tracking-wide">
+          [SLOGAN TEXT BLOCK BANNER PLACEHOLDER]
+        </div>
+      </div>
+
+      <!-- Section: Crave Menu Gallery -->
+      <div class="border-2 border-black bg-white p-6">
+        <div class="text-[10px] text-neutral-400 mb-6">[SECTION: POPULAR FOOD TILES - 6 CARDS]</div>
+        <div class="text-center mb-8">
+          <h3 class="font-bold text-base uppercase">[MENU PREVIEW HEADER]</h3>
+          <div class="wireframe-text-medium mx-auto mt-2"></div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <!-- Loop representing 6 food cards -->
+          <div class="border border-neutral-200 p-3 space-y-3">
+            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[8px] font-bold text-center">[IMAGE: FOOD A]</div>
+            <div class="space-y-1">
+              <h4 class="font-bold text-[10px] uppercase">[FOOD ITEM A]</h4>
+              <div class="h-2 w-16 bg-neutral-200"></div>
+            </div>
+          </div>
+          <div class="border border-neutral-200 p-3 space-y-3">
+            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[8px] font-bold text-center">[IMAGE: FOOD B]</div>
+            <div class="space-y-1">
+              <h4 class="font-bold text-[10px] uppercase">[FOOD ITEM B]</h4>
+              <div class="h-2 w-16 bg-neutral-200"></div>
+            </div>
+          </div>
+          <div class="border border-neutral-200 p-3 space-y-3">
+            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[8px] font-bold text-center">[IMAGE: FOOD C]</div>
+            <div class="space-y-1">
+              <h4 class="font-bold text-[10px] uppercase">[FOOD ITEM C]</h4>
+              <div class="h-2 w-16 bg-neutral-200"></div>
+            </div>
+          </div>
+          <div class="border border-neutral-200 p-3 space-y-3">
+            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[8px] font-bold text-center">[IMAGE: FOOD D]</div>
+            <div class="space-y-1">
+              <h4 class="font-bold text-[10px] uppercase">[FOOD ITEM D]</h4>
+              <div class="h-2 w-16 bg-neutral-200"></div>
+            </div>
+          </div>
+          <div class="border border-neutral-200 p-3 space-y-3">
+            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[8px] font-bold text-center">[IMAGE: FOOD E]</div>
+            <div class="space-y-1">
+              <h4 class="font-bold text-[10px] uppercase">[FOOD ITEM E]</h4>
+              <div class="h-2 w-16 bg-neutral-200"></div>
+            </div>
+          </div>
+          <div class="border border-neutral-200 p-3 space-y-3">
+            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[8px] font-bold text-center">[IMAGE: FOOD F]</div>
+            <div class="space-y-1">
+              <h4 class="font-bold text-[10px] uppercase">[FOOD ITEM F]</h4>
+              <div class="h-2 w-16 bg-neutral-200"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Metrics & Testimonials -->
+      <div class="border-2 border-black bg-white p-6">
+        <div class="text-[10px] text-neutral-400 mb-6">[SECTION: STATS & CLIENT REVIEWS]</div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <!-- Stats Left Column -->
+          <div class="lg:col-span-4 border border-black p-4 space-y-6">
+            <h3 class="font-bold text-sm uppercase">[SOCIAL PROOF SUMMARY]</h3>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="border border-dashed border-neutral-200 p-2"><div class="h-5 w-12 bg-neutral-300 mb-1"></div><span class="text-[8px] uppercase">[STAT A]</span></div>
+              <div class="border border-dashed border-neutral-200 p-2"><div class="h-5 w-12 bg-neutral-300 mb-1"></div><span class="text-[8px] uppercase">[STAT B]</span></div>
+              <div class="border border-dashed border-neutral-200 p-2"><div class="h-5 w-12 bg-neutral-300 mb-1"></div><span class="text-[8px] uppercase">[STAT C]</span></div>
+              <div class="border border-dashed border-neutral-200 p-2"><div class="h-5 w-12 bg-neutral-300 mb-1"></div><span class="text-[8px] uppercase">[STAT D]</span></div>
+            </div>
+            
+            <div class="space-y-2">
+              <div class="text-[8px] font-bold text-neutral-400">[PARTNER LOGO SKELETONS]</div>
+              <div class="grid grid-cols-3 gap-2">
+                <div class="h-6 border border-neutral-300 bg-neutral-50 flex items-center justify-center text-[8px] font-bold text-neutral-400">[PARTNER A]</div>
+                <div class="h-6 border border-neutral-300 bg-neutral-50 flex items-center justify-center text-[8px] font-bold text-neutral-400">[PARTNER B]</div>
+                <div class="h-6 border border-neutral-300 bg-neutral-50 flex items-center justify-center text-[8px] font-bold text-neutral-400">[PARTNER C]</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review Cards Right Columns -->
+          <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <!-- Review 1 -->
+            <div class="border border-neutral-300 p-4 flex flex-col justify-between space-y-4">
+              <div>
+                <div class="aspect-[3/4] border border-dashed border-neutral-300 bg-neutral-100 flex items-center justify-center text-center p-2 text-[8px] font-bold">[IMAGE PLACEHOLDER: BEFORE/AFTER GRID 1]</div>
+                <span class="text-[8px] uppercase px-1 border border-black bg-neutral-100 inline-block mt-2">[TAG 1]</span>
+                <div class="wireframe-text-long mt-2"></div>
+                <div class="wireframe-text-medium mt-1"></div>
+              </div>
+              <div class="space-y-1">
+                <h5 class="font-bold text-[10px] uppercase">[CLIENT NAME A]</h5>
+                <span class="text-[8px] text-neutral-400">[REVIEW OVERVIEW]</span>
+              </div>
+            </div>
+            <!-- Review 2 -->
+            <div class="border border-neutral-300 p-4 flex flex-col justify-between space-y-4">
+              <div>
+                <div class="aspect-[3/4] border border-dashed border-neutral-300 bg-neutral-100 flex items-center justify-center text-center p-2 text-[8px] font-bold">[IMAGE PLACEHOLDER: BEFORE/AFTER GRID 2]</div>
+                <span class="text-[8px] uppercase px-1 border border-black bg-neutral-100 inline-block mt-2">[TAG 2]</span>
+                <div class="wireframe-text-long mt-2"></div>
+                <div class="wireframe-text-medium mt-1"></div>
+              </div>
+              <div class="space-y-1">
+                <h5 class="font-bold text-[10px] uppercase">[CLIENT NAME B]</h5>
+                <span class="text-[8px] text-neutral-400">[REVIEW OVERVIEW]</span>
+              </div>
+            </div>
+            <!-- Review 3 -->
+            <div class="border border-neutral-300 p-4 flex flex-col justify-between space-y-4">
+              <div>
+                <div class="aspect-[3/4] border border-dashed border-neutral-300 bg-neutral-100 flex items-center justify-center text-center p-2 text-[8px] font-bold">[IMAGE PLACEHOLDER: BEFORE/AFTER GRID 3]</div>
+                <span class="text-[8px] uppercase px-1 border border-black bg-neutral-100 inline-block mt-2">[TAG 3]</span>
+                <div class="wireframe-text-long mt-2"></div>
+                <div class="wireframe-text-medium mt-1"></div>
+              </div>
+              <div class="space-y-1">
+                <h5 class="font-bold text-[10px] uppercase">[CLIENT NAME C]</h5>
+                <span class="text-[8px] text-neutral-400">[REVIEW OVERVIEW]</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Founder's Story, Subscription Offers & Delivery areas -->
+      <div class="border-2 border-black bg-white p-6">
+        <div class="text-[10px] text-neutral-400 mb-6">[SECTION: FOUNDER BIO / PACKAGES GRID / COVERAGE LIST]</div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Col 1: Bio -->
+          <div class="border border-black p-4 space-y-4">
+            <h4 class="font-bold text-sm uppercase">[FOUNDER STORY TITLE]</h4>
+            <div class="wireframe-text-long"></div>
+            <div class="wireframe-text-long"></div>
+            <div class="wireframe-text-medium"></div>
+            <div class="border-l-2 border-black pl-2 py-1 bg-neutral-50 font-bold text-[10px] uppercase">[FOUNDER QUOTE SIGNATURE]</div>
+            
+            <div class="flex items-center gap-3 pt-2">
+              <div class="w-8 h-8 border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[8px]">[PORTRAIT]</div>
+              <div>
+                <h5 class="font-bold text-[10px] uppercase">[FOUNDER NAME]</h5>
+                <span class="text-[8px] text-neutral-400 uppercase">[TITLE]</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Col 2: Packages -->
+          <div class="border border-black p-4 space-y-4">
+            <h4 class="font-bold text-sm uppercase">[OFFERS SKELETON]</h4>
+            <div class="space-y-3">
+              <div class="border border-neutral-200 p-2.5 bg-neutral-50 space-y-2">
+                <div class="flex justify-between items-center"><span class="font-bold text-xs uppercase">[OFFER TITLE A]</span><span class="text-[8px] border border-black px-1">[TAG]</span></div>
+                <div class="wireframe-text-medium"></div>
+                <span class="block text-center py-1 bg-black text-white text-[10px] font-bold uppercase select-none">[CTA]</span>
+              </div>
+              <div class="border border-neutral-200 p-2.5 space-y-2">
+                <div class="flex justify-between items-center"><span class="font-bold text-xs uppercase">[OFFER TITLE B]</span><span class="text-[8px] border border-black px-1">[TAG]</span></div>
+                <div class="wireframe-text-medium"></div>
+                <span class="block text-center py-1 border border-black text-[10px] font-bold uppercase select-none">[CTA]</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Col 3: Coverage -->
+          <div class="border border-black p-4 space-y-4">
+            <h4 class="font-bold text-sm uppercase">[COVERAGE LIST TITLE]</h4>
+            <div class="grid grid-cols-2 gap-2 text-[10px] font-bold">
+              <span>■ [LOC 1]</span>
+              <span>■ [LOC 2]</span>
+              <span>■ [LOC 3]</span>
+              <span>■ [LOC 4]</span>
+              <span>■ [LOC 5]</span>
+              <span>■ [LOC 6]</span>
+              <span>■ [LOC 7]</span>
+              <span>■ [LOC 8]</span>
+            </div>
+            
+            <div class="border border-neutral-200 bg-neutral-50 p-3 space-y-2">
+              <div class="wireframe-text-medium"></div>
+              <span class="block text-center py-1 bg-black text-white text-[10px] font-bold uppercase select-none">[VERIFY DETAILS]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: FAQ & Blog Highlights -->
+      <div class="border-2 border-black bg-white p-6">
+        <div class="text-[10px] text-neutral-400 mb-6">[SECTION: DUAL LISTS - COLLAPSIBLE FAQS & BLOG PREVIEW]</div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          <!-- Accordion column left -->
+          <div class="space-y-4">
+            <h4 class="font-bold text-sm uppercase">[COLLAPSIBLE ACCORDION LIST]</h4>
+            <div class="border border-black divide-y border-neutral-300">
+              <div class="p-3 font-bold text-xs uppercase flex justify-between items-center"><span>[QUESTION SKELETON 1]</span><span>+</span></div>
+              <div class="p-3 font-bold text-xs uppercase flex justify-between items-center"><span>[QUESTION SKELETON 2]</span><span>+</span></div>
+              <div class="p-3 font-bold text-xs uppercase flex justify-between items-center"><span>[QUESTION SKELETON 3]</span><span>+</span></div>
+              <div class="p-3 font-bold text-xs uppercase flex justify-between items-center"><span>[QUESTION SKELETON 4]</span><span>+</span></div>
+            </div>
+          </div>
+
+          <!-- Blog column right -->
+          <div class="space-y-4">
+            <h4 class="font-bold text-sm uppercase">[PUBLISHED ARTICLES SKELETON]</h4>
+            <div class="space-y-3">
+              <div class="border border-neutral-200 p-3 flex gap-3">
+                <div class="w-12 h-12 bg-neutral-100 border border-dashed border-neutral-300 flex-shrink-0 flex items-center justify-center text-[7px] font-bold">[T-IMG]</div>
+                <div class="space-y-1 w-full">
+                  <span class="text-[8px] text-neutral-400 uppercase">[META LABELS]</span>
+                  <h5 class="font-bold text-xs uppercase">[ARTICLE HEADING PLACE]</h5>
+                  <div class="wireframe-text-medium"></div>
+                </div>
+              </div>
+              <div class="border border-neutral-200 p-3 flex gap-3">
+                <div class="w-12 h-12 bg-neutral-100 border border-dashed border-neutral-300 flex-shrink-0 flex items-center justify-center text-[7px] font-bold">[T-IMG]</div>
+                <div class="space-y-1 w-full">
+                  <span class="text-[8px] text-neutral-400 uppercase">[META LABELS]</span>
+                  <h5 class="font-bold text-xs uppercase">[ARTICLE HEADING PLACE]</h5>
+                  <div class="wireframe-text-medium"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Section: Bottom CTA Banner -->
+      <div class="border-2 border-black bg-black text-white p-8 text-center space-y-4">
+        <div class="text-[10px] text-neutral-500 uppercase">[SECTION: END CONVERSION BANNER]</div>
+        <h3 class="font-bold text-2xl uppercase">[CONVERSION STATEMENT]</h3>
+        <div class="wireframe-text-medium mx-auto opacity-45"></div>
+        
+        <div class="flex justify-center gap-4 pt-2">
+          <span class="px-6 py-2.5 bg-white text-black text-xs font-bold uppercase select-none">[ACTION A]</span>
+          <span class="px-6 py-2.5 border border-white text-xs font-bold uppercase select-none">[ACTION B]</span>
+        </div>
+      </div>
+
+      <!-- Section: Global Footer Layout -->
+      <div class="border-2 border-black bg-white p-6">
+        <div class="text-[10px] text-neutral-400 mb-6">[SECTION: COMPREHENSIVE FOOTER]</div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-b border-neutral-200 pb-8 mb-6">
+          <div class="space-y-3">
+            <span class="font-bold text-xs uppercase">[BRAND BRAND]</span>
+            <div class="wireframe-text-long"></div>
+            <div class="wireframe-text-medium"></div>
+          </div>
+          <div class="space-y-2">
+            <span class="font-bold text-xs uppercase">[LINKS COLUMN A]</span>
+            <div class="wireframe-text-medium"></div>
+            <div class="wireframe-text-short"></div>
+          </div>
+          <div class="space-y-2">
+            <span class="font-bold text-xs uppercase">[LINKS COLUMN B]</span>
+            <div class="wireframe-text-medium"></div>
+            <div class="wireframe-text-short"></div>
+          </div>
+          <div class="space-y-2">
+            <span class="font-bold text-xs uppercase">[LINKS COLUMN C]</span>
+            <div class="wireframe-text-medium"></div>
+            <div class="wireframe-text-short"></div>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center text-[10px] text-neutral-400 uppercase font-bold">
+          <span>[COPYRIGHT STATEMENTS]</span>
+          <span>[SOCIAL ICONS FOOTER]</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PAGE 2: PLANS LAYOUT -->
+    <div id="page-plans" class="page-container hidden space-y-12">
+      
+      <div class="border-2 border-black bg-white p-6 text-center space-y-3">
+        <span class="text-xs text-neutral-400">[PLANS HEADER]</span>
+        <h2 class="text-2xl font-bold uppercase">[PRICING & MEAL PLANS BLUEPRINT]</h2>
+        <div class="wireframe-text-medium mx-auto"></div>
+      </div>
+
+      <!-- Matrix Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="border-2 border-black bg-white p-6 space-y-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="border-b border-black pb-3">
+              <span class="text-[9px] uppercase border border-neutral-300 px-1 bg-neutral-50">[ENTRY LEVEL]</span>
+              <h3 class="font-bold text-xl uppercase mt-1">[PACKAGE NAME A]</h3>
+              <div class="h-6 w-24 bg-neutral-200 mt-2"></div>
+            </div>
+            <ul class="space-y-2 text-xs">
+              <li>■ [PLAN DETAIL COMPONENT 1]</li>
+              <li>■ [PLAN DETAIL COMPONENT 2]</li>
+              <li>■ [PLAN DETAIL COMPONENT 3]</li>
+            </ul>
+          </div>
+          <span class="block text-center py-2 bg-black text-white text-xs font-bold uppercase select-none">[SUBSCRIBE NOW]</span>
+        </div>
+
+        <div class="border-2 border-black bg-white p-6 space-y-6 flex flex-col justify-between relative shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+          <span class="absolute -top-3 left-4 px-2 py-0.5 bg-black text-white text-[9px] font-bold uppercase border border-black">[POPULAR CHOICE]</span>
+          <div class="space-y-4">
+            <div class="border-b border-black pb-3">
+              <span class="text-[9px] uppercase border border-neutral-300 px-1 bg-neutral-50">[MID LEVEL]</span>
+              <h3 class="font-bold text-xl uppercase mt-1">[PACKAGE NAME B]</h3>
+              <div class="h-6 w-24 bg-neutral-200 mt-2"></div>
+            </div>
+            <ul class="space-y-2 text-xs">
+              <li>■ [PLAN DETAIL COMPONENT 1]</li>
+              <li>■ [PLAN DETAIL COMPONENT 2]</li>
+              <li>■ [PLAN DETAIL COMPONENT 3]</li>
+              <li>■ [PLAN DETAIL COMPONENT 4]</li>
+            </ul>
+          </div>
+          <span class="block text-center py-2 bg-black text-white text-xs font-bold uppercase select-none">[SUBSCRIBE NOW]</span>
+        </div>
+
+        <div class="border-2 border-black bg-white p-6 space-y-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="border-b border-black pb-3">
+              <span class="text-[9px] uppercase border border-neutral-300 px-1 bg-neutral-50">[PRO LEVEL]</span>
+              <h3 class="font-bold text-xl uppercase mt-1">[PACKAGE NAME C]</h3>
+              <div class="h-6 w-24 bg-neutral-200 mt-2"></div>
+            </div>
+            <ul class="space-y-2 text-xs">
+              <li>■ [PLAN DETAIL COMPONENT 1]</li>
+              <li>■ [PLAN DETAIL COMPONENT 2]</li>
+              <li>■ [PLAN DETAIL COMPONENT 3]</li>
+            </ul>
+          </div>
+          <span class="block text-center py-2 bg-black text-white text-xs font-bold uppercase select-none">[SUBSCRIBE NOW]</span>
+        </div>
+
+      </div>
+
+      <!-- Plan Feature Comparison Table Layout -->
+      <div class="border-2 border-black bg-white p-6 space-y-4">
+        <h3 class="font-bold text-sm uppercase">[PLAN COMPARISON MATRIX SKELETON]</h3>
+        
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse border border-black text-left text-xs">
+            <thead>
+              <tr class="bg-neutral-100 border-b border-black">
+                <th class="p-2.5 font-bold uppercase border-r border-black">[FEATURES LIST]</th>
+                <th class="p-2.5 font-bold uppercase border-r border-black text-center">[PLAN A]</th>
+                <th class="p-2.5 font-bold uppercase border-r border-black text-center">[PLAN B]</th>
+                <th class="p-2.5 font-bold uppercase text-center">[PLAN C]</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-black">
+              <tr>
+                <td class="p-2.5 border-r border-black font-bold uppercase">[FEATURE METRIC 1]</td>
+                <td class="p-2.5 border-r border-black text-center">✔</td>
+                <td class="p-2.5 border-r border-black text-center">✔</td>
+                <td class="p-2.5 text-center">✔</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 border-r border-black font-bold uppercase">[FEATURE METRIC 2]</td>
+                <td class="p-2.5 border-r border-black text-center">[VALUE]</td>
+                <td class="p-2.5 border-r border-black text-center">[VALUE]</td>
+                <td class="p-2.5 text-center">[VALUE]</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 border-r border-black font-bold uppercase">[FEATURE METRIC 3]</td>
+                <td class="p-2.5 border-r border-black text-center">✕</td>
+                <td class="p-2.5 border-r border-black text-center">✔</td>
+                <td class="p-2.5 text-center">✔</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 border-r border-black font-bold uppercase">[FEATURE METRIC 4]</td>
+                <td class="p-2.5 border-r border-black text-center">✕</td>
+                <td class="p-2.5 border-r border-black text-center">✕</td>
+                <td class="p-2.5 text-center">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PAGE 3: MENU LAYOUT -->
+    <div id="page-menu" class="page-container hidden space-y-12">
+      
+      <div class="border-2 border-black bg-white p-6 text-center space-y-3">
+        <span class="text-xs text-neutral-400">[WEEKLY MEAL SCHEDULE SKELETON]</span>
+        <h2 class="text-2xl font-bold uppercase">[MENU DISHES & MACROS LAYOUT]</h2>
+        <div class="wireframe-text-medium mx-auto"></div>
+      </div>
+
+      <!-- Weekly Schedule Day Picker -->
+      <div class="flex flex-wrap gap-2 justify-center border-b border-black pb-6">
+        <span class="px-3 py-1.5 bg-black text-white text-xs font-bold uppercase">[MON]</span>
+        <span class="px-3 py-1.5 border border-neutral-300 text-xs font-bold uppercase bg-white hover:bg-neutral-100">[TUE]</span>
+        <span class="px-3 py-1.5 border border-neutral-300 text-xs font-bold uppercase bg-white hover:bg-neutral-100">[WED]</span>
+        <span class="px-3 py-1.5 border border-neutral-300 text-xs font-bold uppercase bg-white hover:bg-neutral-100">[THU]</span>
+        <span class="px-3 py-1.5 border border-neutral-300 text-xs font-bold uppercase bg-white hover:bg-neutral-100">[FRI]</span>
+        <span class="px-3 py-1.5 border border-neutral-300 text-xs font-bold uppercase bg-white hover:bg-neutral-100">[SAT]</span>
+        <span class="px-3 py-1.5 border border-neutral-300 text-xs font-bold uppercase bg-white hover:bg-neutral-100">[SUN]</span>
+      </div>
+
+      <!-- Category Filter layout -->
+      <div class="flex justify-center gap-4 text-xs font-bold border-b border-neutral-200 pb-4 mb-6">
+        <span class="underline uppercase pointer-events-none">[CATEGORY FILTER A]</span>
+        <span class="text-neutral-400 uppercase pointer-events-none">[CATEGORY FILTER B]</span>
+        <span class="text-neutral-400 uppercase pointer-events-none">[CATEGORY FILTER C]</span>
+      </div>
+
+      <!-- 8 Food items grid layout -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        
+        <!-- Meal item 1-8 -->
+        <div class="border border-black bg-white p-4 space-y-4">
+          <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[MEAL IMAGE PLACEHOLDER]</div>
+          <div class="space-y-2">
+            <div class="flex justify-between items-center"><h4 class="font-bold text-xs uppercase">[MEAL NAME]</h4><span class="text-[9px] border border-neutral-300 px-1 bg-neutral-100">[CAL]</span></div>
+            
+            <!-- Custom Macro graph line indicators -->
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[PROT]: 35g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[75%] rounded"></div></div></div>
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[CARB]: 45g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[60%] rounded"></div></div></div>
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[FATS]: 12g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[35%] rounded"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-black bg-white p-4 space-y-4">
+          <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[MEAL IMAGE PLACEHOLDER]</div>
+          <div class="space-y-2">
+            <div class="flex justify-between items-center"><h4 class="font-bold text-xs uppercase">[MEAL NAME]</h4><span class="text-[9px] border border-neutral-300 px-1 bg-neutral-100">[CAL]</span></div>
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[PROT]: 35g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[75%] rounded"></div></div></div>
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[CARB]: 45g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[60%] rounded"></div></div></div>
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[FATS]: 12g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[35%] rounded"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-black bg-white p-4 space-y-4">
+          <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[MEAL IMAGE PLACEHOLDER]</div>
+          <div class="space-y-2">
+            <div class="flex justify-between items-center"><h4 class="font-bold text-xs uppercase">[MEAL NAME]</h4><span class="text-[9px] border border-neutral-300 px-1 bg-neutral-100">[CAL]</span></div>
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[PROT]: 35g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[75%] rounded"></div></div></div>
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[CARB]: 45g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[60%] rounded"></div></div></div>
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[FATS]: 12g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[35%] rounded"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-black bg-white p-4 space-y-4">
+          <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[MEAL IMAGE PLACEHOLDER]</div>
+          <div class="space-y-2">
+            <div class="flex justify-between items-center"><h4 class="font-bold text-xs uppercase">[MEAL NAME]</h4><span class="text-[9px] border border-neutral-300 px-1 bg-neutral-100">[CAL]</span></div>
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[PROT]: 35g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[75%] rounded"></div></div></div>
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[CARB]: 45g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[60%] rounded"></div></div></div>
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[FATS]: 12g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[35%] rounded"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-black bg-white p-4 space-y-4">
+          <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[MEAL IMAGE PLACEHOLDER]</div>
+          <div class="space-y-2">
+            <div class="flex justify-between items-center"><h4 class="font-bold text-xs uppercase">[MEAL NAME]</h4><span class="text-[9px] border border-neutral-300 px-1 bg-neutral-100">[CAL]</span></div>
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[PROT]: 35g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[75%] rounded"></div></div></div>
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[CARB]: 45g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[60%] rounded"></div></div></div>
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[FATS]: 12g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[35%] rounded"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-black bg-white p-4 space-y-4">
+          <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[MEAL IMAGE PLACEHOLDER]</div>
+          <div class="space-y-2">
+            <div class="flex justify-between items-center"><h4 class="font-bold text-xs uppercase">[MEAL NAME]</h4><span class="text-[9px] border border-neutral-300 px-1 bg-neutral-100">[CAL]</span></div>
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[PROT]: 35g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[75%] rounded"></div></div></div>
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[CARB]: 45g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[60%] rounded"></div></div></div>
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[FATS]: 12g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[35%] rounded"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-black bg-white p-4 space-y-4">
+          <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[MEAL IMAGE PLACEHOLDER]</div>
+          <div class="space-y-2">
+            <div class="flex justify-between items-center"><h4 class="font-bold text-xs uppercase">[MEAL NAME]</h4><span class="text-[9px] border border-neutral-300 px-1 bg-neutral-100">[CAL]</span></div>
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[PROT]: 35g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[75%] rounded"></div></div></div>
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[CARB]: 45g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[60%] rounded"></div></div></div>
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[FATS]: 12g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[35%] rounded"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-black bg-white p-4 space-y-4">
+          <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[MEAL IMAGE PLACEHOLDER]</div>
+          <div class="space-y-2">
+            <div class="flex justify-between items-center"><h4 class="font-bold text-xs uppercase">[MEAL NAME]</h4><span class="text-[9px] border border-neutral-300 px-1 bg-neutral-100">[CAL]</span></div>
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[PROT]: 35g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[75%] rounded"></div></div></div>
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[CARB]: 45g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[60%] rounded"></div></div></div>
+              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[FATS]: 12g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[35%] rounded"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PAGE 4: RESULTS LAYOUT -->
+    <div id="page-results" class="page-container hidden space-y-12">
+      
+      <div class="border-2 border-black bg-white p-6 text-center space-y-3">
+        <span class="text-xs text-neutral-400">[TRANSFORMATION HUB SKELETON]</span>
+        <h2 class="text-2xl font-bold uppercase">[RESULTS & CLIENT SUCCESS METRICS]</h2>
+        <div class="wireframe-text-medium mx-auto"></div>
+      </div>
+
+      <!-- Grid of success transformations -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Story A -->
+        <div class="border-2 border-black bg-white p-6 space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[BEFORE PORTRAIT PLACE]</div>
+            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[AFTER PORTRAIT PLACE]</div>
+          </div>
+          <div class="space-y-2 border-t border-neutral-200 pt-4">
+            <div class="flex justify-between items-center"><h3 class="font-bold text-sm uppercase">[CLIENT CASE STUDY A]</h3><span class="text-[9px] bg-black text-white px-2 py-0.5 uppercase">[GOAL REDUCTION DATA]</span></div>
+            <div class="wireframe-text-long"></div>
+            <div class="wireframe-text-medium"></div>
+          </div>
+        </div>
+
+        <!-- Story B -->
+        <div class="border-2 border-black bg-white p-6 space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[BEFORE PORTRAIT PLACE]</div>
+            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[AFTER PORTRAIT PLACE]</div>
+          </div>
+          <div class="space-y-2 border-t border-neutral-200 pt-4">
+            <div class="flex justify-between items-center"><h3 class="font-bold text-sm uppercase">[CLIENT CASE STUDY B]</h3><span class="text-[9px] bg-black text-white px-2 py-0.5 uppercase">[GOAL REDUCTION DATA]</span></div>
+            <div class="wireframe-text-long"></div>
+            <div class="wireframe-text-medium"></div>
+          </div>
+        </div>
+
+        <!-- Story C -->
+        <div class="border-2 border-black bg-white p-6 space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[BEFORE PORTRAIT PLACE]</div>
+            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[AFTER PORTRAIT PLACE]</div>
+          </div>
+          <div class="space-y-2 border-t border-neutral-200 pt-4">
+            <div class="flex justify-between items-center"><h3 class="font-bold text-sm uppercase">[CLIENT CASE STUDY C]</h3><span class="text-[9px] bg-black text-white px-2 py-0.5 uppercase">[GOAL REDUCTION DATA]</span></div>
+            <div class="wireframe-text-long"></div>
+            <div class="wireframe-text-medium"></div>
+          </div>
+        </div>
+
+        <!-- Story D -->
+        <div class="border-2 border-black bg-white p-6 space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[BEFORE PORTRAIT PLACE]</div>
+            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[AFTER PORTRAIT PLACE]</div>
+          </div>
+          <div class="space-y-2 border-t border-neutral-200 pt-4">
+            <div class="flex justify-between items-center"><h3 class="font-bold text-sm uppercase">[CLIENT CASE STUDY D]</h3><span class="text-[9px] bg-black text-white px-2 py-0.5 uppercase">[GOAL REDUCTION DATA]</span></div>
+            <div class="wireframe-text-long"></div>
+            <div class="wireframe-text-medium"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PAGE 5: BLOG LAYOUT -->
+    <div id="page-blog" class="page-container hidden space-y-12">
+      
+      <div class="border-2 border-black bg-white p-6 text-center space-y-3">
+        <span class="text-xs text-neutral-400">[NUTRITION TIPS & ARTICLES LIBRARY]</span>
+        <h2 class="text-2xl font-bold uppercase">[KNOWLEDGE HUB LAYOUT]</h2>
+        <div class="wireframe-text-medium mx-auto"></div>
+      </div>
+
+      <!-- Feature Big post -->
+      <div class="border-2 border-black bg-white p-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 aspect-[16/9] border border-dashed border-neutral-400 bg-neutral-50 flex items-center justify-center text-xs font-bold">[FEATURED ARTICLE MAIN IMAGE]</div>
+        <div class="lg:col-span-5 space-y-4">
+          <span class="text-[9px] uppercase border border-black px-2 py-0.5 bg-neutral-100 font-bold">[FEATURED COLUMN]</span>
+          <h3 class="font-bold text-xl uppercase">[BIG STORY ARTICLE HEADING]</h3>
+          <div class="wireframe-text-long"></div>
+          <div class="wireframe-text-long"></div>
+          <div class="wireframe-text-medium"></div>
+          <div class="pt-2"><span class="underline text-xs font-bold uppercase cursor-pointer">[READ FEATURE STORY]</span></div>
+        </div>
+      </div>
+
+      <!-- Normal post grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="border border-neutral-300 p-4 bg-white space-y-3 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="aspect-[16/10] border border-dashed border-neutral-200 bg-neutral-100 flex items-center justify-center text-[9px] font-bold">[ARTICLE IMAGE PLACE]</div>
+            <span class="text-[8px] uppercase text-neutral-400 font-bold">[CATEGORY A]</span>
+            <h4 class="font-bold text-xs uppercase">[ARTICLE TITLE LINE SKELETON]</h4>
+            <div class="wireframe-text-medium"></div>
+          </div>
+          <span class="underline text-[10px] uppercase font-bold cursor-pointer">[READ POST]</span>
+        </div>
+
+        <div class="border border-neutral-300 p-4 bg-white space-y-3 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="aspect-[16/10] border border-dashed border-neutral-200 bg-neutral-100 flex items-center justify-center text-[9px] font-bold">[ARTICLE IMAGE PLACE]</div>
+            <span class="text-[8px] uppercase text-neutral-400 font-bold">[CATEGORY B]</span>
+            <h4 class="font-bold text-xs uppercase">[ARTICLE TITLE LINE SKELETON]</h4>
+            <div class="wireframe-text-medium"></div>
+          </div>
+          <span class="underline text-[10px] uppercase font-bold cursor-pointer">[READ POST]</span>
+        </div>
+
+        <div class="border border-neutral-300 p-4 bg-white space-y-3 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="aspect-[16/10] border border-dashed border-neutral-200 bg-neutral-100 flex items-center justify-center text-[9px] font-bold">[ARTICLE IMAGE PLACE]</div>
+            <span class="text-[8px] uppercase text-neutral-400 font-bold">[CATEGORY C]</span>
+            <h4 class="font-bold text-xs uppercase">[ARTICLE TITLE LINE SKELETON]</h4>
+            <div class="wireframe-text-medium"></div>
+          </div>
+          <span class="underline text-[10px] uppercase font-bold cursor-pointer">[READ POST]</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PAGE 6: CONTACT LAYOUT -->
+    <div id="page-contact" class="page-container hidden space-y-12">
+      
+      <div class="border-2 border-black bg-white p-6 text-center space-y-3">
+        <span class="text-xs text-neutral-400">[CONTACT PORTAL SKELETON]</span>
+        <h2 class="text-2xl font-bold uppercase">[GET IN TOUCH & ORDER SYSTEM]</h2>
+        <div class="wireframe-text-medium mx-auto"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Form Left -->
+        <div class="lg:col-span-7 border-2 border-black bg-white p-6 space-y-6">
+          <h3 class="font-bold text-sm uppercase">[CONSULTATION & INQUIRY FORM]</h3>
+          
+          <form class="space-y-4" onsubmit="event.preventDefault();">
+            
+            <div class="space-y-1.5">
+              <label class="block text-[10px] font-bold uppercase text-neutral-500">[FULL NAME INPUT]</label>
+              <div class="h-10 border border-neutral-300 bg-neutral-50 rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div class="space-y-1.5">
+                <label class="block text-[10px] font-bold uppercase text-neutral-500">[MOBILE NUMBER]</label>
+                <div class="h-10 border border-neutral-300 bg-neutral-50 rounded"></div>
+              </div>
+              <div class="space-y-1.5">
+                <label class="block text-[10px] font-bold uppercase text-neutral-500">[TARGET GOAL DROPDOWN]</label>
+                <div class="h-10 border border-neutral-300 bg-neutral-50 rounded"></div>
+              </div>
+            </div>
+
+            <div class="space-y-1.5">
+              <label class="block text-[10px] font-bold uppercase text-neutral-500">[MESSAGE / QUERY CONTENT]</label>
+              <div class="h-24 border border-neutral-300 bg-neutral-50 rounded"></div>
+            </div>
+
+            <button class="w-full py-3 bg-black text-white text-xs font-bold uppercase select-none">[SUBMIT ENQUIRY]</button>
+
+          </form>
+        </div>
+
+        <!-- Info details right -->
+        <div class="lg:col-span-5 flex flex-col justify-between gap-6">
+          
+          <div class="border-2 border-black bg-white p-6 space-y-4">
+            <h3 class="font-bold text-sm uppercase">[COMMUNICATION CHANNELS]</h3>
+            
+            <div class="space-y-3 text-xs">
+              <div class="border-b border-neutral-200 pb-2"><span class="block text-[8px] font-bold text-neutral-400 uppercase">[WHATSAPP ORDER LINE]</span><span class="font-bold uppercase">[MOCK NUMBER PLACEHOLDER]</span></div>
+              <div class="border-b border-neutral-200 pb-2"><span class="block text-[8px] font-bold text-neutral-400 uppercase">[SUPPORT EMAIL]</span><span class="font-bold uppercase">[MOCK EMAIL PLACEHOLDER]</span></div>
+              <div><span class="block text-[8px] font-bold text-neutral-400 uppercase">[OFFICE / KITCHEN LOCATION]</span><span class="font-bold uppercase">[MOCK OFFICE ADDRESS BLOCK]</span></div>
+            </div>
+          </div>
+
+          <div class="border-2 border-black border-dashed aspect-[4/3] bg-neutral-50 flex flex-col items-center justify-center p-4">
+            <span class="font-bold text-xs uppercase">[INTERACTIVE MAP BOUNDS PLACEHOLDER]</span>
+            <span class="text-[9px] text-neutral-400 font-bold uppercase mt-1">[Kitchen radius limits mapped here]</span>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Page switching script -->
+  <script>
+    function switchPage(pageId) {
+      // 1. Hide all page divs
+      const pages = document.querySelectorAll('.page-container');
+      pages.forEach(p => p.classList.add('hidden'));
+
+      // 2. Show requested page div
+      document.getElementById('page-' + pageId).classList.remove('hidden');
+
+      // 3. Remove active background class from all tabs
+      const tabs = document.querySelectorAll('nav button');
+      tabs.forEach(t => t.classList.remove('bg-black', 'text-white'));
+
+      // 4. Add active background class to current tab
+      document.getElementById('tab-' + pageId).classList.add('bg-black', 'text-white');
+
+      // 5. Update info label
+      const labels = {
+        'home': 'Home Page Layout',
+        'plans': 'Plans Page Layout',
+        'menu': 'Menu Page Layout',
+        'results': 'Results Page Layout',
+        'blog': 'Blog Page Layout',
+        'contact': 'Contact Page Layout'
+      };
+      document.getElementById('current-view-label').textContent = labels[pageId];
+
+      // 6. Scroll window back to top on page swap
+      window.scrollTo(0, 0);
+    }
+  </script>
+</body>
+</html>
