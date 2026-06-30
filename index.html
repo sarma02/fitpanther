@@ -1,624 +1,937 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Layout Wireframe - Grayscale Blueprint</title>
+  <title>FitPanther</title>
   <!-- Tailwind CSS v3 CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Space Grotesk for monospaced UI labels & Inter for base UI -->
+  <!-- Google Fonts: Poppins (Clean Sans-Serif font for UI & Content) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <!-- Google Material Symbols (Clean icon library) -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            mono: ['Space Grotesk', 'monospace'],
+            sans: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              200: '#ddd6fe',
+              300: '#c4b5fd',
+              400: '#a78bfa',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+              700: '#6d28d9',
+              800: '#5b21b6',
+              900: '#4c1d95',
+            }
           }
         }
       }
     }
   </script>
   <style>
-    /* Styling to look like a high-fidelity Figma Wireframe */
-    .wireframe-text-long {
-      height: 8px;
-      width: 100%;
-      background-color: #e5e5e5;
-      border-radius: 4px;
+    body {
+      font-family: 'Poppins', sans-serif;
     }
-    .wireframe-text-medium {
-      height: 8px;
-      width: 75%;
-      background-color: #e5e5e5;
-      border-radius: 4px;
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
-    .wireframe-text-short {
-      height: 8px;
-      width: 40%;
-      background-color: #e5e5e5;
-      border-radius: 4px;
+
+    /* Infinite Horizontal Marquee Animation */
+    @keyframes marquee {
+      0% {
+        transform: translateX(0%);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-marquee {
+      animation: marquee 35s linear infinite;
+    }
+
+    .tab-active {
+      background-color: #7c3aed;
+      color: #ffffff !important;
+      box-shadow: 0 4px 12px -2px rgba(124, 58, 237, 0.3);
     }
   </style>
 </head>
-<body class="bg-[#fafafa] text-black font-mono antialiased">
 
-  <!-- Main Blueprint Dashboard Header -->
-  <header class="bg-white border-b-2 border-black sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
-      
-      <!-- Wireframe Project Info -->
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 border-2 border-black bg-black flex items-center justify-center text-white font-bold text-lg select-none">FP</div>
-        <div>
-          <h1 class="font-bold text-base uppercase tracking-tight">[FITPANTHER LAYOUT WIREFRAME]</h1>
-          <p class="text-[10px] text-neutral-400 uppercase tracking-widest">[Theme: Pure Monochrome / No Copy / No Images]</p>
-        </div>
+<body class="bg-white text-slate-800 antialiased min-h-screen flex flex-col relative overflow-x-hidden">
+
+  <!-- Premium Page Loader Screen -->
+  <div id="page-loader"
+    class="fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center transition-all duration-500 ease-out">
+    <div class="relative flex items-center justify-center">
+      <!-- Rotating outer ring -->
+      <div class="w-20 h-20 border-4 border-slate-50 border-t-purple-600 rounded-full animate-spin"></div>
+      <!-- Pulse logo inside -->
+      <img src="assets/logo.jpg" alt="FitPanther Loader"
+        class="w-12 h-12 rounded-full object-cover absolute animate-pulse shadow-md">
+    </div>
+    <span class="text-xs font-bold uppercase tracking-widest text-slate-400 mt-5 animate-pulse">Calculating
+      Portions...</span>
+  </div>
+
+  <!-- Trendy Ambient Background Blobs -->
+  <div
+    class="absolute top-[15%] left-[-10%] w-96 h-96 rounded-full bg-purple-100/40 blur-[100px] pointer-events-none z-0">
+  </div>
+  <div
+    class="absolute top-[45%] right-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-50/50 blur-[120px] pointer-events-none z-0">
+  </div>
+  <div
+    class="absolute bottom-[20%] left-[5%] w-80 h-80 rounded-full bg-fuchsia-50/40 blur-[90px] pointer-events-none z-0">
+  </div>
+
+  <!-- Promo Top Bar -->
+  <div
+    class="bg-purple-50 text-purple-700 text-xs md:text-sm py-2.5 px-4 text-center font-medium tracking-wide border-b border-purple-100 relative z-10">
+    ✨ GET 15% OFF YOUR FIRST ORDER! USE CODE: <span
+      class="font-mono font-bold text-purple-900 bg-white border border-purple-200 px-2 py-0.5 rounded">PURPLE15</span>
+  </div>
+
+  <!-- Sticky Header Navbar -->
+  <header class="bg-white/80 backdrop-blur border-b border-slate-100 sticky top-0 z-50 transition-all">
+    <div class="max-w-[92%] lg:max-w-[1400px] mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+
+      <!-- Brand Logo -->
+      <div class="flex items-center cursor-pointer" onclick="switchPage('home')">
+        <img src="assets/logo.jpg" alt="FitPanther Logo"
+          class="w-14 h-14 rounded-full object-cover shadow shadow-purple-200">
       </div>
 
-      <!-- Navigation Tabs to Swap Pages -->
-      <nav class="flex flex-wrap items-center justify-center gap-1 bg-neutral-100 p-1 border border-neutral-300">
-        <button onclick="switchPage('home')" id="tab-home" class="px-3 py-1.5 text-xs font-bold uppercase transition-all bg-black text-white">
-          [Home Page]
+      <!-- Desktop Capsule Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-full border border-slate-200/50">
+        <button onclick="switchPage('home')" id="tab-home"
+          class="px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all rounded-full tab-active">
+          Home
         </button>
-        <button onclick="switchPage('plans')" id="tab-plans" class="px-3 py-1.5 text-xs font-bold uppercase transition-all hover:bg-neutral-200">
-          [Plans Page]
+        <button onclick="switchPage('plans')" id="tab-plans"
+          class="px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all rounded-full text-slate-500 hover:text-slate-900">
+          Plans
         </button>
-        <button onclick="switchPage('menu')" id="tab-menu" class="px-3 py-1.5 text-xs font-bold uppercase transition-all hover:bg-neutral-200">
-          [Menu Page]
+        <button onclick="switchPage('menu')" id="tab-menu"
+          class="px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all rounded-full text-slate-500 hover:text-slate-900">
+          Menu
         </button>
-        <button onclick="switchPage('results')" id="tab-results" class="px-3 py-1.5 text-xs font-bold uppercase transition-all hover:bg-neutral-200">
-          [Results Page]
+        <button onclick="switchPage('results')" id="tab-results"
+          class="px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all rounded-full text-slate-500 hover:text-slate-900">
+          Results
         </button>
-        <button onclick="switchPage('blog')" id="tab-blog" class="px-3 py-1.5 text-xs font-bold uppercase transition-all hover:bg-neutral-200">
-          [Blog Page]
+        <button onclick="switchPage('blog')" id="tab-blog"
+          class="px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all rounded-full text-slate-500 hover:text-slate-900">
+          Blog
         </button>
-        <button onclick="switchPage('contact')" id="tab-contact" class="px-3 py-1.5 text-xs font-bold uppercase transition-all hover:bg-neutral-200">
-          [Contact Page]
+        <button onclick="switchPage('contact')" id="tab-contact"
+          class="px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all rounded-full text-slate-500 hover:text-slate-900">
+          Contact
         </button>
       </nav>
 
+      <!-- Desktop WhatsApp Action -->
+      <a href="https://wa.me/1234567890" target="_blank"
+        class="hidden md:flex items-center gap-2 text-slate-700 hover:text-purple-600 text-sm font-bold uppercase transition-all">
+        <span class="material-symbols-outlined text-emerald-500 text-xl">chat</span>
+        WhatsApp Order
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button onclick="toggleMobileMenu()"
+        class="md:hidden text-slate-700 focus:outline-none p-1.5 hover:bg-slate-50 rounded-lg">
+        <span class="material-symbols-outlined text-2xl" id="menu-btn-icon">menu</span>
+      </button>
+
+    </div>
+
+    <!-- Mobile Dropdown Menu Drawer -->
+    <div id="mobile-menu"
+      class="hidden md:hidden bg-white border-t border-slate-100 px-6 py-4 flex flex-col gap-3 shadow-lg">
+      <button onclick="switchPage('home'); toggleMobileMenu();"
+        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-purple-600">Home</button>
+      <button onclick="switchPage('plans'); toggleMobileMenu();"
+        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-500 hover:text-slate-900">Plans</button>
+      <button onclick="switchPage('menu'); toggleMobileMenu();"
+        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-500 hover:text-slate-900">Menu</button>
+      <button onclick="switchPage('results'); toggleMobileMenu();"
+        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-500 hover:text-slate-900">Results</button>
+      <button onclick="switchPage('blog'); toggleMobileMenu();"
+        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-500 hover:text-slate-900">Blog</button>
+      <button onclick="switchPage('contact'); toggleMobileMenu();"
+        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider text-slate-500 hover:text-slate-900">Contact</button>
+      <a href="https://wa.me/1234567890" target="_blank"
+        class="flex items-center justify-center gap-2 mt-2 w-full py-3 bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold uppercase rounded-lg shadow-md shadow-emerald-100 transition-all">
+        <span class="material-symbols-outlined text-white text-lg">chat</span>
+        WhatsApp Order
+      </a>
     </div>
   </header>
 
-  <!-- Info Annotation Bar -->
-  <div class="bg-neutral-200 border-b border-black text-[10px] py-1.5 px-4 text-center select-none uppercase tracking-wider font-bold">
-    Current View: <span id="current-view-label" class="underline">Home Page Layout</span> | Annotation blocks specify section layouts
-  </div>
-
-  <main class="max-w-7xl mx-auto px-4 py-8">
+  <!-- Main View Container (Widescreen Stretch Layout) -->
+  <main class="max-w-[92%] lg:max-w-[1400px] mx-auto px-4 md:px-8 py-12 flex-grow w-full relative z-10">
 
     <!-- PAGE 1: HOME LAYOUT -->
-    <div id="page-home" class="page-container space-y-12">
+    <div id="page-home" class="page-container space-y-24">
 
-      <!-- Section: Navigation Bar Wireframe -->
-      <div class="border-2 border-black bg-white p-4">
-        <div class="text-[10px] text-neutral-400 mb-2">[SECTION: GLOBAL HEADER / NAVBAR]</div>
-        <div class="flex items-center justify-between border border-dashed border-neutral-300 p-2">
-          <span class="font-bold text-sm">[BRAND LOGO]</span>
-          <div class="hidden md:flex gap-6 text-xs text-neutral-500 font-bold">
-            <span>[LINK A]</span>
-            <span>[LINK B]</span>
-            <span>[LINK C]</span>
-            <span>[LINK D]</span>
-            <span>[LINK E]</span>
-          </div>
-          <span class="px-3 py-1 bg-black text-white text-xs font-bold uppercase select-none">[WHATSAPP CTA]</span>
-        </div>
-      </div>
+      <!-- Section: Hero Header with Background Image Marquee -->
+      <div
+        class="relative rounded-3xl overflow-hidden border border-slate-100 bg-slate-50/50 p-8 md:p-12 z-10 shadow-sm hover:border-purple-100/50 transition-all duration-300">
 
-      <!-- Section: Hero Header -->
-      <div class="border-2 border-black bg-white p-6 relative">
-        <div class="text-[10px] text-neutral-400 mb-4">[SECTION: HERO HEADER LAYOUT]</div>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <!-- Hero Copy Blocks Left -->
-          <div class="lg:col-span-7 space-y-5">
-            <div class="h-6 w-48 bg-neutral-100 border border-neutral-300 flex items-center justify-center text-[10px] text-neutral-500 font-bold uppercase tracking-wider">[SUBTITLE BADGE]</div>
-            <div class="space-y-2">
-              <h2 class="text-3xl font-bold uppercase">[MAIN HERO HEADING]</h2>
-              <div class="wireframe-text-long"></div>
-              <div class="wireframe-text-medium"></div>
-            </div>
-            
-            <div class="border border-dashed border-neutral-300 p-4 space-y-2.5">
-              <div class="text-[10px] text-neutral-400 font-bold">[METRICS / VALUE POINTS GRID]</div>
-              <div class="grid grid-cols-2 gap-4">
-                <div class="space-y-1.5"><div class="h-3 w-1/2 bg-neutral-300"></div><div class="wireframe-text-medium"></div></div>
-                <div class="space-y-1.5"><div class="h-3 w-1/2 bg-neutral-300"></div><div class="wireframe-text-medium"></div></div>
-                <div class="space-y-1.5"><div class="h-3 w-1/2 bg-neutral-300"></div><div class="wireframe-text-medium"></div></div>
-                <div class="space-y-1.5"><div class="h-3 w-1/2 bg-neutral-300"></div><div class="wireframe-text-medium"></div></div>
+        <!-- Infinite Scrolling Background Marquee -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none z-0 opacity-[0.08] flex items-center">
+          <div class="flex gap-8 whitespace-nowrap animate-marquee">
+            <!-- Set 1 -->
+            <div class="flex gap-8 items-center">
+              <div class="bg-white border border-purple-100 p-4 rounded-xl shadow-sm flex items-center gap-3">
+                <span class="material-symbols-outlined text-purple-600 text-2xl">dinner_dining</span>
+                <span class="font-bold text-xs uppercase tracking-wider">Gourmet Flank Steak</span>
+              </div>
+              <div class="bg-white border border-purple-100 p-4 rounded-xl shadow-sm flex items-center gap-3">
+                <span class="material-symbols-outlined text-purple-600 text-2xl">flatware</span>
+                <span class="font-bold text-xs uppercase tracking-wider">Berry Glazed Salmon</span>
+              </div>
+              <div class="bg-white border border-purple-100 p-4 rounded-xl shadow-sm flex items-center gap-3">
+                <span class="material-symbols-outlined text-purple-600 text-2xl">eco</span>
+                <span class="font-bold text-xs uppercase tracking-wider">Lavender Tofu Salad</span>
+              </div>
+              <div class="bg-white border border-purple-100 p-4 rounded-xl shadow-sm flex items-center gap-3">
+                <span class="material-symbols-outlined text-purple-600 text-2xl">lunch_dining</span>
+                <span class="font-bold text-xs uppercase tracking-wider">Turkey Macro Burger</span>
               </div>
             </div>
+            <!-- Set 2 (Seamless loop replica) -->
+            <div class="flex gap-8 items-center">
+              <div class="bg-white border border-purple-100 p-4 rounded-xl shadow-sm flex items-center gap-3">
+                <span class="material-symbols-outlined text-purple-600 text-2xl">dinner_dining</span>
+                <span class="font-bold text-xs uppercase tracking-wider">Gourmet Flank Steak</span>
+              </div>
+              <div class="bg-white border border-purple-100 p-4 rounded-xl shadow-sm flex items-center gap-3">
+                <span class="material-symbols-outlined text-purple-600 text-2xl">flatware</span>
+                <span class="font-bold text-xs uppercase tracking-wider">Berry Glazed Salmon</span>
+              </div>
+              <div class="bg-white border border-purple-100 p-4 rounded-xl shadow-sm flex items-center gap-3">
+                <span class="material-symbols-outlined text-purple-600 text-2xl">eco</span>
+                <span class="font-bold text-xs uppercase tracking-wider">Lavender Tofu Salad</span>
+              </div>
+              <div class="bg-white border border-purple-100 p-4 rounded-xl shadow-sm flex items-center gap-3">
+                <span class="material-symbols-outlined text-purple-600 text-2xl">lunch_dining</span>
+                <span class="font-bold text-xs uppercase tracking-wider">Turkey Macro Burger</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+
+          <!-- Hero Copy Left -->
+          <div class="lg:col-span-7 space-y-6">
+            <span
+              class="inline-block text-[11px] md:text-xs font-bold uppercase tracking-widest text-purple-600 bg-purple-50 border border-purple-150 px-3.5 py-1 rounded-full">
+              Dietitian Prepared Subscriptions
+            </span>
+            <h2
+              class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-none">
+              Eat clean. <br>Maximize performance.
+            </h2>
+            <p class="text-base md:text-lg text-slate-500 leading-relaxed max-w-xl">
+              Fresh, portion-controlled healthy meals calculated strictly for your body weight and metrics. Cooked daily
+              and delivered chilled to your doorstep.
+            </p>
 
             <div class="flex flex-wrap gap-4 pt-2">
-              <span class="px-4 py-2 border-2 border-black bg-black text-white text-xs font-bold uppercase select-none">[PRIMARY ACTION BUTTON]</span>
-              <span class="px-4 py-2 border-2 border-black text-xs font-bold uppercase select-none">[SECONDARY ACTION BUTTON]</span>
+              <button onclick="switchPage('plans')"
+                class="px-7 py-3.5 bg-purple-600 hover:bg-purple-700 text-white text-xs sm:text-sm font-bold uppercase rounded-xl shadow-md shadow-purple-100 transition-all hover:scale-[1.02]">
+                Choose Plan
+              </button>
+              <button onclick="switchPage('menu')"
+                class="px-7 py-3.5 border border-purple-200 text-purple-700 hover:bg-purple-50 text-xs sm:text-sm font-bold uppercase rounded-xl transition-all bg-white shadow-sm hover:scale-[1.02]">
+                Weekly Menu
+              </button>
+            </div>
+          </div>
+
+          <!-- Hero Video Section Right -->
+          <div class="lg:col-span-5">
+            <div
+              class="aspect-[4/3] rounded-2xl bg-slate-950 border border-slate-800 shadow-xl relative overflow-hidden group flex flex-col items-center justify-center p-6">
+              <!-- Animated Background Gradient representing cooking -->
+              <div class="absolute inset-0 bg-gradient-to-tr from-purple-900/60 to-slate-900/90 mix-blend-overlay">
+              </div>
+
+              <!-- Clean Play Button with Pulsing Shadow -->
+              <div
+                class="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-lg shadow-white/20 transition-all group-hover:scale-110 relative z-10 cursor-pointer"
+                onclick="alert('Playing FitPanther Kitchen Tour Mock Video...');">
+                <span class="material-symbols-outlined text-purple-600 text-3xl">play_arrow</span>
+              </div>
+              <span class="text-sm text-white/95 font-semibold uppercase tracking-wider mt-3.5 relative z-10">FitPanther
+                Kitchen Tour</span>
+              <span class="text-xs text-white/50 tracking-widest uppercase mt-1 relative z-10">Watch Chef Prep
+                (1:15)</span>
             </div>
 
-            <div class="flex items-center gap-3 pt-2">
-              <div class="w-12 h-6 border border-neutral-300 bg-neutral-100 text-[8px] flex items-center justify-center">[AVATARS]</div>
-              <div class="space-y-1 w-full"><div class="wireframe-text-medium"></div><div class="wireframe-text-short"></div></div>
+            <!-- Video Thumbnails below -->
+            <div class="grid grid-cols-4 gap-2 mt-3.5">
+              <button onclick="alert('Loading Kitchen Tour...');"
+                class="border border-slate-100 bg-white p-2 text-center text-[10px] md:text-xs font-bold text-slate-500 rounded-lg uppercase hover:bg-purple-50 hover:text-purple-700 shadow-sm transition-all">Kitchen</button>
+              <button onclick="alert('Loading Chef Prep...');"
+                class="border border-slate-100 bg-white p-2 text-center text-[10px] md:text-xs font-bold text-slate-500 rounded-lg uppercase hover:bg-purple-50 hover:text-purple-700 shadow-sm transition-all">Chef
+                Prep</button>
+              <button onclick="alert('Loading Delivery Info...');"
+                class="border border-slate-100 bg-white p-2 text-center text-[10px] md:text-xs font-bold text-slate-500 rounded-lg uppercase hover:bg-purple-50 hover:text-purple-700 shadow-sm transition-all">Delivery</button>
+              <button onclick="alert('Loading Quality Test...');"
+                class="border border-slate-100 bg-white p-2 text-center text-[10px] md:text-xs font-bold text-slate-500 rounded-lg uppercase hover:bg-purple-50 hover:text-purple-700 shadow-sm transition-all">Audits</button>
             </div>
           </div>
 
-          <!-- Hero Media Box Right -->
-          <div class="lg:col-span-5 space-y-3">
-            <div class="aspect-[4/3] border-2 border-dashed border-neutral-400 bg-neutral-50 flex flex-col items-center justify-center p-4">
-              <div class="w-12 h-12 border-2 border-black rounded-full flex items-center justify-center font-bold text-lg mb-2">▶</div>
-              <span class="text-xs uppercase font-bold">[VIDEO / HERO IMAGE PLACEHOLDER]</span>
-            </div>
-            
-            <div class="grid grid-cols-4 gap-2">
-              <div class="border border-neutral-300 p-1.5 text-center text-[8px] bg-neutral-50 font-bold">[THUMB A]</div>
-              <div class="border border-neutral-300 p-1.5 text-center text-[8px] bg-neutral-50 font-bold">[THUMB B]</div>
-              <div class="border border-neutral-300 p-1.5 text-center text-[8px] bg-neutral-50 font-bold">[THUMB C]</div>
-              <div class="border border-neutral-300 p-1.5 text-center text-[8px] bg-neutral-50 font-bold">[THUMB D]</div>
-            </div>
-          </div>
         </div>
 
       </div>
 
       <!-- Section: Problem & Solution -->
-      <div class="border-2 border-black bg-white p-6 relative">
-        <div class="text-[10px] text-neutral-400 mb-4">[SECTION: PROBLEM DEFINITION & GOAL MATCH]</div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
+      <div
+        class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 space-y-6 shadow-sm hover:border-purple-50 hover:shadow-md transition-all duration-300">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
           <!-- Column 1: Problem List -->
-          <div class="border border-black p-4 space-y-4">
-            <h3 class="font-bold text-sm uppercase">[PROBLEM STATEMENT HEADING]</h3>
-            <div class="space-y-3">
-              <div class="flex items-center gap-2"><span class="text-red-500 font-bold">✕</span><div class="wireframe-text-long"></div></div>
-              <div class="flex items-center gap-2"><span class="text-red-500 font-bold">✕</span><div class="wireframe-text-medium"></div></div>
-              <div class="flex items-center gap-2"><span class="text-red-500 font-bold">✕</span><div class="wireframe-text-long"></div></div>
-              <div class="flex items-center gap-2"><span class="text-red-500 font-bold">✕</span><div class="wireframe-text-short"></div></div>
-            </div>
-            <div class="aspect-[16/7] border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[10px] font-bold">[STRESSED STATE IMAGE PLACEHOLDER]</div>
+          <div class="space-y-4">
+            <h3 class="font-extrabold text-slate-800 text-xl tracking-tight flex items-center gap-2.5">
+              <span class="material-symbols-outlined text-rose-500 text-xl">cancel</span>
+              The Daily Cooking Struggle
+            </h3>
+            <ul class="space-y-3.5 text-base text-slate-500 leading-relaxed font-medium">
+              <li class="flex items-start gap-2.5">
+                <span class="text-rose-400 mt-1.5">•</span>
+                <span>Hours wasted planning, shopping, and scrubbing dishes.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-rose-400 mt-1.5">•</span>
+                <span>Repetitive, dry chicken breast meals leading to cheating.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-rose-400 mt-1.5">•</span>
+                <span>Inaccurate portion weights stalling your visual progress.</span>
+              </li>
+            </ul>
           </div>
 
           <!-- Column 2: Solution Matcher -->
-          <div class="border border-black p-4 space-y-4">
-            <h3 class="font-bold text-sm uppercase">[SOLUTION STATEMENT HEADING]</h3>
-            <div class="wireframe-text-long"></div>
-            <div class="wireframe-text-medium"></div>
-            <div class="h-7 w-48 bg-neutral-100 border border-neutral-300 flex items-center justify-center text-[10px] font-bold select-none">[BENEFIT SPECIFICATION TAG]</div>
-            <div class="aspect-[16/7] border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[10px] font-bold">[NUTRITION CASE IMAGE PLACEHOLDER]</div>
+          <div class="space-y-4">
+            <h3 class="font-extrabold text-slate-800 text-xl tracking-tight flex items-center gap-2.5">
+              <span class="material-symbols-outlined text-purple-600 text-xl">check_circle</span>
+              The FitPanther Solution
+            </h3>
+            <ul class="space-y-3.5 text-base text-slate-500 leading-relaxed font-medium">
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-400 mt-1.5">•</span>
+                <span>Gourmet dietitian-approved meals cooked fresh daily.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-400 mt-1.5">•</span>
+                <span>Globally inspired rotating menu ready in 2 minutes.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-400 mt-1.5">•</span>
+                <span>Exact macronutrient details tracked on every label.</span>
+              </li>
+            </ul>
           </div>
 
         </div>
       </div>
 
       <!-- Section: How It Works -->
-      <div class="border-2 border-black bg-white p-6">
-        <div class="text-[10px] text-neutral-400 mb-6">[SECTION: PROCESS STEPS FLOWBAR]</div>
-        <div class="text-center mb-8">
-          <h3 class="font-bold text-base uppercase">[STEPS SYSTEM HEADER]</h3>
-          <div class="wireframe-text-medium mx-auto mt-2"></div>
+      <div class="space-y-8">
+        <div class="text-center space-y-2">
+          <span class="text-[10px] text-purple-600 font-bold uppercase tracking-widest">Four Quick Steps</span>
+          <h3 class="font-extrabold text-3xl text-slate-900 uppercase">Seamless Setup</h3>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- Step 1 -->
-          <div class="border border-neutral-300 p-4 text-center space-y-2">
-            <div class="w-8 h-8 border border-black rounded-full flex items-center justify-center font-bold text-xs mx-auto">1</div>
-            <h4 class="font-bold text-xs uppercase">[STEP 1 TITLE]</h4>
-            <div class="wireframe-text-medium mx-auto"></div>
-            <div class="wireframe-text-short mx-auto"></div>
+          <div
+            class="bg-slate-50/50 border border-slate-100 rounded-xl p-8 text-center space-y-3 shadow-sm transition-all hover:bg-purple-50/30 hover:-translate-y-1 duration-300">
+            <span class="material-symbols-outlined text-purple-600 text-3xl">analytics</span>
+            <h4 class="font-bold text-base text-slate-800 uppercase">1. Pick Program</h4>
+            <p class="text-sm text-slate-400 leading-relaxed">Select a calorie budget aligned with your weight goals.
+            </p>
           </div>
           <!-- Step 2 -->
-          <div class="border border-neutral-300 p-4 text-center space-y-2">
-            <div class="w-8 h-8 border border-black rounded-full flex items-center justify-center font-bold text-xs mx-auto">2</div>
-            <h4 class="font-bold text-xs uppercase">[STEP 2 TITLE]</h4>
-            <div class="wireframe-text-medium mx-auto"></div>
-            <div class="wireframe-text-short mx-auto"></div>
+          <div
+            class="bg-slate-50/50 border border-slate-100 rounded-xl p-8 text-center space-y-3 shadow-sm transition-all hover:bg-purple-50/30 hover:-translate-y-1 duration-300">
+            <span class="material-symbols-outlined text-purple-600 text-3xl">dining</span>
+            <h4 class="font-bold text-base text-slate-800 uppercase">2. We Prepare</h4>
+            <p class="text-sm text-slate-400 leading-relaxed">Our commercial kitchens slice and prepare items fresh.</p>
           </div>
           <!-- Step 3 -->
-          <div class="border border-neutral-300 p-4 text-center space-y-2">
-            <div class="w-8 h-8 border border-black rounded-full flex items-center justify-center font-bold text-xs mx-auto">3</div>
-            <h4 class="font-bold text-xs uppercase">[STEP 3 TITLE]</h4>
-            <div class="wireframe-text-medium mx-auto"></div>
-            <div class="wireframe-text-short mx-auto"></div>
+          <div
+            class="bg-slate-50/50 border border-slate-100 rounded-xl p-8 text-center space-y-3 shadow-sm transition-all hover:bg-purple-50/30 hover:-translate-y-1 duration-300">
+            <span class="material-symbols-outlined text-purple-600 text-3xl">local_shipping</span>
+            <h4 class="font-bold text-base text-slate-800 uppercase">3. Cold Delivery</h4>
+            <p class="text-sm text-slate-400 leading-relaxed">Insulated cooling bags keep items cold on your porch.</p>
           </div>
           <!-- Step 4 -->
-          <div class="border border-neutral-300 p-4 text-center space-y-2">
-            <div class="w-8 h-8 border border-black rounded-full flex items-center justify-center font-bold text-xs mx-auto">4</div>
-            <h4 class="font-bold text-xs uppercase">[STEP 4 TITLE]</h4>
-            <div class="wireframe-text-medium mx-auto"></div>
-            <div class="wireframe-text-short mx-auto"></div>
+          <div
+            class="bg-slate-50/50 border border-slate-100 rounded-xl p-8 text-center space-y-3 shadow-sm transition-all hover:bg-purple-50/30 hover:-translate-y-1 duration-300">
+            <span class="material-symbols-outlined text-purple-600 text-3xl">restaurant</span>
+            <h4 class="font-bold text-base text-slate-800 uppercase">4. Heat & Eat</h4>
+            <p class="text-sm text-slate-400 leading-relaxed">Pop the tray in the microwave. Gourmet eating in 2 mins.
+            </p>
           </div>
         </div>
       </div>
 
       <!-- Section: Choose Your Goal -->
-      <div class="border-2 border-black bg-white p-6">
-        <div class="text-[10px] text-neutral-400 mb-6">[SECTION: TARGET GOAL SELECTION GRID]</div>
-        <div class="text-center mb-8">
-          <h3 class="font-bold text-base uppercase">[CHOOSE PLAN STRUCTURE]</h3>
+      <div class="space-y-8">
+        <div class="text-center space-y-2">
+          <span class="text-[10px] text-purple-600 font-bold uppercase tracking-widest">Meal Structures</span>
+          <h3 class="font-extrabold text-3xl text-slate-900 uppercase">Portion Options</h3>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <!-- Card A -->
-          <div class="border border-black p-4 flex flex-col justify-between space-y-4">
-            <div>
-              <div class="flex justify-between items-center mb-3">
-                <span class="text-xs font-bold uppercase border border-black px-2 py-0.5 bg-neutral-100">[GOAL TITLE A]</span>
-                <span class="text-[9px] text-neutral-400">[CAT A]</span>
+          <div
+            class="bg-white rounded-2xl border border-slate-100 p-8 flex flex-col justify-between space-y-5 hover:shadow-lg hover:border-purple-100/50 hover:-translate-y-1 transition-all duration-300">
+            <div class="space-y-4">
+              <span
+                class="text-xs font-bold text-purple-700 bg-purple-50 border border-purple-100 px-3.5 py-1.5 rounded-full inline-block uppercase tracking-wider">Lean
+                Panther</span>
+              <p class="text-sm text-slate-500 leading-relaxed">Fat burn target. Low carbohydrate, high protein ratios
+                designed to protect muscle during active deficits.</p>
+              <div
+                class="bg-slate-50 rounded-xl p-4 text-center text-slate-800 text-sm font-bold uppercase tracking-wide">
+                Avg. 450 Kcal • 45% P • 25% C • 30% F
               </div>
-              <div class="wireframe-text-long mb-2"></div>
-              <div class="wireframe-text-medium mb-4"></div>
-              <div class="aspect-[16/9] border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[GOAL REPRESENTATION IMAGE]</div>
             </div>
-            <div class="flex justify-between items-center pt-3 border-t border-neutral-200">
-              <span class="text-[9px] font-bold">[METRIC DETAIL]</span>
-              <span class="px-2 py-1 bg-black text-white text-[10px] font-bold uppercase select-none">[CTA]</span>
-            </div>
+            <button onclick="switchPage('plans')"
+              class="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold uppercase rounded-lg transition-all mt-2">Choose
+              Goal</button>
           </div>
           <!-- Card B -->
-          <div class="border border-black p-4 flex flex-col justify-between space-y-4">
-            <div>
-              <div class="flex justify-between items-center mb-3">
-                <span class="text-xs font-bold uppercase border border-black px-2 py-0.5 bg-neutral-100">[GOAL TITLE B]</span>
-                <span class="text-[9px] text-neutral-400">[CAT B]</span>
+          <div
+            class="bg-white rounded-2xl border-2 border-purple-500 p-8 flex flex-col justify-between space-y-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative shadow-lg shadow-purple-50">
+            <span
+              class="absolute -top-3.5 left-4 px-3 py-1 bg-purple-600 text-white text-xs font-bold uppercase rounded-full border border-purple-500 tracking-wider">Popular
+              Choice</span>
+            <div class="space-y-4">
+              <span
+                class="text-xs font-bold text-purple-700 bg-purple-50 border border-purple-100 px-3.5 py-1.5 rounded-full inline-block uppercase tracking-wider font-bold">Active
+                Panther</span>
+              <p class="text-sm text-slate-500 leading-relaxed">Maintenance & vitality focus. Complex carbohydrates
+                matched to steady all-day work energy.</p>
+              <div
+                class="bg-purple-50/50 rounded-xl p-4 text-center text-purple-900 text-sm font-bold uppercase tracking-wide">
+                Avg. 600 Kcal • 35% P • 40% C • 25% F
               </div>
-              <div class="wireframe-text-long mb-2"></div>
-              <div class="wireframe-text-medium mb-4"></div>
-              <div class="aspect-[16/9] border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[GOAL REPRESENTATION IMAGE]</div>
             </div>
-            <div class="flex justify-between items-center pt-3 border-t border-neutral-200">
-              <span class="text-[9px] font-bold">[METRIC DETAIL]</span>
-              <span class="px-2 py-1 bg-black text-white text-[10px] font-bold uppercase select-none">[CTA]</span>
-            </div>
+            <button onclick="switchPage('plans')"
+              class="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold uppercase rounded-lg transition-all mt-2">Choose
+              Goal</button>
           </div>
           <!-- Card C -->
-          <div class="border border-black p-4 flex flex-col justify-between space-y-4">
-            <div>
-              <div class="flex justify-between items-center mb-3">
-                <span class="text-xs font-bold uppercase border border-black px-2 py-0.5 bg-neutral-100">[GOAL TITLE C]</span>
-                <span class="text-[9px] text-neutral-400">[CAT C]</span>
+          <div
+            class="bg-white rounded-2xl border border-slate-100 p-8 flex flex-col justify-between space-y-5 hover:shadow-lg hover:border-purple-100/50 hover:-translate-y-1 transition-all duration-300">
+            <div class="space-y-4">
+              <span
+                class="text-xs font-bold text-purple-700 bg-purple-50 border border-purple-100 px-3.5 py-1.5 rounded-full inline-block uppercase tracking-wider">Champion
+                Panther</span>
+              <p class="text-sm text-slate-500 leading-relaxed">Athletic muscle gain focus. Energy-dense, clean grains
+                and heavy protein cuts to support hypertrophy.</p>
+              <div
+                class="bg-slate-50 rounded-xl p-4 text-center text-slate-800 text-sm font-bold uppercase tracking-wide">
+                Avg. 800 Kcal • 35% P • 45% C • 20% F
               </div>
-              <div class="wireframe-text-long mb-2"></div>
-              <div class="wireframe-text-medium mb-4"></div>
-              <div class="aspect-[16/9] border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[GOAL REPRESENTATION IMAGE]</div>
             </div>
-            <div class="flex justify-between items-center pt-3 border-t border-neutral-200">
-              <span class="text-[9px] font-bold">[METRIC DETAIL]</span>
-              <span class="px-2 py-1 bg-black text-white text-[10px] font-bold uppercase select-none">[CTA]</span>
+            <button onclick="switchPage('plans')"
+              class="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold uppercase rounded-lg transition-all mt-2">Choose
+              Goal</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Why Choose FitPanther (4 clean props) -->
+      <div
+        class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 space-y-8 shadow-sm hover:border-purple-50 hover:shadow-md transition-all duration-300">
+        <div class="text-center">
+          <h3 class="font-extrabold text-3xl text-slate-900 uppercase">Redefining Healthy Nutrition</h3>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+          <div class="space-y-2 p-2">
+            <span class="material-symbols-outlined text-purple-600 text-4xl">soup_kitchen</span>
+            <h4 class="font-bold text-base text-slate-800 uppercase">100% Freshly Cooked</h4>
+            <p class="text-sm text-slate-405 leading-relaxed">Never frozen. Prepared using raw ingredients,
+              vacuum-sealed to preserve nutrients.</p>
+          </div>
+          <div class="space-y-2 p-2">
+            <span class="material-symbols-outlined text-purple-600 text-4xl">verified</span>
+            <h4 class="font-bold text-base text-slate-800 uppercase">Dietitian Balanced</h4>
+            <p class="text-sm text-slate-405 leading-relaxed">All portions weight-audited to match clinical nutrition
+              targets accurately.</p>
+          </div>
+          <div class="space-y-2 p-2">
+            <span class="material-symbols-outlined text-purple-600 text-4xl">eco</span>
+            <h4 class="font-bold text-base text-slate-800 uppercase">Organic & Clean</h4>
+            <p class="text-sm text-slate-405 leading-relaxed">Zero artificial preservatives, additives, or refined
+              sugars. Pure fueling only.</p>
+          </div>
+          <div class="space-y-2 p-2">
+            <span class="material-symbols-outlined text-purple-600 text-4xl">event_repeat</span>
+            <h4 class="font-bold text-base text-slate-800 uppercase">Cancel Anytime</h4>
+            <p class="text-sm text-slate-405 leading-relaxed">Complete control. Pause, skip weeks, or swap dishes via
+              dashboard or WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Crave Menu Gallery (6 Dish Cards) -->
+      <div
+        class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 space-y-6 shadow-sm hover:border-purple-50 hover:shadow-md transition-all duration-300">
+        <div class="text-center space-y-2">
+          <span class="text-[10px] text-purple-600 font-bold uppercase tracking-widest">Rotating Specialties</span>
+          <h3 class="font-extrabold text-3xl text-slate-900 uppercase">This Week's Signature Selection</h3>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Dish 1 -->
+          <div
+            class="bg-slate-50 border border-slate-100 rounded-xl p-6 text-center flex flex-col justify-between items-center hover:shadow-lg hover:border-purple-100/50 hover:-translate-y-1 transition-all duration-300">
+            <span class="material-symbols-outlined text-purple-600 text-4xl">restaurant</span>
+            <div class="mt-4">
+              <h5 class="font-bold text-base uppercase text-slate-900">Royal Flank Steak</h5>
+              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">610
+                Cal</span>
+            </div>
+          </div>
+          <!-- Dish 2 -->
+          <div
+            class="bg-slate-50 border border-slate-100 rounded-xl p-6 text-center flex flex-col justify-between items-center hover:shadow-lg hover:border-purple-100/50 hover:-translate-y-1 transition-all duration-300">
+            <span class="material-symbols-outlined text-purple-600 text-4xl">flatware</span>
+            <div class="mt-4">
+              <h5 class="font-bold text-base uppercase text-slate-900">Lavender Salmon</h5>
+              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">520
+                Cal</span>
+            </div>
+          </div>
+          <!-- Dish 3 -->
+          <div
+            class="bg-slate-50 border border-slate-100 rounded-xl p-6 text-center flex flex-col justify-between items-center hover:shadow-lg hover:border-purple-100/50 hover:-translate-y-1 transition-all duration-300">
+            <span class="material-symbols-outlined text-purple-600 text-4xl">eco</span>
+            <div class="mt-4">
+              <h5 class="font-bold text-base uppercase text-slate-900">Sesame Veggie Bowl</h5>
+              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">410
+                Cal</span>
+            </div>
+          </div>
+          <!-- Dish 4 -->
+          <div
+            class="bg-slate-50 border border-slate-100 rounded-xl p-6 text-center flex flex-col justify-between items-center hover:shadow-lg hover:border-purple-100/50 hover:-translate-y-1 transition-all duration-300">
+            <span class="material-symbols-outlined text-purple-600 text-4xl">dinner_dining</span>
+            <div class="mt-4">
+              <h5 class="font-bold text-base uppercase text-slate-900">Wild Rice Chicken</h5>
+              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">495
+                Cal</span>
+            </div>
+          </div>
+          <!-- Dish 5 -->
+          <div
+            class="bg-slate-50 border border-slate-100 rounded-xl p-6 text-center flex flex-col justify-between items-center hover:shadow-lg hover:border-purple-100/50 hover:-translate-y-1 transition-all duration-300">
+            <span class="material-symbols-outlined text-purple-600 text-4xl">lunch_dining</span>
+            <div class="mt-4">
+              <h5 class="font-bold text-base uppercase text-slate-900">Lean Turkey Burger</h5>
+              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">540
+                Cal</span>
+            </div>
+          </div>
+          <!-- Dish 6 -->
+          <div
+            class="bg-slate-50 border border-slate-100 rounded-xl p-6 text-center flex flex-col justify-between items-center hover:shadow-lg hover:border-purple-100/50 hover:-translate-y-1 transition-all duration-300">
+            <span class="material-symbols-outlined text-purple-600 text-4xl">water_drop</span>
+            <div class="mt-4">
+              <h5 class="font-bold text-base uppercase text-slate-900">Amethyst Shake</h5>
+              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">320
+                Cal</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Section: Why Choose FitPanther Grid -->
-      <div class="border-2 border-black bg-white p-6">
-        <div class="text-[10px] text-neutral-400 mb-6">[SECTION: BENEFIT POINTS GRID - 8 COLUMNS]</div>
-        <div class="text-center mb-8">
-          <h3 class="font-bold text-base uppercase">[WHY CHOOSE LAYOUT]</h3>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <!-- Card 1-8 -->
-          <div class="border border-neutral-300 p-4 space-y-2">
-            <span class="text-[9px] font-bold text-neutral-400">[VALUE 01]</span>
-            <h4 class="font-bold text-xs uppercase">[VALUE PROP 1]</h4>
-            <div class="wireframe-text-long"></div>
-          </div>
-          <div class="border border-neutral-300 p-4 space-y-2">
-            <span class="text-[9px] font-bold text-neutral-400">[VALUE 02]</span>
-            <h4 class="font-bold text-xs uppercase">[VALUE PROP 2]</h4>
-            <div class="wireframe-text-long"></div>
-          </div>
-          <div class="border border-neutral-300 p-4 space-y-2">
-            <span class="text-[9px] font-bold text-neutral-400">[VALUE 03]</span>
-            <h4 class="font-bold text-xs uppercase">[VALUE PROP 3]</h4>
-            <div class="wireframe-text-long"></div>
-          </div>
-          <div class="border border-neutral-300 p-4 space-y-2">
-            <span class="text-[9px] font-bold text-neutral-400">[VALUE 04]</span>
-            <h4 class="font-bold text-xs uppercase">[VALUE PROP 4]</h4>
-            <div class="wireframe-text-long"></div>
-          </div>
-          <div class="border border-neutral-300 p-4 space-y-2">
-            <span class="text-[9px] font-bold text-neutral-400">[VALUE 05]</span>
-            <h4 class="font-bold text-xs uppercase">[VALUE PROP 5]</h4>
-            <div class="wireframe-text-long"></div>
-          </div>
-          <div class="border border-neutral-300 p-4 space-y-2">
-            <span class="text-[9px] font-bold text-neutral-400">[VALUE 06]</span>
-            <h4 class="font-bold text-xs uppercase">[VALUE PROP 6]</h4>
-            <div class="wireframe-text-long"></div>
-          </div>
-          <div class="border border-neutral-300 p-4 space-y-2">
-            <span class="text-[9px] font-bold text-neutral-400">[VALUE 07]</span>
-            <h4 class="font-bold text-xs uppercase">[VALUE PROP 7]</h4>
-            <div class="wireframe-text-long"></div>
-          </div>
-          <div class="border border-neutral-300 p-4 space-y-2">
-            <span class="text-[9px] font-bold text-neutral-400">[VALUE 08]</span>
-            <h4 class="font-bold text-xs uppercase">[VALUE PROP 8]</h4>
-            <div class="wireframe-text-long"></div>
-          </div>
-        </div>
-
-        <div class="mt-6 border border-black p-3 text-center bg-neutral-100 font-bold text-xs uppercase tracking-wide">
-          [SLOGAN TEXT BLOCK BANNER PLACEHOLDER]
-        </div>
-      </div>
-
-      <!-- Section: Crave Menu Gallery -->
-      <div class="border-2 border-black bg-white p-6">
-        <div class="text-[10px] text-neutral-400 mb-6">[SECTION: POPULAR FOOD TILES - 6 CARDS]</div>
-        <div class="text-center mb-8">
-          <h3 class="font-bold text-base uppercase">[MENU PREVIEW HEADER]</h3>
-          <div class="wireframe-text-medium mx-auto mt-2"></div>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          <!-- Loop representing 6 food cards -->
-          <div class="border border-neutral-200 p-3 space-y-3">
-            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[8px] font-bold text-center">[IMAGE: FOOD A]</div>
-            <div class="space-y-1">
-              <h4 class="font-bold text-[10px] uppercase">[FOOD ITEM A]</h4>
-              <div class="h-2 w-16 bg-neutral-200"></div>
-            </div>
-          </div>
-          <div class="border border-neutral-200 p-3 space-y-3">
-            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[8px] font-bold text-center">[IMAGE: FOOD B]</div>
-            <div class="space-y-1">
-              <h4 class="font-bold text-[10px] uppercase">[FOOD ITEM B]</h4>
-              <div class="h-2 w-16 bg-neutral-200"></div>
-            </div>
-          </div>
-          <div class="border border-neutral-200 p-3 space-y-3">
-            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[8px] font-bold text-center">[IMAGE: FOOD C]</div>
-            <div class="space-y-1">
-              <h4 class="font-bold text-[10px] uppercase">[FOOD ITEM C]</h4>
-              <div class="h-2 w-16 bg-neutral-200"></div>
-            </div>
-          </div>
-          <div class="border border-neutral-200 p-3 space-y-3">
-            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[8px] font-bold text-center">[IMAGE: FOOD D]</div>
-            <div class="space-y-1">
-              <h4 class="font-bold text-[10px] uppercase">[FOOD ITEM D]</h4>
-              <div class="h-2 w-16 bg-neutral-200"></div>
-            </div>
-          </div>
-          <div class="border border-neutral-200 p-3 space-y-3">
-            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[8px] font-bold text-center">[IMAGE: FOOD E]</div>
-            <div class="space-y-1">
-              <h4 class="font-bold text-[10px] uppercase">[FOOD ITEM E]</h4>
-              <div class="h-2 w-16 bg-neutral-200"></div>
-            </div>
-          </div>
-          <div class="border border-neutral-200 p-3 space-y-3">
-            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[8px] font-bold text-center">[IMAGE: FOOD F]</div>
-            <div class="space-y-1">
-              <h4 class="font-bold text-[10px] uppercase">[FOOD ITEM F]</h4>
-              <div class="h-2 w-16 bg-neutral-200"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section: Metrics & Testimonials -->
-      <div class="border-2 border-black bg-white p-6">
-        <div class="text-[10px] text-neutral-400 mb-6">[SECTION: STATS & CLIENT REVIEWS]</div>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          <!-- Stats Left Column -->
-          <div class="lg:col-span-4 border border-black p-4 space-y-6">
-            <h3 class="font-bold text-sm uppercase">[SOCIAL PROOF SUMMARY]</h3>
+      <!-- Section: Testimonials & Stats -->
+      <div
+        class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 space-y-8 shadow-sm hover:border-purple-50 hover:shadow-md transition-all duration-300">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <!-- Stats Left -->
+          <div class="lg:col-span-4 bg-slate-50 p-6 rounded-xl border border-slate-100 space-y-4 shadow-sm">
+            <h4 class="font-bold text-sm sm:text-base text-slate-800 uppercase tracking-wider">Metrics Achieved</h4>
             <div class="grid grid-cols-2 gap-4">
-              <div class="border border-dashed border-neutral-200 p-2"><div class="h-5 w-12 bg-neutral-300 mb-1"></div><span class="text-[8px] uppercase">[STAT A]</span></div>
-              <div class="border border-dashed border-neutral-200 p-2"><div class="h-5 w-12 bg-neutral-300 mb-1"></div><span class="text-[8px] uppercase">[STAT B]</span></div>
-              <div class="border border-dashed border-neutral-200 p-2"><div class="h-5 w-12 bg-neutral-300 mb-1"></div><span class="text-[8px] uppercase">[STAT C]</span></div>
-              <div class="border border-dashed border-neutral-200 p-2"><div class="h-5 w-12 bg-neutral-300 mb-1"></div><span class="text-[8px] uppercase">[STAT D]</span></div>
-            </div>
-            
-            <div class="space-y-2">
-              <div class="text-[8px] font-bold text-neutral-400">[PARTNER LOGO SKELETONS]</div>
-              <div class="grid grid-cols-3 gap-2">
-                <div class="h-6 border border-neutral-300 bg-neutral-50 flex items-center justify-center text-[8px] font-bold text-neutral-400">[PARTNER A]</div>
-                <div class="h-6 border border-neutral-300 bg-neutral-50 flex items-center justify-center text-[8px] font-bold text-neutral-400">[PARTNER B]</div>
-                <div class="h-6 border border-neutral-300 bg-neutral-50 flex items-center justify-center text-[8px] font-bold text-neutral-400">[PARTNER C]</div>
+              <div>
+                <span class="block text-2xl md:text-3xl font-extrabold text-purple-600">12,000+</span>
+                <span class="text-[10px] sm:text-xs uppercase font-bold text-slate-400">Happy Members</span>
+              </div>
+              <div>
+                <span class="block text-2xl md:text-3xl font-extrabold text-purple-600">250k+</span>
+                <span class="text-[10px] sm:text-xs uppercase font-bold text-slate-400">Meals Served</span>
               </div>
             </div>
           </div>
-
-          <!-- Review Cards Right Columns -->
+          <!-- Review Cards Right -->
           <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
             <!-- Review 1 -->
-            <div class="border border-neutral-300 p-4 flex flex-col justify-between space-y-4">
-              <div>
-                <div class="aspect-[3/4] border border-dashed border-neutral-300 bg-neutral-100 flex items-center justify-center text-center p-2 text-[8px] font-bold">[IMAGE PLACEHOLDER: BEFORE/AFTER GRID 1]</div>
-                <span class="text-[8px] uppercase px-1 border border-black bg-neutral-100 inline-block mt-2">[TAG 1]</span>
-                <div class="wireframe-text-long mt-2"></div>
-                <div class="wireframe-text-medium mt-1"></div>
-              </div>
-              <div class="space-y-1">
-                <h5 class="font-bold text-[10px] uppercase">[CLIENT NAME A]</h5>
-                <span class="text-[8px] text-neutral-400">[REVIEW OVERVIEW]</span>
-              </div>
+            <div
+              class="bg-white rounded-xl border border-slate-150 p-5 space-y-3 shadow-sm hover:shadow-md transition-all">
+              <span class="text-yellow-400 text-sm">★★★★★</span>
+              <p class="text-sm text-slate-500 italic leading-relaxed">"The portion control was exactly what I needed.
+                Shredded 15 lbs in 8 weeks."</p>
+              <h6 class="font-bold text-xs uppercase text-slate-800 pt-2 border-t border-slate-100">Elena R. — Software
+                Eng</h6>
             </div>
             <!-- Review 2 -->
-            <div class="border border-neutral-300 p-4 flex flex-col justify-between space-y-4">
-              <div>
-                <div class="aspect-[3/4] border border-dashed border-neutral-300 bg-neutral-100 flex items-center justify-center text-center p-2 text-[8px] font-bold">[IMAGE PLACEHOLDER: BEFORE/AFTER GRID 2]</div>
-                <span class="text-[8px] uppercase px-1 border border-black bg-neutral-100 inline-block mt-2">[TAG 2]</span>
-                <div class="wireframe-text-long mt-2"></div>
-                <div class="wireframe-text-medium mt-1"></div>
-              </div>
-              <div class="space-y-1">
-                <h5 class="font-bold text-[10px] uppercase">[CLIENT NAME B]</h5>
-                <span class="text-[8px] text-neutral-400">[REVIEW OVERVIEW]</span>
-              </div>
+            <div
+              class="bg-white rounded-xl border border-slate-150 p-5 space-y-3 shadow-sm hover:shadow-md transition-all">
+              <span class="text-yellow-400 text-sm">★★★★★</span>
+              <p class="text-sm text-slate-500 italic leading-relaxed">"Saving 10+ hours of cooking weekly. The steak
+                cuts are incredibly moist."</p>
+              <h6 class="font-bold text-xs uppercase text-slate-800 pt-2 border-t border-slate-100">Marcus T. — Trainer
+              </h6>
             </div>
             <!-- Review 3 -->
-            <div class="border border-neutral-300 p-4 flex flex-col justify-between space-y-4">
-              <div>
-                <div class="aspect-[3/4] border border-dashed border-neutral-300 bg-neutral-100 flex items-center justify-center text-center p-2 text-[8px] font-bold">[IMAGE PLACEHOLDER: BEFORE/AFTER GRID 3]</div>
-                <span class="text-[8px] uppercase px-1 border border-black bg-neutral-100 inline-block mt-2">[TAG 3]</span>
-                <div class="wireframe-text-long mt-2"></div>
-                <div class="wireframe-text-medium mt-1"></div>
-              </div>
-              <div class="space-y-1">
-                <h5 class="font-bold text-[10px] uppercase">[CLIENT NAME C]</h5>
-                <span class="text-[8px] text-neutral-400">[REVIEW OVERVIEW]</span>
-              </div>
+            <div
+              class="bg-white rounded-xl border border-slate-150 p-5 space-y-3 shadow-sm hover:shadow-md transition-all">
+              <span class="text-yellow-400 text-sm">★★★★★</span>
+              <p class="text-sm text-slate-500 italic leading-relaxed">"Cleanest clinical macros I've found. Perfect for
+                athletes and doctors."</p>
+              <h6 class="font-bold text-xs uppercase text-slate-800 pt-2 border-t border-slate-100">Dr. David L. —
+                Cardiologist</h6>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Section: Founder's Story, Subscription Offers & Delivery areas -->
-      <div class="border-2 border-black bg-white p-6">
-        <div class="text-[10px] text-neutral-400 mb-6">[SECTION: FOUNDER BIO / PACKAGES GRID / COVERAGE LIST]</div>
-        
+      <!-- Section: Bio & Coverage -->
+      <div
+        class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 shadow-sm hover:border-purple-50 hover:shadow-md transition-all duration-300">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <!-- Col 1: Bio -->
-          <div class="border border-black p-4 space-y-4">
-            <h4 class="font-bold text-sm uppercase">[FOUNDER STORY TITLE]</h4>
-            <div class="wireframe-text-long"></div>
-            <div class="wireframe-text-long"></div>
-            <div class="wireframe-text-medium"></div>
-            <div class="border-l-2 border-black pl-2 py-1 bg-neutral-50 font-bold text-[10px] uppercase">[FOUNDER QUOTE SIGNATURE]</div>
-            
-            <div class="flex items-center gap-3 pt-2">
-              <div class="w-8 h-8 border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[8px]">[PORTRAIT]</div>
-              <div>
-                <h5 class="font-bold text-[10px] uppercase">[FOUNDER NAME]</h5>
-                <span class="text-[8px] text-neutral-400 uppercase">[TITLE]</span>
-              </div>
-            </div>
+          <div class="space-y-2">
+            <h4 class="font-bold text-sm sm:text-base text-slate-800 uppercase">Chef Sophia & Nutritionist David</h4>
+            <p class="text-sm text-slate-505 leading-relaxed">
+              We co-founded FitPanther with one strict goal: healthy meal prep should never taste bland. We prepare
+              foods using culinary techniques that seal in tenderness.
+            </p>
           </div>
-
-          <!-- Col 2: Packages -->
-          <div class="border border-black p-4 space-y-4">
-            <h4 class="font-bold text-sm uppercase">[OFFERS SKELETON]</h4>
-            <div class="space-y-3">
-              <div class="border border-neutral-200 p-2.5 bg-neutral-50 space-y-2">
-                <div class="flex justify-between items-center"><span class="font-bold text-xs uppercase">[OFFER TITLE A]</span><span class="text-[8px] border border-black px-1">[TAG]</span></div>
-                <div class="wireframe-text-medium"></div>
-                <span class="block text-center py-1 bg-black text-white text-[10px] font-bold uppercase select-none">[CTA]</span>
-              </div>
-              <div class="border border-neutral-200 p-2.5 space-y-2">
-                <div class="flex justify-between items-center"><span class="font-bold text-xs uppercase">[OFFER TITLE B]</span><span class="text-[8px] border border-black px-1">[TAG]</span></div>
-                <div class="wireframe-text-medium"></div>
-                <span class="block text-center py-1 border border-black text-[10px] font-bold uppercase select-none">[CTA]</span>
-              </div>
-            </div>
+          <div class="space-y-2">
+            <h4 class="font-bold text-sm sm:text-base text-slate-800 uppercase">5-Day Trial Available</h4>
+            <p class="text-sm text-slate-505 leading-relaxed">
+              Test out our weekly rotation. Includes lunch & dinner Monday to Friday. Cancel or skip anytime before
+              cutoff.
+            </p>
           </div>
-
-          <!-- Col 3: Coverage -->
-          <div class="border border-black p-4 space-y-4">
-            <h4 class="font-bold text-sm uppercase">[COVERAGE LIST TITLE]</h4>
-            <div class="grid grid-cols-2 gap-2 text-[10px] font-bold">
-              <span>■ [LOC 1]</span>
-              <span>■ [LOC 2]</span>
-              <span>■ [LOC 3]</span>
-              <span>■ [LOC 4]</span>
-              <span>■ [LOC 5]</span>
-              <span>■ [LOC 6]</span>
-              <span>■ [LOC 7]</span>
-              <span>■ [LOC 8]</span>
-            </div>
-            
-            <div class="border border-neutral-200 bg-neutral-50 p-3 space-y-2">
-              <div class="wireframe-text-medium"></div>
-              <span class="block text-center py-1 bg-black text-white text-[10px] font-bold uppercase select-none">[VERIFY DETAILS]</span>
-            </div>
+          <div class="space-y-2">
+            <h4 class="font-bold text-sm sm:text-base text-slate-800 uppercase">Active Delivery Radius</h4>
+            <p class="text-sm text-slate-505 leading-relaxed">
+              Manhattan, Brooklyn, Queens, Long Island City, Hoboken, Jersey City, and Newark. Chilled express dispatch.
+            </p>
           </div>
         </div>
       </div>
 
-      <!-- Section: FAQ & Blog Highlights -->
-      <div class="border-2 border-black bg-white p-6">
-        <div class="text-[10px] text-neutral-400 mb-6">[SECTION: DUAL LISTS - COLLAPSIBLE FAQS & BLOG PREVIEW]</div>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          
+      <!-- Section: FAQ & Open Consultation Calculator Form (FAQ Left, Open Form Right) -->
+      <div
+        class="bg-white rounded-3xl border border-slate-100 p-6 md:p-10 space-y-6 shadow-sm hover:border-purple-100/50 transition-all duration-300">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
           <!-- Accordion column left -->
-          <div class="space-y-4">
-            <h4 class="font-bold text-sm uppercase">[COLLAPSIBLE ACCORDION LIST]</h4>
-            <div class="border border-black divide-y border-neutral-300">
-              <div class="p-3 font-bold text-xs uppercase flex justify-between items-center"><span>[QUESTION SKELETON 1]</span><span>+</span></div>
-              <div class="p-3 font-bold text-xs uppercase flex justify-between items-center"><span>[QUESTION SKELETON 2]</span><span>+</span></div>
-              <div class="p-3 font-bold text-xs uppercase flex justify-between items-center"><span>[QUESTION SKELETON 3]</span><span>+</span></div>
-              <div class="p-3 font-bold text-xs uppercase flex justify-between items-center"><span>[QUESTION SKELETON 4]</span><span>+</span></div>
+          <div class="space-y-6">
+            <div class="space-y-1">
+              <span class="text-[10px] text-purple-600 font-bold uppercase tracking-widest">Inquiries</span>
+              <h4 class="font-extrabold text-2xl text-slate-900 uppercase">Common Questions</h4>
+            </div>
+
+            <div
+              class="border border-slate-200 rounded-xl divide-y divide-slate-100 overflow-hidden bg-white shadow-sm">
+              <!-- Q1 -->
+              <div>
+                <button onclick="toggleFaq(1)"
+                  class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
+                  <span>How is food packaged & delivered?</span>
+                  <span id="faq-icon-1" class="text-purple-600 font-bold text-base">+</span>
+                </button>
+                <div id="faq-ans-1" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  Meals are flash-cooled, portioned, vacuum-sealed in clean, BPA-free trays, and delivered in insulated
+                  cooler bags with gel ice packs.
+                </div>
+              </div>
+              <!-- Q2 -->
+              <div>
+                <button onclick="toggleFaq(2)"
+                  class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
+                  <span>Can I request custom exclusions?</span>
+                  <span id="faq-icon-2" class="text-purple-600 font-bold text-base">+</span>
+                </button>
+                <div id="faq-ans-2" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  Yes, you can configure exclusions (e.g. wheat-free, dairy-free) during sign-up and swap dishes in your
+                  portal before Thursday midnight.
+                </div>
+              </div>
+              <!-- Q3 -->
+              <div>
+                <button onclick="toggleFaq(3)"
+                  class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
+                  <span>Can I pause or cancel my subscription?</span>
+                  <span id="faq-icon-3" class="text-purple-600 font-bold text-base">+</span>
+                </button>
+                <div id="faq-ans-3" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  Absolutely. You can pause, resume, or cancel your subscription at any time directly through your
+                  portal or by texting our WhatsApp support before the weekly cutoff (Thursday midnight).
+                </div>
+              </div>
+              <!-- Q4 -->
+              <div>
+                <button onclick="toggleFaq(4)"
+                  class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
+                  <span>How do I heat the meals?</span>
+                  <span id="faq-icon-4" class="text-purple-600 font-bold text-base">+</span>
+                </button>
+                <div id="faq-ans-4" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  Simply pierce the top film layer and microwave for 2 minutes on high, or transfer the food to a pan
+                  and heat on a stovetop until hot.
+                </div>
+              </div>
+              <!-- Q5 -->
+              <div>
+                <button onclick="toggleFaq(5)"
+                  class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
+                  <span>Where do you source your ingredients?</span>
+                  <span id="faq-icon-5" class="text-purple-600 font-bold text-base">+</span>
+                </button>
+                <div id="faq-ans-5" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  We source all vegetables daily from local organic farms, and use premium lean antibiotic-free meats.
+                  We use cold-pressed oils and zero refined sugars.
+                </div>
+              </div>
+              <!-- Q6 -->
+              <div>
+                <button onclick="toggleFaq(6)"
+                  class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
+                  <span>Do the meals come with nutrition labels?</span>
+                  <span id="faq-icon-6" class="text-purple-600 font-bold text-base">+</span>
+                </button>
+                <div id="faq-ans-6" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  Yes, every single tray has a detailed nutrition label indicating the exact weight, calorie count, and
+                  breakdown of protein, carbohydrates, and fats.
+                </div>
+              </div>
+              <!-- Q7 -->
+              <div>
+                <button onclick="toggleFaq(7)"
+                  class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
+                  <span>Is there a delivery fee?</span>
+                  <span id="faq-icon-7" class="text-purple-600 font-bold text-base">+</span>
+                </button>
+                <div id="faq-ans-7" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  No, we provide free chilled contact-less delivery for all weekly subscription plans within our active
+                  service radius.
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Blog column right -->
-          <div class="space-y-4">
-            <h4 class="font-bold text-sm uppercase">[PUBLISHED ARTICLES SKELETON]</h4>
-            <div class="space-y-3">
-              <div class="border border-neutral-200 p-3 flex gap-3">
-                <div class="w-12 h-12 bg-neutral-100 border border-dashed border-neutral-300 flex-shrink-0 flex items-center justify-center text-[7px] font-bold">[T-IMG]</div>
-                <div class="space-y-1 w-full">
-                  <span class="text-[8px] text-neutral-400 uppercase">[META LABELS]</span>
-                  <h5 class="font-bold text-xs uppercase">[ARTICLE HEADING PLACE]</h5>
-                  <div class="wireframe-text-medium"></div>
-                </div>
+          <!-- Open Form column right (Basics -> Choose Goal -> Calculated Macros Form) -->
+          <div
+            class="bg-slate-50/50 rounded-3xl border border-slate-100 shadow-lg p-6 md:p-8 space-y-6 relative overflow-hidden">
+
+            <!-- Step 1: Let's Start with the Basics -->
+            <div id="calc-step-1" class="space-y-6">
+              <div class="space-y-1">
+                <span class="text-[9px] text-purple-600 font-bold uppercase tracking-widest block">Interactive
+                  Calculator</span>
+                <h3 class="font-extrabold text-xl text-slate-900 uppercase">Let's Start with the Basics</h3>
               </div>
-              <div class="border border-neutral-200 p-3 flex gap-3">
-                <div class="w-12 h-12 bg-neutral-100 border border-dashed border-neutral-300 flex-shrink-0 flex items-center justify-center text-[7px] font-bold">[T-IMG]</div>
-                <div class="space-y-1 w-full">
-                  <span class="text-[8px] text-neutral-400 uppercase">[META LABELS]</span>
-                  <h5 class="font-bold text-xs uppercase">[ARTICLE HEADING PLACE]</h5>
-                  <div class="wireframe-text-medium"></div>
+
+              <form id="home-calc-form-1" class="space-y-4" onsubmit="goToStep2(event)">
+                <div class="space-y-1.5">
+                  <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Pincode <span
+                      class="text-rose-500">*</span></label>
+                  <input required type="text" id="calc-pincode" placeholder="e.g., 400001"
+                    class="w-full h-11 px-4 rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-xs sm:text-sm font-semibold placeholder-slate-350">
+                </div>
+
+                <div class="space-y-1.5">
+                  <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Full Name <span
+                      class="text-rose-500">*</span></label>
+                  <input required type="text" id="calc-name" placeholder="John Doe"
+                    class="w-full h-11 px-4 rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-xs sm:text-sm font-semibold placeholder-slate-355">
+                </div>
+
+                <div class="space-y-1.5">
+                  <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Email <span
+                      class="text-rose-500">*</span></label>
+                  <input required type="email" id="calc-email" placeholder="example@email.com"
+                    class="w-full h-11 px-4 rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-xs sm:text-sm font-semibold placeholder-slate-350">
+                </div>
+
+                <div class="space-y-1.5">
+                  <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Phone Number <span
+                      class="text-rose-500">*</span></label>
+                  <input required type="tel" id="calc-phone" placeholder="9876543210"
+                    class="w-full h-11 px-4 rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-xs sm:text-sm font-semibold placeholder-slate-350">
+                </div>
+
+                <button type="submit"
+                  class="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white text-xs sm:text-sm font-bold uppercase rounded-lg transition-all shadow-md mt-4">
+                  Choose Your Goal
+                </button>
+              </form>
+            </div>
+
+            <!-- Step 2: Choose Your Goal -->
+            <div id="calc-step-2" class="hidden space-y-6">
+              <div class="space-y-1">
+                <span class="text-[9px] text-purple-600 font-bold uppercase tracking-widest block">Interactive
+                  Calculator</span>
+                <h3 class="font-extrabold text-xl text-slate-900 uppercase">Choose Your Goal</h3>
+                <p class="text-xs text-slate-500">Select a primary target for your personalized nutrition portions.</p>
+              </div>
+
+              <form id="home-calc-form-2" class="space-y-4" onsubmit="calculateMacrosFinal(event)">
+                <div class="grid grid-cols-1 gap-3">
+                  <!-- Goal Option 1 -->
+                  <label
+                    class="border border-slate-200 rounded-xl p-4 flex items-center justify-between cursor-pointer hover:border-purple-500 hover:bg-purple-50/20 bg-white transition-all">
+                    <div class="flex items-center gap-3">
+                      <input type="radio" name="goal" value="weight-loss" checked
+                        class="w-4 h-4 text-purple-600 border-slate-300 focus:ring-purple-500">
+                      <div class="text-left">
+                        <span class="block text-xs font-bold uppercase text-purple-700">Weight Loss</span>
+                        <span class="text-[11px] text-slate-400">Low carb, high protein deficit portions.</span>
+                      </div>
+                    </div>
+                    <span class="material-symbols-outlined text-purple-600 text-xl">eco</span>
+                  </label>
+
+                  <!-- Goal Option 2 -->
+                  <label
+                    class="border border-slate-200 rounded-xl p-4 flex items-center justify-between cursor-pointer hover:border-purple-500 hover:bg-purple-50/20 bg-white transition-all">
+                    <div class="flex items-center gap-3">
+                      <input type="radio" name="goal" value="maintenance"
+                        class="w-4 h-4 text-purple-600 border-slate-300 focus:ring-purple-500">
+                      <div class="text-left">
+                        <span class="block text-xs font-bold uppercase text-purple-700">Active Balance</span>
+                        <span class="text-[11px] text-slate-400">Steady energy, balanced complex carb portions.</span>
+                      </div>
+                    </div>
+                    <span class="material-symbols-outlined text-purple-600 text-xl">flatware</span>
+                  </label>
+
+                  <!-- Goal Option 3 -->
+                  <label
+                    class="border border-slate-200 rounded-xl p-4 flex items-center justify-between cursor-pointer hover:border-purple-500 hover:bg-purple-50/20 bg-white transition-all">
+                    <div class="flex items-center gap-3">
+                      <input type="radio" name="goal" value="muscle-gain"
+                        class="w-4 h-4 text-purple-600 border-slate-300 focus:ring-purple-500">
+                      <div class="text-left">
+                        <span class="block text-xs font-bold uppercase text-purple-700">Muscle Gain</span>
+                        <span class="text-[11px] text-slate-400">High calorie density, athletic bulk portions.</span>
+                      </div>
+                    </div>
+                    <span class="material-symbols-outlined text-purple-600 text-xl">restaurant</span>
+                  </label>
+                </div>
+
+                <div class="flex gap-3 mt-4">
+                  <button type="button" onclick="backToStep1()"
+                    class="px-4 py-3 border border-slate-200 text-slate-500 hover:bg-slate-50 text-xs sm:text-sm font-bold rounded-lg transition-all bg-white shadow-sm">
+                    Back
+                  </button>
+                  <button type="submit"
+                    class="flex-grow py-3 bg-purple-600 hover:bg-purple-700 text-white text-xs sm:text-sm font-bold uppercase rounded-lg transition-all shadow-md">
+                    Calculate Program
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Step 3: Results Display -->
+            <div id="calc-step-results" class="hidden space-y-6">
+              <div class="space-y-1">
+                <span class="text-[9px] text-purple-600 font-bold uppercase tracking-widest block">Interactive
+                  Calculator</span>
+                <h3 class="font-extrabold text-xl text-slate-900 uppercase">Your Macro Targets</h3>
+                <p class="text-xs text-slate-500">Recommended nutrition program for <span id="res-user-name"
+                    class="font-semibold text-purple-600 underline">Sarah</span>.</p>
+              </div>
+
+              <div class="bg-purple-50 border border-purple-100 rounded-2xl p-5 space-y-4">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase text-purple-700">Calculated Metrics</span>
+                  <span class="text-[10px] bg-purple-600 text-white font-bold px-2.5 py-0.5 rounded-full uppercase"
+                    id="res-badge">Weight Loss</span>
+                </div>
+
+                <div class="grid grid-cols-3 gap-3 border-y border-purple-200/50 py-3.5 text-center">
+                  <div>
+                    <span class="block text-sm sm:text-base font-extrabold text-purple-900" id="res-calories">1,450
+                      kcal</span>
+                    <span class="text-[9px] text-purple-500 uppercase font-bold tracking-wide">Daily Calories</span>
+                  </div>
+                  <div>
+                    <span class="block text-sm sm:text-base font-extrabold text-purple-900" id="res-protein">115g</span>
+                    <span class="text-[9px] text-purple-500 uppercase font-bold tracking-wide">Protein Target</span>
+                  </div>
+                  <div>
+                    <span class="block text-sm sm:text-base font-extrabold text-purple-900" id="res-carbs">130g</span>
+                    <span class="text-[9px] text-purple-500 uppercase font-bold tracking-wide">Carbs / Lipids</span>
+                  </div>
+                </div>
+
+                <p class="text-xs text-purple-900 leading-relaxed">
+                  We recommend the <strong id="res-plan-name" class="font-bold">Lean Panther Subscription</strong> to
+                  hit these metrics.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3 pt-1">
+                  <button onclick="switchPage('plans')"
+                    class="flex-grow py-2.5 bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold uppercase rounded-lg text-center transition-all">
+                    Choose Plan & Subscribe
+                  </button>
+                  <button onclick="resetCalculator()"
+                    class="px-4 py-2.5 border border-purple-200 text-purple-700 hover:bg-purple-100 text-xs font-bold uppercase rounded-lg bg-white transition-all">
+                    Recalculate
+                  </button>
                 </div>
               </div>
             </div>
+
           </div>
 
         </div>
       </div>
 
       <!-- Section: Bottom CTA Banner -->
-      <div class="border-2 border-black bg-black text-white p-8 text-center space-y-4">
-        <div class="text-[10px] text-neutral-500 uppercase">[SECTION: END CONVERSION BANNER]</div>
-        <h3 class="font-bold text-2xl uppercase">[CONVERSION STATEMENT]</h3>
-        <div class="wireframe-text-medium mx-auto opacity-45"></div>
-        
+      <div class="bg-purple-900 text-white rounded-3xl p-8 md:p-12 text-center space-y-5 shadow-lg">
+        <h3 class="font-extrabold text-3xl uppercase tracking-tight">Stop Prepping. Start Elevating.</h3>
+        <p class="text-sm text-purple-200 max-w-md mx-auto leading-relaxed">Subscribe today. Premium gourmet portions
+          portioned precisely for your macro metrics.</p>
         <div class="flex justify-center gap-4 pt-2">
-          <span class="px-6 py-2.5 bg-white text-black text-xs font-bold uppercase select-none">[ACTION A]</span>
-          <span class="px-6 py-2.5 border border-white text-xs font-bold uppercase select-none">[ACTION B]</span>
-        </div>
-      </div>
-
-      <!-- Section: Global Footer Layout -->
-      <div class="border-2 border-black bg-white p-6">
-        <div class="text-[10px] text-neutral-400 mb-6">[SECTION: COMPREHENSIVE FOOTER]</div>
-        
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-b border-neutral-200 pb-8 mb-6">
-          <div class="space-y-3">
-            <span class="font-bold text-xs uppercase">[BRAND BRAND]</span>
-            <div class="wireframe-text-long"></div>
-            <div class="wireframe-text-medium"></div>
-          </div>
-          <div class="space-y-2">
-            <span class="font-bold text-xs uppercase">[LINKS COLUMN A]</span>
-            <div class="wireframe-text-medium"></div>
-            <div class="wireframe-text-short"></div>
-          </div>
-          <div class="space-y-2">
-            <span class="font-bold text-xs uppercase">[LINKS COLUMN B]</span>
-            <div class="wireframe-text-medium"></div>
-            <div class="wireframe-text-short"></div>
-          </div>
-          <div class="space-y-2">
-            <span class="font-bold text-xs uppercase">[LINKS COLUMN C]</span>
-            <div class="wireframe-text-medium"></div>
-            <div class="wireframe-text-short"></div>
-          </div>
-        </div>
-
-        <div class="flex justify-between items-center text-[10px] text-neutral-400 uppercase font-bold">
-          <span>[COPYRIGHT STATEMENTS]</span>
-          <span>[SOCIAL ICONS FOOTER]</span>
+          <button onclick="switchPage('plans')"
+            class="px-6 py-3 bg-white text-purple-950 text-sm font-bold uppercase rounded-lg shadow transition-all hover:scale-[1.02]">Select
+            Plan</button>
+          <button onclick="switchPage('contact')"
+            class="px-6 py-3 border border-white/20 text-white text-sm font-bold uppercase rounded-lg hover:bg-white/10 transition-all hover:scale-[1.02]">Inquire</button>
         </div>
       </div>
 
@@ -626,432 +939,423 @@
 
     <!-- PAGE 2: PLANS LAYOUT -->
     <div id="page-plans" class="page-container hidden space-y-12">
-      
-      <div class="border-2 border-black bg-white p-6 text-center space-y-3">
-        <span class="text-xs text-neutral-400">[PLANS HEADER]</span>
-        <h2 class="text-2xl font-bold uppercase">[PRICING & MEAL PLANS BLUEPRINT]</h2>
-        <div class="wireframe-text-medium mx-auto"></div>
+
+      <div class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 text-center space-y-2 shadow-sm">
+        <span class="text-[10px] text-purple-600 font-bold uppercase tracking-widest">Pricing</span>
+        <h2 class="text-3xl font-extrabold uppercase text-slate-900">Portioned Program Matrix</h2>
       </div>
 
       <!-- Matrix Cards -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
-        <div class="border-2 border-black bg-white p-6 space-y-6 flex flex-col justify-between">
+        <!-- Plan A -->
+        <div
+          class="bg-white rounded-2xl border border-slate-150 p-6 space-y-4 flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
           <div class="space-y-4">
-            <div class="border-b border-black pb-3">
-              <span class="text-[9px] uppercase border border-neutral-300 px-1 bg-neutral-50">[ENTRY LEVEL]</span>
-              <h3 class="font-bold text-xl uppercase mt-1">[PACKAGE NAME A]</h3>
-              <div class="h-6 w-24 bg-neutral-200 mt-2"></div>
-            </div>
-            <ul class="space-y-2 text-xs">
-              <li>■ [PLAN DETAIL COMPONENT 1]</li>
-              <li>■ [PLAN DETAIL COMPONENT 2]</li>
-              <li>■ [PLAN DETAIL COMPONENT 3]</li>
+            <span class="text-xs uppercase border border-slate-200 px-2 py-0.5 rounded font-bold text-slate-400">1 Meal
+              / Day</span>
+            <h3 class="font-bold text-lg md:text-xl text-slate-900 uppercase">Active Panther</h3>
+            <div class="text-xl md:text-2xl font-extrabold text-purple-600">₹1,499<span
+                class="text-xs text-slate-400 font-normal"> / week</span></div>
+            <ul class="space-y-2 text-sm text-slate-500 pt-3 border-t border-slate-100 leading-relaxed">
+              <li>• 5 fresh dietitian-approved meals</li>
+              <li>• Custom recipe selections weekly</li>
             </ul>
           </div>
-          <span class="block text-center py-2 bg-black text-white text-xs font-bold uppercase select-none">[SUBSCRIBE NOW]</span>
+          <button onclick="switchPage('contact')"
+            class="w-full py-3 bg-slate-900 hover:bg-black text-white text-sm font-bold uppercase rounded-lg transition-all shadow-md">Subscribe</button>
         </div>
 
-        <div class="border-2 border-black bg-white p-6 space-y-6 flex flex-col justify-between relative shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-          <span class="absolute -top-3 left-4 px-2 py-0.5 bg-black text-white text-[9px] font-bold uppercase border border-black">[POPULAR CHOICE]</span>
+        <!-- Plan B -->
+        <div
+          class="bg-white rounded-2xl border-2 border-purple-500 p-6 space-y-4 flex flex-col justify-between relative shadow-lg shadow-purple-50">
+          <span
+            class="absolute -top-3.5 left-4 px-2.5 py-0.5 bg-purple-600 text-white text-xs font-bold uppercase rounded-full border border-purple-500">Best
+            Value</span>
           <div class="space-y-4">
-            <div class="border-b border-black pb-3">
-              <span class="text-[9px] uppercase border border-neutral-300 px-1 bg-neutral-50">[MID LEVEL]</span>
-              <h3 class="font-bold text-xl uppercase mt-1">[PACKAGE NAME B]</h3>
-              <div class="h-6 w-24 bg-neutral-200 mt-2"></div>
-            </div>
-            <ul class="space-y-2 text-xs">
-              <li>■ [PLAN DETAIL COMPONENT 1]</li>
-              <li>■ [PLAN DETAIL COMPONENT 2]</li>
-              <li>■ [PLAN DETAIL COMPONENT 3]</li>
-              <li>■ [PLAN DETAIL COMPONENT 4]</li>
+            <span
+              class="text-xs uppercase border border-purple-200 px-2 py-0.5 rounded font-bold text-purple-600 bg-purple-50">2
+              Meals / Day</span>
+            <h3 class="font-bold text-lg md:text-xl text-slate-900 uppercase">Elite Panther</h3>
+            <div class="text-xl md:text-2xl font-extrabold text-purple-600">₹2,899<span
+                class="text-xs text-slate-400 font-normal"> / week</span></div>
+            <ul class="space-y-2 text-sm text-slate-500 pt-3 border-t border-slate-100 leading-relaxed">
+              <li>• 10 fresh dietitian-approved meals</li>
+              <li>• Weight-matched macro profiling</li>
             </ul>
           </div>
-          <span class="block text-center py-2 bg-black text-white text-xs font-bold uppercase select-none">[SUBSCRIBE NOW]</span>
+          <button onclick="switchPage('contact')"
+            class="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold uppercase rounded-lg transition-all shadow-lg">Subscribe</button>
         </div>
 
-        <div class="border-2 border-black bg-white p-6 space-y-6 flex flex-col justify-between">
+        <!-- Plan C -->
+        <div
+          class="bg-white rounded-2xl border border-slate-150 p-6 space-y-4 flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
           <div class="space-y-4">
-            <div class="border-b border-black pb-3">
-              <span class="text-[9px] uppercase border border-neutral-300 px-1 bg-neutral-50">[PRO LEVEL]</span>
-              <h3 class="font-bold text-xl uppercase mt-1">[PACKAGE NAME C]</h3>
-              <div class="h-6 w-24 bg-neutral-200 mt-2"></div>
-            </div>
-            <ul class="space-y-2 text-xs">
-              <li>■ [PLAN DETAIL COMPONENT 1]</li>
-              <li>■ [PLAN DETAIL COMPONENT 2]</li>
-              <li>■ [PLAN DETAIL COMPONENT 3]</li>
+            <span class="text-xs uppercase border border-slate-200 px-2 py-0.5 rounded font-bold text-slate-400">3 Meals
+              / Day</span>
+            <h3 class="font-bold text-lg md:text-xl text-slate-900 uppercase">Champion Panther</h3>
+            <div class="text-xl md:text-2xl font-extrabold text-purple-600">₹3,999<span
+                class="text-xs text-slate-400 font-normal"> / week</span></div>
+            <ul class="space-y-2 text-sm text-slate-500 pt-3 border-t border-slate-100 leading-relaxed">
+              <li>• 15 fresh dietitian-approved meals</li>
+              <li>• 1-on-1 WhatsApp Dietitian hotline</li>
             </ul>
           </div>
-          <span class="block text-center py-2 bg-black text-white text-xs font-bold uppercase select-none">[SUBSCRIBE NOW]</span>
+          <button onclick="switchPage('contact')"
+            class="w-full py-3 bg-slate-900 hover:bg-black text-white text-sm font-bold uppercase rounded-lg transition-all shadow-md">Subscribe</button>
         </div>
-
       </div>
 
-      <!-- Plan Feature Comparison Table Layout -->
-      <div class="border-2 border-black bg-white p-6 space-y-4">
-        <h3 class="font-bold text-sm uppercase">[PLAN COMPARISON MATRIX SKELETON]</h3>
-        
+      <!-- Plan Feature Comparison Table -->
+      <div class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 space-y-4 shadow-sm">
+        <h3 class="font-bold text-lg uppercase text-slate-800">Feature Matrix</h3>
         <div class="overflow-x-auto">
-          <table class="w-full border-collapse border border-black text-left text-xs">
+          <table class="w-full border-collapse border border-slate-150 text-left text-sm">
             <thead>
-              <tr class="bg-neutral-100 border-b border-black">
-                <th class="p-2.5 font-bold uppercase border-r border-black">[FEATURES LIST]</th>
-                <th class="p-2.5 font-bold uppercase border-r border-black text-center">[PLAN A]</th>
-                <th class="p-2.5 font-bold uppercase border-r border-black text-center">[PLAN B]</th>
-                <th class="p-2.5 font-bold uppercase text-center">[PLAN C]</th>
+              <tr class="bg-slate-50 border-b border-slate-200">
+                <th class="p-3.5 font-bold uppercase text-slate-600">Feature</th>
+                <th class="p-3.5 font-bold uppercase text-slate-600 text-center">Active</th>
+                <th class="p-3.5 font-bold uppercase text-slate-600 text-center">Elite</th>
+                <th class="p-3.5 font-bold uppercase text-slate-600 text-center">Champion</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-black">
+            <tbody class="divide-y divide-slate-100">
               <tr>
-                <td class="p-2.5 border-r border-black font-bold uppercase">[FEATURE METRIC 1]</td>
-                <td class="p-2.5 border-r border-black text-center">✔</td>
-                <td class="p-2.5 border-r border-black text-center">✔</td>
-                <td class="p-2.5 text-center">✔</td>
+                <td class="p-3.5 font-semibold text-slate-700">Custom Meal Portal</td>
+                <td class="p-3.5 text-center text-purple-600 font-bold">✔</td>
+                <td class="p-3.5 text-center text-purple-600 font-bold">✔</td>
+                <td class="p-3.5 text-center text-purple-600 font-bold">✔</td>
               </tr>
               <tr>
-                <td class="p-2.5 border-r border-black font-bold uppercase">[FEATURE METRIC 2]</td>
-                <td class="p-2.5 border-r border-black text-center">[VALUE]</td>
-                <td class="p-2.5 border-r border-black text-center">[VALUE]</td>
-                <td class="p-2.5 text-center">[VALUE]</td>
+                <td class="p-3.5 font-semibold text-slate-700">Allergen Exclusions</td>
+                <td class="p-3.5 text-center text-slate-600">Up to 2</td>
+                <td class="p-3.5 text-center text-slate-600">Unlimited</td>
+                <td class="p-3.5 text-center text-slate-600">Unlimited</td>
               </tr>
               <tr>
-                <td class="p-2.5 border-r border-black font-bold uppercase">[FEATURE METRIC 3]</td>
-                <td class="p-2.5 border-r border-black text-center">✕</td>
-                <td class="p-2.5 border-r border-black text-center">✔</td>
-                <td class="p-2.5 text-center">✔</td>
-              </tr>
-              <tr>
-                <td class="p-2.5 border-r border-black font-bold uppercase">[FEATURE METRIC 4]</td>
-                <td class="p-2.5 border-r border-black text-center">✕</td>
-                <td class="p-2.5 border-r border-black text-center">✕</td>
-                <td class="p-2.5 text-center">✔</td>
+                <td class="p-3.5 font-semibold text-slate-700">Weight-Matched Portioning</td>
+                <td class="p-3.5 text-center text-slate-405">✕</td>
+                <td class="p-3.5 text-center text-purple-600 font-bold">✔</td>
+                <td class="p-3.5 text-center text-purple-600 font-bold">✔</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-
     </div>
 
     <!-- PAGE 3: MENU LAYOUT -->
     <div id="page-menu" class="page-container hidden space-y-12">
-      
-      <div class="border-2 border-black bg-white p-6 text-center space-y-3">
-        <span class="text-xs text-neutral-400">[WEEKLY MEAL SCHEDULE SKELETON]</span>
-        <h2 class="text-2xl font-bold uppercase">[MENU DISHES & MACROS LAYOUT]</h2>
-        <div class="wireframe-text-medium mx-auto"></div>
+
+      <div class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 text-center space-y-2 shadow-sm">
+        <span class="text-[10px] text-purple-600 font-bold uppercase tracking-widest">Rotating Schedule</span>
+        <h2 class="text-3xl font-extrabold uppercase text-slate-900">Current Week Recipes</h2>
       </div>
 
       <!-- Weekly Schedule Day Picker -->
-      <div class="flex flex-wrap gap-2 justify-center border-b border-black pb-6">
-        <span class="px-3 py-1.5 bg-black text-white text-xs font-bold uppercase">[MON]</span>
-        <span class="px-3 py-1.5 border border-neutral-300 text-xs font-bold uppercase bg-white hover:bg-neutral-100">[TUE]</span>
-        <span class="px-3 py-1.5 border border-neutral-300 text-xs font-bold uppercase bg-white hover:bg-neutral-100">[WED]</span>
-        <span class="px-3 py-1.5 border border-neutral-300 text-xs font-bold uppercase bg-white hover:bg-neutral-100">[THU]</span>
-        <span class="px-3 py-1.5 border border-neutral-300 text-xs font-bold uppercase bg-white hover:bg-neutral-100">[FRI]</span>
-        <span class="px-3 py-1.5 border border-neutral-300 text-xs font-bold uppercase bg-white hover:bg-neutral-100">[SAT]</span>
-        <span class="px-3 py-1.5 border border-neutral-300 text-xs font-bold uppercase bg-white hover:bg-neutral-100">[SUN]</span>
+      <div class="flex flex-wrap gap-2.5 justify-center border-b border-slate-100 pb-4">
+        <span
+          class="px-4 py-2 bg-purple-600 text-white text-sm font-bold uppercase rounded-full cursor-pointer shadow">Mon</span>
+        <span
+          class="px-4 py-2 border border-slate-200 text-slate-500 hover:text-slate-900 hover:bg-slate-50 text-sm font-bold uppercase rounded-full cursor-pointer bg-white transition-all">Tue</span>
+        <span
+          class="px-4 py-2 border border-slate-200 text-slate-500 hover:text-slate-900 hover:bg-slate-50 text-sm font-bold uppercase rounded-full cursor-pointer bg-white transition-all">Wed</span>
+        <span
+          class="px-4 py-2 border border-slate-200 text-slate-500 hover:text-slate-900 hover:bg-slate-50 text-sm font-bold uppercase rounded-full cursor-pointer bg-white transition-all">Thu</span>
+        <span
+          class="px-4 py-2 border border-slate-200 text-slate-500 hover:text-slate-900 hover:bg-slate-50 text-sm font-bold uppercase rounded-full cursor-pointer bg-white transition-all">Fri</span>
       </div>
 
       <!-- Category Filter layout -->
-      <div class="flex justify-center gap-4 text-xs font-bold border-b border-neutral-200 pb-4 mb-6">
-        <span class="underline uppercase pointer-events-none">[CATEGORY FILTER A]</span>
-        <span class="text-neutral-400 uppercase pointer-events-none">[CATEGORY FILTER B]</span>
-        <span class="text-neutral-400 uppercase pointer-events-none">[CATEGORY FILTER C]</span>
+      <div class="flex justify-center gap-6 text-sm font-bold border-b border-slate-100 pb-3">
+        <span class="text-purple-600 border-b-2 border-purple-600 pb-1.5 cursor-pointer uppercase">All Protein
+          Dishes</span>
+        <span class="text-slate-400 hover:text-slate-700 cursor-pointer uppercase">Vegetarian</span>
+        <span class="text-slate-400 hover:text-slate-700 cursor-pointer uppercase">Keto</span>
       </div>
 
       <!-- 8 Food items grid layout -->
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        
-        <!-- Meal item 1-8 -->
-        <div class="border border-black bg-white p-4 space-y-4">
-          <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[MEAL IMAGE PLACEHOLDER]</div>
-          <div class="space-y-2">
-            <div class="flex justify-between items-center"><h4 class="font-bold text-xs uppercase">[MEAL NAME]</h4><span class="text-[9px] border border-neutral-300 px-1 bg-neutral-100">[CAL]</span></div>
-            
-            <!-- Custom Macro graph line indicators -->
-            <div class="space-y-1.5">
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[PROT]: 35g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[75%] rounded"></div></div></div>
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[CARB]: 45g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[60%] rounded"></div></div></div>
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[FATS]: 12g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[35%] rounded"></div></div></div>
+        <!-- Meal item 1 -->
+        <div
+          class="bg-white rounded-2xl border border-slate-100 p-5 space-y-4 flex flex-col justify-between hover:shadow-md transition-all">
+          <div class="space-y-3">
+            <span class="material-symbols-outlined text-purple-600 text-4xl">restaurant</span>
+            <div class="flex justify-between items-center pt-2">
+              <h4 class="font-bold text-base text-slate-900 uppercase">Garlic Flank Steak</h4>
+              <span
+                class="text-sm font-bold border border-purple-200 px-2 py-0.5 rounded bg-purple-50 text-purple-700">610
+                Cal</span>
+            </div>
+            <p class="text-sm text-slate-500 leading-relaxed">Steak slices served over purple-skin mash and roasted
+              green asparagus.</p>
+          </div>
+          <!-- Custom Macro graphs -->
+          <div class="space-y-2 pt-3 border-t border-slate-100">
+            <div class="flex items-center justify-between text-xs font-bold text-slate-400"><span>P: 42g</span>
+              <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div class="h-full bg-purple-600" style="width: 84%"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-xs font-bold text-slate-400"><span>C: 30g</span>
+              <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div class="h-full bg-indigo-500" style="width: 50%"></div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="border border-black bg-white p-4 space-y-4">
-          <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[MEAL IMAGE PLACEHOLDER]</div>
-          <div class="space-y-2">
-            <div class="flex justify-between items-center"><h4 class="font-bold text-xs uppercase">[MEAL NAME]</h4><span class="text-[9px] border border-neutral-300 px-1 bg-neutral-100">[CAL]</span></div>
-            <div class="space-y-1.5">
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[PROT]: 35g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[75%] rounded"></div></div></div>
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[CARB]: 45g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[60%] rounded"></div></div></div>
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[FATS]: 12g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[35%] rounded"></div></div></div>
+        <!-- Meal item 2 -->
+        <div
+          class="bg-white rounded-2xl border border-slate-100 p-5 space-y-4 flex flex-col justify-between hover:shadow-md transition-all">
+          <div class="space-y-3">
+            <span class="material-symbols-outlined text-purple-600 text-4xl">flatware</span>
+            <div class="flex justify-between items-center pt-2">
+              <h4 class="font-bold text-base text-slate-900 uppercase">Glazed Salmon</h4>
+              <span
+                class="text-sm font-bold border border-purple-200 px-2 py-0.5 rounded bg-purple-50 text-purple-700">520
+                Cal</span>
+            </div>
+            <p class="text-sm text-slate-500 leading-relaxed">Wild salmon baked with wild purple-skin carrots & red
+              quinoa.</p>
+          </div>
+          <div class="space-y-2 pt-3 border-t border-slate-100">
+            <div class="flex items-center justify-between text-xs font-bold text-slate-400"><span>P: 38g</span>
+              <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div class="h-full bg-purple-600" style="width: 76%"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-xs font-bold text-slate-400"><span>C: 32g</span>
+              <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div class="h-full bg-indigo-500" style="width: 55%"></div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="border border-black bg-white p-4 space-y-4">
-          <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[MEAL IMAGE PLACEHOLDER]</div>
-          <div class="space-y-2">
-            <div class="flex justify-between items-center"><h4 class="font-bold text-xs uppercase">[MEAL NAME]</h4><span class="text-[9px] border border-neutral-300 px-1 bg-neutral-100">[CAL]</span></div>
-            <div class="space-y-1.5">
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[PROT]: 35g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[75%] rounded"></div></div></div>
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[CARB]: 45g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[60%] rounded"></div></div></div>
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[FATS]: 12g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[35%] rounded"></div></div></div>
+        <!-- Meal item 3 -->
+        <div
+          class="bg-white rounded-2xl border border-slate-100 p-5 space-y-4 flex flex-col justify-between hover:shadow-md transition-all">
+          <div class="space-y-3">
+            <span class="material-symbols-outlined text-purple-600 text-4xl">eco</span>
+            <div class="flex justify-between items-center pt-2">
+              <h4 class="font-bold text-base text-slate-900 uppercase">Sesame Tofu Bowl</h4>
+              <span
+                class="text-sm font-bold border border-purple-200 px-2 py-0.5 rounded bg-purple-50 text-purple-700">410
+                Cal</span>
+            </div>
+            <p class="text-sm text-slate-500 leading-relaxed">Crisp sesame tofu cubes over organic quinoa and purple
+              cabbage slaw.</p>
+          </div>
+          <div class="space-y-2 pt-3 border-t border-slate-100">
+            <div class="flex items-center justify-between text-xs font-bold text-slate-400"><span>P: 24g</span>
+              <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div class="h-full bg-purple-600" style="width: 48%"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-xs font-bold text-slate-400"><span>C: 48g</span>
+              <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div class="h-full bg-indigo-500" style="width: 80%"></div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="border border-black bg-white p-4 space-y-4">
-          <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[MEAL IMAGE PLACEHOLDER]</div>
-          <div class="space-y-2">
-            <div class="flex justify-between items-center"><h4 class="font-bold text-xs uppercase">[MEAL NAME]</h4><span class="text-[9px] border border-neutral-300 px-1 bg-neutral-100">[CAL]</span></div>
-            <div class="space-y-1.5">
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[PROT]: 35g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[75%] rounded"></div></div></div>
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[CARB]: 45g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[60%] rounded"></div></div></div>
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[FATS]: 12g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[35%] rounded"></div></div></div>
+        <!-- Meal item 4 -->
+        <div
+          class="bg-white rounded-2xl border border-slate-100 p-5 space-y-4 flex flex-col justify-between hover:shadow-md transition-all">
+          <div class="space-y-3">
+            <span class="material-symbols-outlined text-purple-600 text-4xl">dinner_dining</span>
+            <div class="flex justify-between items-center pt-2">
+              <h4 class="font-bold text-base text-slate-900 uppercase">Chicken Wild Rice</h4>
+              <span
+                class="text-sm font-bold border border-purple-200 px-2 py-0.5 rounded bg-purple-50 text-purple-700">495
+                Cal</span>
+            </div>
+            <p class="text-sm text-slate-500 leading-relaxed">Chicken breast slices with steamed broccoli cuts and wild
+              black rice.</p>
+          </div>
+          <div class="space-y-2 pt-3 border-t border-slate-100">
+            <div class="flex items-center justify-between text-xs font-bold text-slate-400"><span>P: 44g</span>
+              <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div class="h-full bg-purple-600" style="width: 88%"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-xs font-bold text-slate-400"><span>C: 28g</span>
+              <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div class="h-full bg-indigo-500" style="width: 46%"></div>
+              </div>
             </div>
           </div>
         </div>
-
-        <div class="border border-black bg-white p-4 space-y-4">
-          <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[MEAL IMAGE PLACEHOLDER]</div>
-          <div class="space-y-2">
-            <div class="flex justify-between items-center"><h4 class="font-bold text-xs uppercase">[MEAL NAME]</h4><span class="text-[9px] border border-neutral-300 px-1 bg-neutral-100">[CAL]</span></div>
-            <div class="space-y-1.5">
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[PROT]: 35g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[75%] rounded"></div></div></div>
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[CARB]: 45g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[60%] rounded"></div></div></div>
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[FATS]: 12g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[35%] rounded"></div></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="border border-black bg-white p-4 space-y-4">
-          <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[MEAL IMAGE PLACEHOLDER]</div>
-          <div class="space-y-2">
-            <div class="flex justify-between items-center"><h4 class="font-bold text-xs uppercase">[MEAL NAME]</h4><span class="text-[9px] border border-neutral-300 px-1 bg-neutral-100">[CAL]</span></div>
-            <div class="space-y-1.5">
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[PROT]: 35g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[75%] rounded"></div></div></div>
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[CARB]: 45g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[60%] rounded"></div></div></div>
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[FATS]: 12g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[35%] rounded"></div></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="border border-black bg-white p-4 space-y-4">
-          <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[MEAL IMAGE PLACEHOLDER]</div>
-          <div class="space-y-2">
-            <div class="flex justify-between items-center"><h4 class="font-bold text-xs uppercase">[MEAL NAME]</h4><span class="text-[9px] border border-neutral-300 px-1 bg-neutral-100">[CAL]</span></div>
-            <div class="space-y-1.5">
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[PROT]: 35g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[75%] rounded"></div></div></div>
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[CARB]: 45g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[60%] rounded"></div></div></div>
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[FATS]: 12g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[35%] rounded"></div></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="border border-black bg-white p-4 space-y-4">
-          <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[MEAL IMAGE PLACEHOLDER]</div>
-          <div class="space-y-2">
-            <div class="flex justify-between items-center"><h4 class="font-bold text-xs uppercase">[MEAL NAME]</h4><span class="text-[9px] border border-neutral-300 px-1 bg-neutral-100">[CAL]</span></div>
-            <div class="space-y-1.5">
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[PROT]: 35g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[75%] rounded"></div></div></div>
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[CARB]: 45g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[60%] rounded"></div></div></div>
-              <div class="flex items-center justify-between text-[8px]"><span class="font-bold uppercase">[FATS]: 12g</span><div class="w-24 h-2 bg-neutral-200 rounded"><div class="h-full bg-black w-[35%] rounded"></div></div></div>
-            </div>
-          </div>
-        </div>
-
       </div>
+
     </div>
 
     <!-- PAGE 4: RESULTS LAYOUT -->
     <div id="page-results" class="page-container hidden space-y-12">
-      
-      <div class="border-2 border-black bg-white p-6 text-center space-y-3">
-        <span class="text-xs text-neutral-400">[TRANSFORMATION HUB SKELETON]</span>
-        <h2 class="text-2xl font-bold uppercase">[RESULTS & CLIENT SUCCESS METRICS]</h2>
-        <div class="wireframe-text-medium mx-auto"></div>
+
+      <div class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 text-center space-y-2 shadow-sm">
+        <span class="text-[10px] text-purple-600 font-bold uppercase tracking-widest">Transformations</span>
+        <h2 class="text-3xl font-extrabold uppercase text-slate-900">Success Stories</h2>
       </div>
 
-      <!-- Grid of success transformations -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        
-        <!-- Story A -->
-        <div class="border-2 border-black bg-white p-6 space-y-4">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[BEFORE PORTRAIT PLACE]</div>
-            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[AFTER PORTRAIT PLACE]</div>
+        <div
+          class="bg-white rounded-2xl border border-slate-100 p-6 space-y-5 hover:shadow-sm transition-all shadow-sm">
+          <div class="grid grid-cols-2 gap-4 text-center">
+            <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl shadow-inner">
+              <span class="text-[10px] text-slate-400 font-bold block">WEEK 1</span>
+              <span class="text-2xl md:text-3xl font-extrabold text-slate-800">195 lbs</span>
+            </div>
+            <div class="p-4 bg-purple-50 border border-purple-100 rounded-xl shadow-inner">
+              <span class="text-[10px] text-purple-700 font-bold block">WEEK 8</span>
+              <span class="text-2xl md:text-3xl font-extrabold text-purple-900">178 lbs</span>
+            </div>
           </div>
-          <div class="space-y-2 border-t border-neutral-200 pt-4">
-            <div class="flex justify-between items-center"><h3 class="font-bold text-sm uppercase">[CLIENT CASE STUDY A]</h3><span class="text-[9px] bg-black text-white px-2 py-0.5 uppercase">[GOAL REDUCTION DATA]</span></div>
-            <div class="wireframe-text-long"></div>
-            <div class="wireframe-text-medium"></div>
-          </div>
-        </div>
-
-        <!-- Story B -->
-        <div class="border-2 border-black bg-white p-6 space-y-4">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[BEFORE PORTRAIT PLACE]</div>
-            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[AFTER PORTRAIT PLACE]</div>
-          </div>
-          <div class="space-y-2 border-t border-neutral-200 pt-4">
-            <div class="flex justify-between items-center"><h3 class="font-bold text-sm uppercase">[CLIENT CASE STUDY B]</h3><span class="text-[9px] bg-black text-white px-2 py-0.5 uppercase">[GOAL REDUCTION DATA]</span></div>
-            <div class="wireframe-text-long"></div>
-            <div class="wireframe-text-medium"></div>
+          <div class="pt-4 border-t border-slate-100">
+            <h4 class="font-bold text-base text-slate-900 uppercase">Alex M. — fat loss</h4>
+            <p class="text-sm text-slate-500 mt-2 leading-relaxed">"The portion control was exactly what I needed.
+              Weight slid off once nutrition was standardized."</p>
           </div>
         </div>
 
-        <!-- Story C -->
-        <div class="border-2 border-black bg-white p-6 space-y-4">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[BEFORE PORTRAIT PLACE]</div>
-            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[AFTER PORTRAIT PLACE]</div>
+        <div
+          class="bg-white rounded-2xl border border-slate-100 p-6 space-y-5 hover:shadow-sm transition-all shadow-sm">
+          <div class="grid grid-cols-2 gap-4 text-center">
+            <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl shadow-inner">
+              <span class="text-[10px] text-slate-400 font-bold block">WEEK 1</span>
+              <span class="text-2xl md:text-3xl font-extrabold text-slate-800">132 lbs</span>
+            </div>
+            <div class="p-4 bg-purple-50 border border-purple-100 rounded-xl shadow-inner">
+              <span class="text-[10px] text-purple-700 font-bold block">WEEK 12</span>
+              <span class="text-2xl md:text-3xl font-extrabold text-purple-900">143 lbs</span>
+            </div>
           </div>
-          <div class="space-y-2 border-t border-neutral-200 pt-4">
-            <div class="flex justify-between items-center"><h3 class="font-bold text-sm uppercase">[CLIENT CASE STUDY C]</h3><span class="text-[9px] bg-black text-white px-2 py-0.5 uppercase">[GOAL REDUCTION DATA]</span></div>
-            <div class="wireframe-text-long"></div>
-            <div class="wireframe-text-medium"></div>
-          </div>
-        </div>
-
-        <!-- Story D -->
-        <div class="border-2 border-black bg-white p-6 space-y-4">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[BEFORE PORTRAIT PLACE]</div>
-            <div class="aspect-square border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-[9px] font-bold">[AFTER PORTRAIT PLACE]</div>
-          </div>
-          <div class="space-y-2 border-t border-neutral-200 pt-4">
-            <div class="flex justify-between items-center"><h3 class="font-bold text-sm uppercase">[CLIENT CASE STUDY D]</h3><span class="text-[9px] bg-black text-white px-2 py-0.5 uppercase">[GOAL REDUCTION DATA]</span></div>
-            <div class="wireframe-text-long"></div>
-            <div class="wireframe-text-medium"></div>
+          <div class="pt-4 border-t border-slate-100">
+            <h4 class="font-bold text-base text-slate-900 uppercase">Sarah J. — muscle build</h4>
+            <p class="text-sm text-slate-505 mt-2 leading-relaxed">"Flank steak and turkey burgers made it easy to fuel
+              intensive running workouts without bloating."</p>
           </div>
         </div>
-
       </div>
+
     </div>
 
     <!-- PAGE 5: BLOG LAYOUT -->
     <div id="page-blog" class="page-container hidden space-y-12">
-      
-      <div class="border-2 border-black bg-white p-6 text-center space-y-3">
-        <span class="text-xs text-neutral-400">[NUTRITION TIPS & ARTICLES LIBRARY]</span>
-        <h2 class="text-2xl font-bold uppercase">[KNOWLEDGE HUB LAYOUT]</h2>
-        <div class="wireframe-text-medium mx-auto"></div>
+
+      <div class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 text-center space-y-2 shadow-sm">
+        <span class="text-[10px] text-purple-600 font-bold uppercase tracking-widest">Library</span>
+        <h2 class="text-3xl font-extrabold uppercase text-slate-900">Nutrition Science</h2>
       </div>
 
-      <!-- Feature Big post -->
-      <div class="border-2 border-black bg-white p-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <div class="lg:col-span-7 aspect-[16/9] border border-dashed border-neutral-400 bg-neutral-50 flex items-center justify-center text-xs font-bold">[FEATURED ARTICLE MAIN IMAGE]</div>
-        <div class="lg:col-span-5 space-y-4">
-          <span class="text-[9px] uppercase border border-black px-2 py-0.5 bg-neutral-100 font-bold">[FEATURED COLUMN]</span>
-          <h3 class="font-bold text-xl uppercase">[BIG STORY ARTICLE HEADING]</h3>
-          <div class="wireframe-text-long"></div>
-          <div class="wireframe-text-long"></div>
-          <div class="wireframe-text-medium"></div>
-          <div class="pt-2"><span class="underline text-xs font-bold uppercase cursor-pointer">[READ FEATURE STORY]</span></div>
+      <div
+        class="bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-md transition-all space-y-4 cursor-pointer shadow-sm">
+        <span class="text-xs bg-purple-50 text-purple-700 px-3 py-1 rounded uppercase font-bold inline-block">Featured
+          Article</span>
+        <h3 class="font-bold text-xl text-slate-900 uppercase leading-snug">The Myth of Extreme Calorie Cuts</h3>
+        <p class="text-sm text-slate-505 leading-relaxed">Why starving deceleration blocks thyroid conversion, and how
+          moderate deficits yield optimal metrics without sluggish energy output.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white border border-slate-100 rounded-xl p-5 space-y-3 shadow-sm">
+          <span class="text-[10px] uppercase text-purple-600 font-extrabold">Sleep Science</span>
+          <h4 class="font-bold text-base text-slate-900 uppercase">How Rest Blocks Fat Growth</h4>
+          <p class="text-sm text-slate-500 leading-relaxed">Elevated cortisol from poor sleep cycles stops GH releases,
+            encouraging lipids tracking and sweet food cravings.</p>
+        </div>
+        <div class="bg-white border border-slate-100 rounded-xl p-5 space-y-3 shadow-sm">
+          <span class="text-[10px] uppercase text-purple-600 font-extrabold">Hydration</span>
+          <h4 class="font-bold text-base text-slate-900 uppercase">Electrolytes on Cardio Runs</h4>
+          <p class="text-sm text-slate-500 leading-relaxed">Sweating expels key sodium stores. Learn how cycling organic
+            sea salts protects cellular electrical output.</p>
         </div>
       </div>
 
-      <!-- Normal post grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <div class="border border-neutral-300 p-4 bg-white space-y-3 flex flex-col justify-between">
-          <div class="space-y-3">
-            <div class="aspect-[16/10] border border-dashed border-neutral-200 bg-neutral-100 flex items-center justify-center text-[9px] font-bold">[ARTICLE IMAGE PLACE]</div>
-            <span class="text-[8px] uppercase text-neutral-400 font-bold">[CATEGORY A]</span>
-            <h4 class="font-bold text-xs uppercase">[ARTICLE TITLE LINE SKELETON]</h4>
-            <div class="wireframe-text-medium"></div>
-          </div>
-          <span class="underline text-[10px] uppercase font-bold cursor-pointer">[READ POST]</span>
-        </div>
-
-        <div class="border border-neutral-300 p-4 bg-white space-y-3 flex flex-col justify-between">
-          <div class="space-y-3">
-            <div class="aspect-[16/10] border border-dashed border-neutral-200 bg-neutral-100 flex items-center justify-center text-[9px] font-bold">[ARTICLE IMAGE PLACE]</div>
-            <span class="text-[8px] uppercase text-neutral-400 font-bold">[CATEGORY B]</span>
-            <h4 class="font-bold text-xs uppercase">[ARTICLE TITLE LINE SKELETON]</h4>
-            <div class="wireframe-text-medium"></div>
-          </div>
-          <span class="underline text-[10px] uppercase font-bold cursor-pointer">[READ POST]</span>
-        </div>
-
-        <div class="border border-neutral-300 p-4 bg-white space-y-3 flex flex-col justify-between">
-          <div class="space-y-3">
-            <div class="aspect-[16/10] border border-dashed border-neutral-200 bg-neutral-100 flex items-center justify-center text-[9px] font-bold">[ARTICLE IMAGE PLACE]</div>
-            <span class="text-[8px] uppercase text-neutral-400 font-bold">[CATEGORY C]</span>
-            <h4 class="font-bold text-xs uppercase">[ARTICLE TITLE LINE SKELETON]</h4>
-            <div class="wireframe-text-medium"></div>
-          </div>
-          <span class="underline text-[10px] uppercase font-bold cursor-pointer">[READ POST]</span>
-        </div>
-
-      </div>
     </div>
 
     <!-- PAGE 6: CONTACT LAYOUT -->
     <div id="page-contact" class="page-container hidden space-y-12">
-      
-      <div class="border-2 border-black bg-white p-6 text-center space-y-3">
-        <span class="text-xs text-neutral-400">[CONTACT PORTAL SKELETON]</span>
-        <h2 class="text-2xl font-bold uppercase">[GET IN TOUCH & ORDER SYSTEM]</h2>
-        <div class="wireframe-text-medium mx-auto"></div>
+
+      <div class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 text-center space-y-2 shadow-sm">
+        <span class="text-[10px] text-purple-600 font-bold uppercase tracking-widest">Inquiries</span>
+        <h2 class="text-3xl font-extrabold uppercase text-slate-900">Inquiry & Order System</h2>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        
+
         <!-- Form Left -->
-        <div class="lg:col-span-7 border-2 border-black bg-white p-6 space-y-6">
-          <h3 class="font-bold text-sm uppercase">[CONSULTATION & INQUIRY FORM]</h3>
-          
-          <form class="space-y-4" onsubmit="event.preventDefault();">
-            
+        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-100 p-6 md:p-8 space-y-6 shadow-sm">
+          <h3 class="font-bold text-base md:text-lg uppercase text-slate-800">Direct Message</h3>
+
+          <form class="space-y-4"
+            onsubmit="event.preventDefault(); alert('Message sent! Our support team will respond shortly.');">
             <div class="space-y-1.5">
-              <label class="block text-[10px] font-bold uppercase text-neutral-500">[FULL NAME INPUT]</label>
-              <div class="h-10 border border-neutral-300 bg-neutral-50 rounded"></div>
+              <label class="block text-xs font-bold uppercase text-slate-500 tracking-wider">Full Name</label>
+              <input required type="text" placeholder="Sarah Jenkins"
+                class="w-full h-11 px-4 rounded-lg border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white text-sm font-semibold">
             </div>
 
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div class="space-y-1.5">
-                <label class="block text-[10px] font-bold uppercase text-neutral-500">[MOBILE NUMBER]</label>
-                <div class="h-10 border border-neutral-300 bg-neutral-50 rounded"></div>
+                <label class="block text-xs font-bold uppercase text-slate-500 tracking-wider">Mobile Number</label>
+                <input required type="tel" placeholder="+1 (555) 019-2834"
+                  class="w-full h-11 px-4 rounded-lg border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white text-sm font-semibold">
               </div>
               <div class="space-y-1.5">
-                <label class="block text-[10px] font-bold uppercase text-neutral-500">[TARGET GOAL DROPDOWN]</label>
-                <div class="h-10 border border-neutral-300 bg-neutral-50 rounded"></div>
+                <label class="block text-xs font-bold uppercase text-slate-500 tracking-wider">Goal Target</label>
+                <select
+                  class="w-full h-11 px-3 rounded-lg border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white text-sm font-semibold">
+                  <option>Weight Loss / Fat Burn</option>
+                  <option>Lean Muscle Growth</option>
+                  <option>Clean Eating Habits</option>
+                </select>
               </div>
             </div>
 
             <div class="space-y-1.5">
-              <label class="block text-[10px] font-bold uppercase text-neutral-500">[MESSAGE / QUERY CONTENT]</label>
-              <div class="h-24 border border-neutral-300 bg-neutral-50 rounded"></div>
+              <label class="block text-xs font-bold uppercase text-slate-500 tracking-wider">Message</label>
+              <textarea placeholder="e.g. Any customized dairy-free exclusions needed..."
+                class="w-full h-24 p-4 rounded-lg border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white text-sm font-semibold resize-none"></textarea>
             </div>
 
-            <button class="w-full py-3 bg-black text-white text-xs font-bold uppercase select-none">[SUBMIT ENQUIRY]</button>
-
+            <button
+              class="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold uppercase rounded-lg shadow transition-all h-11">Submit
+              Inquiry</button>
           </form>
         </div>
 
         <!-- Info details right -->
         <div class="lg:col-span-5 flex flex-col justify-between gap-6">
-          
-          <div class="border-2 border-black bg-white p-6 space-y-4">
-            <h3 class="font-bold text-sm uppercase">[COMMUNICATION CHANNELS]</h3>
-            
-            <div class="space-y-3 text-xs">
-              <div class="border-b border-neutral-200 pb-2"><span class="block text-[8px] font-bold text-neutral-400 uppercase">[WHATSAPP ORDER LINE]</span><span class="font-bold uppercase">[MOCK NUMBER PLACEHOLDER]</span></div>
-              <div class="border-b border-neutral-200 pb-2"><span class="block text-[8px] font-bold text-neutral-400 uppercase">[SUPPORT EMAIL]</span><span class="font-bold uppercase">[MOCK EMAIL PLACEHOLDER]</span></div>
-              <div><span class="block text-[8px] font-bold text-neutral-400 uppercase">[OFFICE / KITCHEN LOCATION]</span><span class="font-bold uppercase">[MOCK OFFICE ADDRESS BLOCK]</span></div>
+          <div class="bg-white rounded-2xl border border-slate-100 p-6 space-y-6 shadow-sm">
+            <h3 class="font-bold text-base md:text-lg uppercase text-slate-800">Support Coordinates</h3>
+
+            <div class="space-y-4 text-sm font-semibold leading-relaxed">
+              <div class="border-b border-slate-100 pb-3">
+                <span class="block text-[10px] font-bold text-purple-500 uppercase tracking-widest mb-0.5">WhatsApp
+                  Order</span>
+                <span class="text-slate-900 text-base font-bold">+1 (917) 420-5690</span>
+              </div>
+              <div class="border-b border-slate-100 pb-3">
+                <span class="block text-[10px] font-bold text-purple-500 uppercase tracking-widest mb-0.5">Email</span>
+                <span class="text-slate-900 text-base font-bold">nutrition@fitpanther.com</span>
+              </div>
+              <div>
+                <span class="block text-[10px] font-bold text-purple-500 uppercase tracking-widest mb-0.5">Kitchen
+                  Address</span>
+                <span class="text-slate-900 text-base font-bold">789 Amethyst Way, Brooklyn, NY 11231</span>
+              </div>
             </div>
           </div>
 
-          <div class="border-2 border-black border-dashed aspect-[4/3] bg-neutral-50 flex flex-col items-center justify-center p-4">
-            <span class="font-bold text-xs uppercase">[INTERACTIVE MAP BOUNDS PLACEHOLDER]</span>
-            <span class="text-[9px] text-neutral-400 font-bold uppercase mt-1">[Kitchen radius limits mapped here]</span>
+          <div class="bg-purple-50 border border-purple-100 rounded-2xl p-6 text-center shadow-inner">
+            <span class="material-symbols-outlined text-purple-600 text-3xl">pin_drop</span>
+            <h4 class="font-bold text-sm uppercase text-purple-900 mt-3">Delivery Radius Limit</h4>
+            <p class="text-sm text-purple-600 mt-2 leading-relaxed">We service a 15-mile coordinate radius surrounding
+              Brooklyn kitchens.</p>
           </div>
-
         </div>
 
       </div>
@@ -1059,8 +1363,69 @@
 
   </main>
 
-  <!-- Page switching script -->
+  <!-- Global Footer -->
+  <footer class="bg-slate-50 border-t border-slate-150 py-12 mt-16 relative z-10">
+    <div class="max-w-[92%] lg:max-w-[1400px] mx-auto px-4 md:px-8 space-y-6">
+
+      <div class="flex flex-col sm:flex-row justify-between items-center border-b border-slate-100 pb-6 gap-6">
+        <div class="flex items-center gap-3">
+          <img src="assets/logo.jpg" alt="FitPanther Logo"
+            class="w-7 h-7 rounded-full object-cover shadow shadow-purple-100">
+          <span class="font-extrabold text-sm uppercase text-slate-900 tracking-wider">FitPanther</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 text-sm font-semibold text-slate-400">
+          <a href="#" onclick="switchPage('plans'); return false;"
+            class="hover:text-purple-600 transition-all">Pricing</a>
+          <a href="#" onclick="switchPage('menu'); return false;" class="hover:text-purple-600 transition-all">Menu</a>
+          <a href="#" onclick="switchPage('results'); return false;"
+            class="hover:text-purple-600 transition-all">Results</a>
+          <a href="#" onclick="switchPage('contact'); return false;"
+            class="hover:text-purple-600 transition-all">Contact</a>
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 font-bold uppercase gap-4">
+        <span>© 2026 FitPanther Group. FDA Audited Portions.</span>
+        <div class="flex gap-5 items-center">
+          <a href="#" aria-label="Instagram" class="text-slate-400 hover:text-purple-600 transition-all">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051C.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="text-slate-400 hover:text-purple-600 transition-all">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+          </a>
+          <a href="#" aria-label="Twitter (X)" class="text-slate-400 hover:text-purple-600 transition-all">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Page switching & mobile scripts -->
   <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('menu-btn-icon');
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        icon.textContent = 'close';
+      } else {
+        menu.classList.add('hidden');
+        icon.textContent = 'menu';
+      }
+    }
+
     function switchPage(pageId) {
       // 1. Hide all page divs
       const pages = document.querySelectorAll('.page-container');
@@ -1069,27 +1434,124 @@
       // 2. Show requested page div
       document.getElementById('page-' + pageId).classList.remove('hidden');
 
-      // 3. Remove active background class from all tabs
+      // 3. Remove active class from all nav buttons
       const tabs = document.querySelectorAll('nav button');
-      tabs.forEach(t => t.classList.remove('bg-black', 'text-white'));
+      tabs.forEach(t => {
+        t.classList.remove('tab-active');
+        t.classList.add('text-slate-505', 'hover:text-slate-900');
+      });
 
-      // 4. Add active background class to current tab
-      document.getElementById('tab-' + pageId).classList.add('bg-black', 'text-white');
+      // 4. Add active class to active tab button
+      const activeTab = document.getElementById('tab-' + pageId);
+      if (activeTab) {
+        activeTab.classList.add('tab-active');
+        activeTab.classList.remove('text-slate-505', 'hover:text-slate-900');
+      }
 
-      // 5. Update info label
-      const labels = {
-        'home': 'Home Page Layout',
-        'plans': 'Plans Page Layout',
-        'menu': 'Menu Page Layout',
-        'results': 'Results Page Layout',
-        'blog': 'Blog Page Layout',
-        'contact': 'Contact Page Layout'
-      };
-      document.getElementById('current-view-label').textContent = labels[pageId];
-
-      // 6. Scroll window back to top on page swap
+      // 5. Scroll window back to top on page swap
       window.scrollTo(0, 0);
     }
+
+    // FAQ Toggle Script
+    function toggleFaq(id) {
+      const ans = document.getElementById('faq-ans-' + id);
+      const icon = document.getElementById('faq-icon-' + id);
+
+      if (ans.classList.contains('hidden')) {
+        ans.classList.remove('hidden');
+        icon.textContent = '−';
+      } else {
+        ans.classList.add('hidden');
+        icon.textContent = '+';
+      }
+    }
+
+    // Home Calculator Multi-Step Script
+    let calcUserData = {};
+
+    function goToStep2(event) {
+      event.preventDefault();
+
+      // Store Step 1 Data
+      calcUserData.pincode = document.getElementById('calc-pincode').value;
+      calcUserData.name = document.getElementById('calc-name').value;
+      calcUserData.email = document.getElementById('calc-email').value;
+      calcUserData.phone = document.getElementById('calc-phone').value;
+
+      // Swap Steps
+      document.getElementById('calc-step-1').classList.add('hidden');
+      document.getElementById('calc-step-2').classList.remove('hidden');
+    }
+
+    function backToStep1() {
+      document.getElementById('calc-step-2').classList.add('hidden');
+      document.getElementById('calc-step-1').classList.remove('hidden');
+    }
+
+    function calculateMacrosFinal(event) {
+      event.preventDefault();
+
+      const goal = document.querySelector('input[name="goal"]:checked').value;
+
+      let calories = 0;
+      let protein = 0;
+      let carbs = 0;
+      let planName = "";
+      let goalBadge = "";
+
+      // Portion targets based on standard human metrics (simulated target for weight 70kg-80kg)
+      if (goal === "weight-loss") {
+        calories = 1450;
+        protein = 120;
+        carbs = 130;
+        planName = "Lean Panther Fat Loss (Avg. 450 kcal / meal)";
+        goalBadge = "Weight Loss";
+      } else if (goal === "muscle-gain") {
+        calories = 2400;
+        protein = 165;
+        carbs = 230;
+        planName = "Champion Panther Muscle Gain (Avg. 800 kcal / meal)";
+        goalBadge = "Muscle Gain";
+      } else { // maintenance
+        calories = 1850;
+        protein = 140;
+        carbs = 180;
+        planName = "Active Panther Balanced (Avg. 600 kcal / meal)";
+        goalBadge = "Maintenance";
+      }
+
+      // Populate results
+      document.getElementById('res-user-name').textContent = calcUserData.name;
+      document.getElementById('res-calories').textContent = calories + " kcal";
+      document.getElementById('res-protein').textContent = protein + "g";
+      document.getElementById('res-carbs').textContent = carbs + "g / Lipids";
+      document.getElementById('res-plan-name').textContent = planName;
+      document.getElementById('res-badge').textContent = goalBadge;
+
+      // Swap views
+      document.getElementById('calc-step-2').classList.add('hidden');
+      document.getElementById('calc-step-results').classList.remove('hidden');
+    }
+
+    function resetCalculator() {
+      document.getElementById('home-calc-form-1').reset();
+      document.getElementById('home-calc-form-2').reset();
+      calcUserData = {};
+
+      document.getElementById('calc-step-results').classList.add('hidden');
+      document.getElementById('calc-step-2').classList.add('hidden');
+      document.getElementById('calc-step-1').classList.remove('hidden');
+    }
+
+    // Fade out page loader on load
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('page-loader');
+      loader.classList.add('opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        loader.classList.add('hidden');
+      }, 500); // Wait for transition to complete
+    });
   </script>
 </body>
+
 </html>
