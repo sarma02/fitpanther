@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FitPanther — Premium Healthy Meal Subscriptions</title>
+  <link rel="canonical" href="https://fitpanther.in/">
   <!-- Favicon Link -->
   <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
 
@@ -32,8 +33,8 @@
     "@type": "FoodService",
     "name": "FitPanther",
     "image": "assets/logo.jpg",
-    "@id": "https://fitpanther.com",
-    "url": "https://fitpanther.com",
+    "@id": "https://fitpanther.in",
+    "url": "https://fitpanther.in",
     "telephone": "+91 91765 43210",
     "priceRange": "₹₹",
     "address": {
@@ -63,6 +64,9 @@
     }
   }
   </script>
+
+  <!-- Tailwind CSS Configuration JS -->
+  <script src="assets/js/tailwind-config.js"></script>
   <!-- Tailwind CSS v3 CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts: Poppins (Clean Sans-Serif font for UI & Content) -->
@@ -73,61 +77,9 @@
   <!-- Google Material Symbols (Clean icon library) -->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Poppins', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              50: '#f5f3ff',
-              100: '#ede9fe',
-              200: '#ddd6fe',
-              300: '#c4b5fd',
-              400: '#a78bfa',
-              500: '#8b5cf6',
-              600: '#7c3aed',
-              700: '#6d28d9',
-              800: '#5b21b6',
-              900: '#4c1d95',
-            }
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
-
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-
-    /* Infinite Horizontal Marquee Animation */
-    @keyframes marquee {
-      0% {
-        transform: translateX(0%);
-      }
-
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-
-    .animate-marquee {
-      animation: marquee 35s linear infinite;
-    }
-
-    .tab-active {
-      background-color: #7c3aed;
-      color: #ffffff !important;
-      box-shadow: 0 4px 12px -2px rgba(124, 58, 237, 0.3);
-    }
-  </style>
+  
+  <!-- Custom CSS stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body class="bg-white text-slate-800 antialiased min-h-screen flex flex-col relative overflow-x-hidden">
@@ -169,37 +121,37 @@
     <div class="max-w-[92%] lg:max-w-[1400px] mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
 
       <!-- Brand Logo -->
-      <div class="flex items-center cursor-pointer" onclick="switchPage('home')">
+      <a href="index.html" class="flex items-center cursor-pointer">
         <img src="assets/logo.jpg" alt="FitPanther Logo"
           class="w-14 h-14 rounded-full object-cover shadow shadow-purple-200">
-      </div>
+      </a>
 
       <!-- Desktop Capsule Navigation Menu -->
       <nav class="hidden md:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-full border border-slate-200/50">
-        <button onclick="switchPage('home')" id="tab-home"
+        <a href="index.html" id="tab-home"
           class="px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all rounded-full tab-active">
           Home
-        </button>
-        <button onclick="switchPage('plans')" id="tab-plans"
+        </a>
+        <a href="plans.html" id="tab-plans"
           class="px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all rounded-full text-slate-500 hover:text-slate-900">
           Plans
-        </button>
-        <button onclick="switchPage('menu')" id="tab-menu"
+        </a>
+        <a href="menu.html" id="tab-menu"
           class="px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all rounded-full text-slate-500 hover:text-slate-900">
           Menu
-        </button>
-        <button onclick="switchPage('results')" id="tab-results"
+        </a>
+        <a href="results.html" id="tab-results"
           class="px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all rounded-full text-slate-500 hover:text-slate-900">
           Results
-        </button>
-        <button onclick="switchPage('blog')" id="tab-blog"
+        </a>
+        <a href="blog.html" id="tab-blog"
           class="px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all rounded-full text-slate-500 hover:text-slate-900">
           Blog
-        </button>
-        <button onclick="switchPage('contact')" id="tab-contact"
+        </a>
+        <a href="contact.html" id="tab-contact"
           class="px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all rounded-full text-slate-500 hover:text-slate-900">
           Contact
-        </button>
+        </a>
       </nav>
 
       <!-- Desktop WhatsApp Action -->
@@ -220,18 +172,18 @@
     <!-- Mobile Dropdown Menu Drawer -->
     <div id="mobile-menu"
       class="hidden md:hidden bg-white border-t border-slate-100 px-6 py-4 flex flex-col gap-3 shadow-lg">
-      <button onclick="switchPage('home'); toggleMobileMenu();"
-        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-purple-600">Home</button>
-      <button onclick="switchPage('plans'); toggleMobileMenu();"
-        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-500 hover:text-slate-900">Plans</button>
-      <button onclick="switchPage('menu'); toggleMobileMenu();"
-        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-500 hover:text-slate-900">Menu</button>
-      <button onclick="switchPage('results'); toggleMobileMenu();"
-        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-500 hover:text-slate-900">Results</button>
-      <button onclick="switchPage('blog'); toggleMobileMenu();"
-        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-500 hover:text-slate-900">Blog</button>
-      <button onclick="switchPage('contact'); toggleMobileMenu();"
-        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider text-slate-500 hover:text-slate-900">Contact</button>
+      <a href="index.html"
+        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-purple-600">Home</a>
+      <a href="plans.html"
+        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-500 hover:text-slate-900">Plans</a>
+      <a href="menu.html"
+        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-500 hover:text-slate-900">Menu</a>
+      <a href="results.html"
+        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-500 hover:text-slate-900">Results</a>
+      <a href="blog.html"
+        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-500 hover:text-slate-900">Blog</a>
+      <a href="contact.html"
+        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider text-slate-500 hover:text-slate-900">Contact</a>
       <a href="https://wa.me/1234567890" target="_blank"
         class="flex items-center justify-center gap-2 mt-2 w-full py-3 bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold uppercase rounded-lg shadow-md shadow-emerald-100 transition-all">
         <span class="material-symbols-outlined text-white text-lg">chat</span>
@@ -240,11 +192,10 @@
     </div>
   </header>
 
-  <!-- Main View Container (Widescreen Stretch Layout) -->
+  <!-- Main View Container -->
   <main class="max-w-[92%] lg:max-w-[1400px] mx-auto px-4 md:px-8 py-12 flex-grow w-full relative z-10">
 
-    <!-- PAGE 1: HOME LAYOUT -->
-    <div id="page-home" class="page-container space-y-24">
+    <div class="space-y-24">
 
       <!-- Section: Hero Header with Background Image Marquee -->
       <div
@@ -313,14 +264,14 @@
             </p>
 
             <div class="flex flex-wrap gap-4 pt-2">
-              <button onclick="switchPage('plans')"
-                class="px-7 py-3.5 bg-purple-600 hover:bg-purple-700 text-white text-xs sm:text-sm font-bold uppercase rounded-xl shadow-md shadow-purple-100 transition-all hover:scale-[1.02]">
+              <a href="plans.html"
+                class="px-7 py-3.5 bg-purple-600 hover:bg-purple-700 text-white text-xs sm:text-sm font-bold uppercase rounded-xl shadow-md shadow-purple-100 transition-all hover:scale-[1.02] text-center inline-block">
                 Choose Plan
-              </button>
-              <button onclick="switchPage('menu')"
-                class="px-7 py-3.5 border border-purple-200 text-purple-700 hover:bg-purple-50 text-xs sm:text-sm font-bold uppercase rounded-xl transition-all bg-white shadow-sm hover:scale-[1.02]">
+              </a>
+              <a href="menu.html"
+                class="px-7 py-3.5 border border-purple-200 text-purple-700 hover:bg-purple-50 text-xs sm:text-sm font-bold uppercase rounded-xl transition-all bg-white shadow-sm hover:scale-[1.02] text-center inline-block">
                 Weekly Menu
-              </button>
+              </a>
             </div>
           </div>
 
@@ -347,14 +298,14 @@
             <!-- Video Thumbnails below -->
             <div class="grid grid-cols-4 gap-2 mt-3.5">
               <button onclick="alert('Loading Kitchen Tour...');"
-                class="border border-slate-100 bg-white p-2 text-center text-[10px] md:text-xs font-bold text-slate-500 rounded-lg uppercase hover:bg-purple-50 hover:text-purple-700 shadow-sm transition-all">Kitchen</button>
+                class="border border-slate-100 bg-white p-2 text-center text-[10px] md:text-xs font-bold text-slate-505 rounded-lg uppercase hover:bg-purple-50 hover:text-purple-700 shadow-sm transition-all">Kitchen</button>
               <button onclick="alert('Loading Chef Prep...');"
-                class="border border-slate-100 bg-white p-2 text-center text-[10px] md:text-xs font-bold text-slate-500 rounded-lg uppercase hover:bg-purple-50 hover:text-purple-700 shadow-sm transition-all">Chef
+                class="border border-slate-100 bg-white p-2 text-center text-[10px] md:text-xs font-bold text-slate-505 rounded-lg uppercase hover:bg-purple-50 hover:text-purple-700 shadow-sm transition-all">Chef
                 Prep</button>
               <button onclick="alert('Loading Delivery Info...');"
-                class="border border-slate-100 bg-white p-2 text-center text-[10px] md:text-xs font-bold text-slate-500 rounded-lg uppercase hover:bg-purple-50 hover:text-purple-700 shadow-sm transition-all">Delivery</button>
+                class="border border-slate-100 bg-white p-2 text-center text-[10px] md:text-xs font-bold text-slate-505 rounded-lg uppercase hover:bg-purple-50 hover:text-purple-700 shadow-sm transition-all">Delivery</button>
               <button onclick="alert('Loading Quality Test...');"
-                class="border border-slate-100 bg-white p-2 text-center text-[10px] md:text-xs font-bold text-slate-500 rounded-lg uppercase hover:bg-purple-50 hover:text-purple-700 shadow-sm transition-all">Audits</button>
+                class="border border-slate-100 bg-white p-2 text-center text-[10px] md:text-xs font-bold text-slate-505 rounded-lg uppercase hover:bg-purple-50 hover:text-purple-700 shadow-sm transition-all">Audits</button>
             </div>
           </div>
 
@@ -373,7 +324,7 @@
               <span class="material-symbols-outlined text-rose-500 text-xl">cancel</span>
               The Daily Cooking Struggle
             </h3>
-            <ul class="space-y-3.5 text-base text-slate-500 leading-relaxed font-medium">
+            <ul class="space-y-3.5 text-base text-slate-505 leading-relaxed font-medium">
               <li class="flex items-start gap-2.5">
                 <span class="text-rose-400 mt-1.5">•</span>
                 <span>Hours wasted planning, shopping, and scrubbing dishes.</span>
@@ -395,7 +346,7 @@
               <span class="material-symbols-outlined text-purple-600 text-xl">check_circle</span>
               The FitPanther Solution
             </h3>
-            <ul class="space-y-3.5 text-base text-slate-500 leading-relaxed font-medium">
+            <ul class="space-y-3.5 text-base text-slate-505 leading-relaxed font-medium">
               <li class="flex items-start gap-2.5">
                 <span class="text-purple-400 mt-1.5">•</span>
                 <span>Gourmet dietitian-approved meals cooked fresh daily.</span>
@@ -427,8 +378,7 @@
             class="bg-slate-50/50 border border-slate-100 rounded-xl p-8 text-center space-y-3 shadow-sm transition-all hover:bg-purple-50/30 hover:-translate-y-1 duration-300">
             <span class="material-symbols-outlined text-purple-600 text-3xl">analytics</span>
             <h4 class="font-bold text-base text-slate-800 uppercase">1. Pick Program</h4>
-            <p class="text-sm text-slate-400 leading-relaxed">Select a calorie budget aligned with your weight goals.
-            </p>
+            <p class="text-sm text-slate-400 leading-relaxed">Select a calorie budget aligned with your weight goals.</p>
           </div>
           <!-- Step 2 -->
           <div
@@ -449,8 +399,7 @@
             class="bg-slate-50/50 border border-slate-100 rounded-xl p-8 text-center space-y-3 shadow-sm transition-all hover:bg-purple-50/30 hover:-translate-y-1 duration-300">
             <span class="material-symbols-outlined text-purple-600 text-3xl">restaurant</span>
             <h4 class="font-bold text-base text-slate-800 uppercase">4. Heat & Eat</h4>
-            <p class="text-sm text-slate-400 leading-relaxed">Pop the tray in the microwave. Gourmet eating in 2 mins.
-            </p>
+            <p class="text-sm text-slate-400 leading-relaxed">Pop the tray in the microwave. Gourmet eating in 2 mins.</p>
           </div>
         </div>
       </div>
@@ -468,62 +417,52 @@
             class="bg-white rounded-2xl border border-slate-100 p-8 flex flex-col justify-between space-y-5 hover:shadow-lg hover:border-purple-100/50 hover:-translate-y-1 transition-all duration-300">
             <div class="space-y-4">
               <span
-                class="text-xs font-bold text-purple-700 bg-purple-50 border border-purple-100 px-3.5 py-1.5 rounded-full inline-block uppercase tracking-wider">Lean
-                Panther</span>
-              <p class="text-sm text-slate-500 leading-relaxed">Fat burn target. Low carbohydrate, high protein ratios
-                designed to protect muscle during active deficits.</p>
+                class="text-xs font-bold text-purple-700 bg-purple-50 border border-purple-100 px-3.5 py-1.5 rounded-full inline-block uppercase tracking-wider font-bold">Lean Panther</span>
+              <p class="text-sm text-slate-500 leading-relaxed">Fat burn target. Low carbohydrate, high protein ratios designed to protect muscle during active deficits.</p>
               <div
                 class="bg-slate-50 rounded-xl p-4 text-center text-slate-800 text-sm font-bold uppercase tracking-wide">
                 Avg. 450 Kcal • 45% P • 25% C • 30% F
               </div>
             </div>
-            <button onclick="switchPage('plans')"
-              class="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold uppercase rounded-lg transition-all mt-2">Choose
-              Goal</button>
+            <a href="plans.html"
+              class="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold uppercase rounded-lg transition-all mt-2 text-center inline-block">Choose Goal</a>
           </div>
           <!-- Card B -->
           <div
             class="bg-white rounded-2xl border-2 border-purple-500 p-8 flex flex-col justify-between space-y-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative shadow-lg shadow-purple-50">
             <span
-              class="absolute -top-3.5 left-4 px-3 py-1 bg-purple-600 text-white text-xs font-bold uppercase rounded-full border border-purple-500 tracking-wider">Popular
-              Choice</span>
+              class="absolute -top-3.5 left-4 px-3 py-1 bg-purple-600 text-white text-xs font-bold uppercase rounded-full border border-purple-500 tracking-wider">Popular Choice</span>
             <div class="space-y-4">
               <span
-                class="text-xs font-bold text-purple-700 bg-purple-50 border border-purple-100 px-3.5 py-1.5 rounded-full inline-block uppercase tracking-wider font-bold">Active
-                Panther</span>
-              <p class="text-sm text-slate-500 leading-relaxed">Maintenance & vitality focus. Complex carbohydrates
-                matched to steady all-day work energy.</p>
+                class="text-xs font-bold text-purple-700 bg-purple-50 border border-purple-100 px-3.5 py-1.5 rounded-full inline-block uppercase tracking-wider font-bold">Active Panther</span>
+              <p class="text-sm text-slate-505 leading-relaxed">Maintenance & vitality focus. Complex carbohydrates matched to steady all-day work energy.</p>
               <div
                 class="bg-purple-50/50 rounded-xl p-4 text-center text-purple-900 text-sm font-bold uppercase tracking-wide">
                 Avg. 600 Kcal • 35% P • 40% C • 25% F
               </div>
             </div>
-            <button onclick="switchPage('plans')"
-              class="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold uppercase rounded-lg transition-all mt-2">Choose
-              Goal</button>
+            <a href="plans.html"
+              class="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold uppercase rounded-lg transition-all mt-2 text-center inline-block">Choose Goal</a>
           </div>
           <!-- Card C -->
           <div
             class="bg-white rounded-2xl border border-slate-100 p-8 flex flex-col justify-between space-y-5 hover:shadow-lg hover:border-purple-100/50 hover:-translate-y-1 transition-all duration-300">
             <div class="space-y-4">
               <span
-                class="text-xs font-bold text-purple-700 bg-purple-50 border border-purple-100 px-3.5 py-1.5 rounded-full inline-block uppercase tracking-wider">Champion
-                Panther</span>
-              <p class="text-sm text-slate-500 leading-relaxed">Athletic muscle gain focus. Energy-dense, clean grains
-                and heavy protein cuts to support hypertrophy.</p>
+                class="text-xs font-bold text-purple-700 bg-purple-50 border border-purple-100 px-3.5 py-1.5 rounded-full inline-block uppercase tracking-wider font-bold">Champion Panther</span>
+              <p class="text-sm text-slate-500 leading-relaxed">Athletic muscle gain focus. Energy-dense, clean grains and heavy protein cuts to support hypertrophy.</p>
               <div
                 class="bg-slate-50 rounded-xl p-4 text-center text-slate-800 text-sm font-bold uppercase tracking-wide">
                 Avg. 800 Kcal • 35% P • 45% C • 20% F
               </div>
             </div>
-            <button onclick="switchPage('plans')"
-              class="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold uppercase rounded-lg transition-all mt-2">Choose
-              Goal</button>
+            <a href="plans.html"
+              class="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold uppercase rounded-lg transition-all mt-2 text-center inline-block">Choose Goal</a>
           </div>
         </div>
       </div>
 
-      <!-- Section: Why Choose FitPanther (4 clean props) -->
+      <!-- Section: Why Choose FitPanther -->
       <div
         class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 space-y-8 shadow-sm hover:border-purple-50 hover:shadow-md transition-all duration-300">
         <div class="text-center">
@@ -534,31 +473,27 @@
           <div class="space-y-2 p-2">
             <span class="material-symbols-outlined text-purple-600 text-4xl">soup_kitchen</span>
             <h4 class="font-bold text-base text-slate-800 uppercase">100% Freshly Cooked</h4>
-            <p class="text-sm text-slate-405 leading-relaxed">Never frozen. Prepared using raw ingredients,
-              vacuum-sealed to preserve nutrients.</p>
+            <p class="text-sm text-slate-400 leading-relaxed">Never frozen. Prepared using raw ingredients, vacuum-sealed to preserve nutrients.</p>
           </div>
           <div class="space-y-2 p-2">
             <span class="material-symbols-outlined text-purple-600 text-4xl">verified</span>
             <h4 class="font-bold text-base text-slate-800 uppercase">Dietitian Balanced</h4>
-            <p class="text-sm text-slate-405 leading-relaxed">All portions weight-audited to match clinical nutrition
-              targets accurately.</p>
+            <p class="text-sm text-slate-400 leading-relaxed">All portions weight-audited to match clinical nutrition targets accurately.</p>
           </div>
           <div class="space-y-2 p-2">
             <span class="material-symbols-outlined text-purple-600 text-4xl">eco</span>
             <h4 class="font-bold text-base text-slate-800 uppercase">Organic & Clean</h4>
-            <p class="text-sm text-slate-405 leading-relaxed">Zero artificial preservatives, additives, or refined
-              sugars. Pure fueling only.</p>
+            <p class="text-sm text-slate-400 leading-relaxed">Zero artificial preservatives, additives, or refined sugars. Pure fueling only.</p>
           </div>
           <div class="space-y-2 p-2">
             <span class="material-symbols-outlined text-purple-600 text-4xl">event_repeat</span>
             <h4 class="font-bold text-base text-slate-800 uppercase">Cancel Anytime</h4>
-            <p class="text-sm text-slate-405 leading-relaxed">Complete control. Pause, skip weeks, or swap dishes via
-              dashboard or WhatsApp.</p>
+            <p class="text-sm text-slate-400 leading-relaxed">Complete control. Pause, skip weeks, or swap dishes via dashboard or WhatsApp.</p>
           </div>
         </div>
       </div>
 
-      <!-- Section: Crave Menu Gallery (6 Dish Cards) -->
+      <!-- Section: Crave Menu Gallery -->
       <div
         class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 space-y-6 shadow-sm hover:border-purple-50 hover:shadow-md transition-all duration-300">
         <div class="text-center space-y-2">
@@ -573,8 +508,7 @@
             <span class="material-symbols-outlined text-purple-600 text-4xl">restaurant</span>
             <div class="mt-4">
               <h5 class="font-bold text-base uppercase text-slate-900">Royal Flank Steak</h5>
-              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">610
-                Cal</span>
+              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">610 Cal</span>
             </div>
           </div>
           <!-- Dish 2 -->
@@ -583,8 +517,7 @@
             <span class="material-symbols-outlined text-purple-600 text-4xl">flatware</span>
             <div class="mt-4">
               <h5 class="font-bold text-base uppercase text-slate-900">Lavender Salmon</h5>
-              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">520
-                Cal</span>
+              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">520 Cal</span>
             </div>
           </div>
           <!-- Dish 3 -->
@@ -593,8 +526,7 @@
             <span class="material-symbols-outlined text-purple-600 text-4xl">eco</span>
             <div class="mt-4">
               <h5 class="font-bold text-base uppercase text-slate-900">Sesame Veggie Bowl</h5>
-              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">410
-                Cal</span>
+              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">410 Cal</span>
             </div>
           </div>
           <!-- Dish 4 -->
@@ -603,8 +535,7 @@
             <span class="material-symbols-outlined text-purple-600 text-4xl">dinner_dining</span>
             <div class="mt-4">
               <h5 class="font-bold text-base uppercase text-slate-900">Wild Rice Chicken</h5>
-              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">495
-                Cal</span>
+              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">495 Cal</span>
             </div>
           </div>
           <!-- Dish 5 -->
@@ -613,8 +544,7 @@
             <span class="material-symbols-outlined text-purple-600 text-4xl">lunch_dining</span>
             <div class="mt-4">
               <h5 class="font-bold text-base uppercase text-slate-900">Lean Turkey Burger</h5>
-              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">540
-                Cal</span>
+              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">540 Cal</span>
             </div>
           </div>
           <!-- Dish 6 -->
@@ -623,8 +553,7 @@
             <span class="material-symbols-outlined text-purple-600 text-4xl">water_drop</span>
             <div class="mt-4">
               <h5 class="font-bold text-base uppercase text-slate-900">Amethyst Shake</h5>
-              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">320
-                Cal</span>
+              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">320 Cal</span>
             </div>
           </div>
         </div>
@@ -654,28 +583,22 @@
             <div
               class="bg-white rounded-xl border border-slate-150 p-5 space-y-3 shadow-sm hover:shadow-md transition-all">
               <span class="text-yellow-400 text-sm">★★★★★</span>
-              <p class="text-sm text-slate-500 italic leading-relaxed">"The portion control was exactly what I needed.
-                Shredded 15 lbs in 8 weeks."</p>
-              <h6 class="font-bold text-xs uppercase text-slate-800 pt-2 border-t border-slate-100">Elena R. — Software
-                Eng</h6>
+              <p class="text-sm text-slate-500 italic leading-relaxed">"The portion control was exactly what I needed. Shredded 15 lbs in 8 weeks."</p>
+              <h6 class="font-bold text-xs uppercase text-slate-800 pt-2 border-t border-slate-100">Elena R. — Software Eng</h6>
             </div>
             <!-- Review 2 -->
             <div
               class="bg-white rounded-xl border border-slate-150 p-5 space-y-3 shadow-sm hover:shadow-md transition-all">
               <span class="text-yellow-400 text-sm">★★★★★</span>
-              <p class="text-sm text-slate-500 italic leading-relaxed">"Saving 10+ hours of cooking weekly. The steak
-                cuts are incredibly moist."</p>
-              <h6 class="font-bold text-xs uppercase text-slate-800 pt-2 border-t border-slate-100">Marcus T. — Trainer
-              </h6>
+              <p class="text-sm text-slate-500 italic leading-relaxed">"Saving 10+ hours of cooking weekly. The steak cuts are incredibly moist."</p>
+              <h6 class="font-bold text-xs uppercase text-slate-800 pt-2 border-t border-slate-100">Marcus T. — Trainer</h6>
             </div>
             <!-- Review 3 -->
             <div
               class="bg-white rounded-xl border border-slate-150 p-5 space-y-3 shadow-sm hover:shadow-md transition-all">
               <span class="text-yellow-400 text-sm">★★★★★</span>
-              <p class="text-sm text-slate-500 italic leading-relaxed">"Cleanest clinical macros I've found. Perfect for
-                athletes and doctors."</p>
-              <h6 class="font-bold text-xs uppercase text-slate-800 pt-2 border-t border-slate-100">Dr. David L. —
-                Cardiologist</h6>
+              <p class="text-sm text-slate-500 italic leading-relaxed">"Cleanest clinical macros I've found. Perfect for athletes and doctors."</p>
+              <h6 class="font-bold text-xs uppercase text-slate-800 pt-2 border-t border-slate-100">Dr. David L. — Cardiologist</h6>
             </div>
           </div>
         </div>
@@ -688,15 +611,13 @@
           <div class="space-y-2">
             <h4 class="font-bold text-sm sm:text-base text-slate-800 uppercase">Chef Sophia & Nutritionist David</h4>
             <p class="text-sm text-slate-505 leading-relaxed">
-              We co-founded FitPanther with one strict goal: healthy meal prep should never taste bland. We prepare
-              foods using culinary techniques that seal in tenderness.
+              We co-founded FitPanther with one strict goal: healthy meal prep should never taste bland. We prepare foods using culinary techniques that seal in tenderness.
             </p>
           </div>
           <div class="space-y-2">
             <h4 class="font-bold text-sm sm:text-base text-slate-800 uppercase">5-Day Trial Available</h4>
             <p class="text-sm text-slate-505 leading-relaxed">
-              Test out our weekly rotation. Includes lunch & dinner Monday to Friday. Cancel or skip anytime before
-              cutoff.
+              Test out our weekly rotation. Includes lunch & dinner Monday to Friday. Cancel or skip anytime before cutoff.
             </p>
           </div>
           <div class="space-y-2">
@@ -708,7 +629,7 @@
         </div>
       </div>
 
-      <!-- Section: FAQ & Open Consultation Calculator Form (FAQ Left, Open Form Right) -->
+      <!-- Section: FAQ & Open Consultation Calculator Form -->
       <div
         class="bg-white rounded-3xl border border-slate-100 p-6 md:p-10 space-y-6 shadow-sm hover:border-purple-100/50 transition-all duration-300">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -725,99 +646,91 @@
               <!-- Q1 -->
               <div>
                 <button onclick="toggleFaq(1)"
-                  class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
+                   class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
                   <span>How is food packaged & delivered?</span>
                   <span id="faq-icon-1" class="text-purple-600 font-bold text-base">+</span>
                 </button>
                 <div id="faq-ans-1" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-500 leading-relaxed">
-                  Meals are flash-cooled, portioned, vacuum-sealed in clean, BPA-free trays, and delivered in insulated
-                  cooler bags with gel ice packs.
+                  Meals are flash-cooled, portioned, vacuum-sealed in clean, BPA-free trays, and delivered in insulated cooler bags with gel ice packs.
                 </div>
               </div>
               <!-- Q2 -->
               <div>
                 <button onclick="toggleFaq(2)"
-                  class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
+                   class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
                   <span>Can I request custom exclusions?</span>
                   <span id="faq-icon-2" class="text-purple-600 font-bold text-base">+</span>
                 </button>
-                <div id="faq-ans-2" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-500 leading-relaxed">
-                  Yes, you can configure exclusions (e.g. wheat-free, dairy-free) during sign-up and swap dishes in your
-                  portal before Thursday midnight.
+                <div id="faq-ans-2" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-505 leading-relaxed">
+                  Yes, you can configure exclusions (e.g. wheat-free, dairy-free) during sign-up and swap dishes in your portal before Thursday midnight.
                 </div>
               </div>
               <!-- Q3 -->
               <div>
                 <button onclick="toggleFaq(3)"
-                  class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
+                   class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
                   <span>Can I pause or cancel my subscription?</span>
                   <span id="faq-icon-3" class="text-purple-600 font-bold text-base">+</span>
                 </button>
-                <div id="faq-ans-3" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-500 leading-relaxed">
-                  Absolutely. You can pause, resume, or cancel your subscription at any time directly through your
-                  portal or by texting our WhatsApp support before the weekly cutoff (Thursday midnight).
+                <div id="faq-ans-3" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-505 leading-relaxed">
+                  Absolutely. You can pause, resume, or cancel your subscription at any time directly through your portal or by texting our WhatsApp support before the weekly cutoff (Thursday midnight).
                 </div>
               </div>
               <!-- Q4 -->
               <div>
                 <button onclick="toggleFaq(4)"
-                  class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
+                   class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
                   <span>How do I heat the meals?</span>
                   <span id="faq-icon-4" class="text-purple-600 font-bold text-base">+</span>
                 </button>
-                <div id="faq-ans-4" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-500 leading-relaxed">
-                  Simply pierce the top film layer and microwave for 2 minutes on high, or transfer the food to a pan
-                  and heat on a stovetop until hot.
+                <div id="faq-ans-4" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-505 leading-relaxed">
+                  Simply pierce the top film layer and microwave for 2 minutes on high, or transfer the food to a pan and heat on a stovetop until hot.
                 </div>
               </div>
               <!-- Q5 -->
               <div>
                 <button onclick="toggleFaq(5)"
-                  class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
+                   class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
                   <span>Where do you source your ingredients?</span>
                   <span id="faq-icon-5" class="text-purple-600 font-bold text-base">+</span>
                 </button>
-                <div id="faq-ans-5" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-500 leading-relaxed">
-                  We source all vegetables daily from local organic farms, and use premium lean antibiotic-free meats.
-                  We use cold-pressed oils and zero refined sugars.
+                <div id="faq-ans-5" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-505 leading-relaxed">
+                  We source all vegetables daily from local organic farms, and use premium lean antibiotic-free meats. We use cold-pressed oils and zero refined sugars.
                 </div>
               </div>
               <!-- Q6 -->
               <div>
                 <button onclick="toggleFaq(6)"
-                  class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
+                   class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
                   <span>Do the meals come with nutrition labels?</span>
                   <span id="faq-icon-6" class="text-purple-600 font-bold text-base">+</span>
                 </button>
-                <div id="faq-ans-6" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-500 leading-relaxed">
-                  Yes, every single tray has a detailed nutrition label indicating the exact weight, calorie count, and
-                  breakdown of protein, carbohydrates, and fats.
+                <div id="faq-ans-6" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-505 leading-relaxed">
+                  Yes, every single tray has a detailed nutrition label indicating the exact weight, calorie count, and breakdown of protein, carbohydrates, and fats.
                 </div>
               </div>
               <!-- Q7 -->
               <div>
                 <button onclick="toggleFaq(7)"
-                  class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
+                   class="w-full p-4 font-bold text-xs sm:text-sm uppercase flex justify-between items-center text-slate-800 hover:bg-slate-50 transition-all focus:outline-none">
                   <span>Is there a delivery fee?</span>
                   <span id="faq-icon-7" class="text-purple-600 font-bold text-base">+</span>
                 </button>
-                <div id="faq-ans-7" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-500 leading-relaxed">
-                  No, we provide free chilled contact-less delivery for all weekly subscription plans within our active
-                  service radius.
+                <div id="faq-ans-7" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-550 leading-relaxed">
+                  No, we provide free chilled contact-less delivery for all weekly subscription plans within our active service radius.
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Open Form column right (Basics -> Choose Goal -> Calculated Macros Form) -->
+          <!-- Open Form column right -->
           <div
             class="bg-slate-50/50 rounded-3xl border border-slate-100 shadow-lg p-6 md:p-8 space-y-6 relative overflow-hidden">
 
             <!-- Step 1: Let's Start with the Basics -->
             <div id="calc-step-1" class="space-y-6">
               <div class="space-y-1">
-                <span class="text-[9px] text-purple-600 font-bold uppercase tracking-widest block">Interactive
-                  Calculator</span>
+                <span class="text-[9px] text-purple-600 font-bold uppercase tracking-widest block">Interactive Calculator</span>
                 <h3 class="font-extrabold text-xl text-slate-900 uppercase">Let's Start with the Basics</h3>
               </div>
 
@@ -860,10 +773,9 @@
             <!-- Step 2: Choose Your Goal -->
             <div id="calc-step-2" class="hidden space-y-6">
               <div class="space-y-1">
-                <span class="text-[9px] text-purple-600 font-bold uppercase tracking-widest block">Interactive
-                  Calculator</span>
+                <span class="text-[9px] text-purple-600 font-bold uppercase tracking-widest block">Interactive Calculator</span>
                 <h3 class="font-extrabold text-xl text-slate-900 uppercase">Choose Your Goal</h3>
-                <p class="text-xs text-slate-500">Select a primary target for your personalized nutrition portions.</p>
+                <p class="text-xs text-slate-505">Select a primary target for your personalized nutrition portions.</p>
               </div>
 
               <form id="home-calc-form-2" class="space-y-4" onsubmit="calculateMacrosFinal(event)">
@@ -913,7 +825,7 @@
 
                 <div class="flex gap-3 mt-4">
                   <button type="button" onclick="backToStep1()"
-                    class="px-4 py-3 border border-slate-200 text-slate-500 hover:bg-slate-50 text-xs sm:text-sm font-bold rounded-lg transition-all bg-white shadow-sm">
+                    class="px-4 py-3 border border-slate-200 text-slate-505 hover:bg-slate-50 text-xs sm:text-sm font-bold rounded-lg transition-all bg-white shadow-sm">
                     Back
                   </button>
                   <button type="submit"
@@ -927,10 +839,9 @@
             <!-- Step 3: Results Display -->
             <div id="calc-step-results" class="hidden space-y-6">
               <div class="space-y-1">
-                <span class="text-[9px] text-purple-600 font-bold uppercase tracking-widest block">Interactive
-                  Calculator</span>
+                <span class="text-[9px] text-purple-600 font-bold uppercase tracking-widest block">Interactive Calculator</span>
                 <h3 class="font-extrabold text-xl text-slate-900 uppercase">Your Macro Targets</h3>
-                <p class="text-xs text-slate-500">Recommended nutrition program for <span id="res-user-name"
+                <p class="text-xs text-slate-505">Recommended nutrition program for <span id="res-user-name"
                     class="font-semibold text-purple-600 underline">Sarah</span>.</p>
               </div>
 
@@ -943,8 +854,7 @@
 
                 <div class="grid grid-cols-3 gap-3 border-y border-purple-200/50 py-3.5 text-center">
                   <div>
-                    <span class="block text-sm sm:text-base font-extrabold text-purple-900" id="res-calories">1,450
-                      kcal</span>
+                    <span class="block text-sm sm:text-base font-extrabold text-purple-900" id="res-calories">1,450 kcal</span>
                     <span class="text-[9px] text-purple-500 uppercase font-bold tracking-wide">Daily Calories</span>
                   </div>
                   <div>
@@ -958,11 +868,10 @@
                 </div>
 
                 <p class="text-xs text-purple-900 leading-relaxed">
-                  We recommend the <strong id="res-plan-name" class="font-bold">Lean Panther Subscription</strong> to
-                  hit these metrics.
+                  We recommend the <strong id="res-plan-name" class="font-bold">Lean Panther Subscription</strong> to hit these metrics.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-3 pt-1">
-                  <button onclick="switchPage('plans')"
+                  <button onclick="window.location.href='plans.html'"
                     class="flex-grow py-2.5 bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold uppercase rounded-lg text-center transition-all">
                     Choose Plan & Subscribe
                   </button>
@@ -982,441 +891,15 @@
       <!-- Section: Bottom CTA Banner -->
       <div class="bg-purple-900 text-white rounded-3xl p-8 md:p-12 text-center space-y-5 shadow-lg">
         <h3 class="font-extrabold text-3xl uppercase tracking-tight">Stop Prepping. Start Elevating.</h3>
-        <p class="text-sm text-purple-200 max-w-md mx-auto leading-relaxed">Subscribe today. Premium gourmet portions
-          portioned precisely for your macro metrics.</p>
+        <p class="text-sm text-purple-200 max-w-md mx-auto leading-relaxed">Subscribe today. Premium gourmet portions portioned precisely for your macro metrics.</p>
         <div class="flex justify-center gap-4 pt-2">
-          <button onclick="switchPage('plans')"
-            class="px-6 py-3 bg-white text-purple-950 text-sm font-bold uppercase rounded-lg shadow transition-all hover:scale-[1.02]">Select
-            Plan</button>
-          <button onclick="switchPage('contact')"
-            class="px-6 py-3 border border-white/20 text-white text-sm font-bold uppercase rounded-lg hover:bg-white/10 transition-all hover:scale-[1.02]">Inquire</button>
+          <a href="plans.html"
+            class="px-6 py-3 bg-white text-purple-950 text-sm font-bold uppercase rounded-lg shadow transition-all hover:scale-[1.02] text-center inline-block">Select Plan</a>
+          <a href="contact.html"
+            class="px-6 py-3 border border-white/20 text-white text-sm font-bold uppercase rounded-lg hover:bg-white/10 transition-all hover:scale-[1.02] text-center inline-block">Inquire</a>
         </div>
       </div>
 
-    </div>
-
-    <!-- PAGE 2: PLANS LAYOUT -->
-    <div id="page-plans" class="page-container hidden space-y-12">
-
-      <div class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 text-center space-y-2 shadow-sm">
-        <span class="text-[10px] text-purple-600 font-bold uppercase tracking-widest">Pricing</span>
-        <h2 class="text-3xl font-extrabold uppercase text-slate-900">Portioned Program Matrix</h2>
-      </div>
-
-      <!-- Matrix Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Plan A -->
-        <div
-          class="bg-white rounded-2xl border border-slate-150 p-6 space-y-4 flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
-          <div class="space-y-4">
-            <span class="text-xs uppercase border border-slate-200 px-2 py-0.5 rounded font-bold text-slate-400">1 Meal
-              / Day</span>
-            <h3 class="font-bold text-lg md:text-xl text-slate-900 uppercase">Active Panther</h3>
-            <div class="text-xl md:text-2xl font-extrabold text-purple-600">₹1,499<span
-                class="text-xs text-slate-400 font-normal"> / week</span></div>
-            <ul class="space-y-2 text-sm text-slate-500 pt-3 border-t border-slate-100 leading-relaxed">
-              <li>• 5 fresh dietitian-approved meals</li>
-              <li>• Custom recipe selections weekly</li>
-            </ul>
-          </div>
-          <button onclick="switchPage('contact')"
-            class="w-full py-3 bg-slate-900 hover:bg-black text-white text-sm font-bold uppercase rounded-lg transition-all shadow-md">Subscribe</button>
-        </div>
-
-        <!-- Plan B -->
-        <div
-          class="bg-white rounded-2xl border-2 border-purple-500 p-6 space-y-4 flex flex-col justify-between relative shadow-lg shadow-purple-50">
-          <span
-            class="absolute -top-3.5 left-4 px-2.5 py-0.5 bg-purple-600 text-white text-xs font-bold uppercase rounded-full border border-purple-500">Best
-            Value</span>
-          <div class="space-y-4">
-            <span
-              class="text-xs uppercase border border-purple-200 px-2 py-0.5 rounded font-bold text-purple-600 bg-purple-50">2
-              Meals / Day</span>
-            <h3 class="font-bold text-lg md:text-xl text-slate-900 uppercase">Elite Panther</h3>
-            <div class="text-xl md:text-2xl font-extrabold text-purple-600">₹2,899<span
-                class="text-xs text-slate-400 font-normal"> / week</span></div>
-            <ul class="space-y-2 text-sm text-slate-500 pt-3 border-t border-slate-100 leading-relaxed">
-              <li>• 10 fresh dietitian-approved meals</li>
-              <li>• Weight-matched macro profiling</li>
-            </ul>
-          </div>
-          <button onclick="switchPage('contact')"
-            class="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold uppercase rounded-lg transition-all shadow-lg">Subscribe</button>
-        </div>
-
-        <!-- Plan C -->
-        <div
-          class="bg-white rounded-2xl border border-slate-150 p-6 space-y-4 flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
-          <div class="space-y-4">
-            <span class="text-xs uppercase border border-slate-200 px-2 py-0.5 rounded font-bold text-slate-400">3 Meals
-              / Day</span>
-            <h3 class="font-bold text-lg md:text-xl text-slate-900 uppercase">Champion Panther</h3>
-            <div class="text-xl md:text-2xl font-extrabold text-purple-600">₹3,999<span
-                class="text-xs text-slate-400 font-normal"> / week</span></div>
-            <ul class="space-y-2 text-sm text-slate-500 pt-3 border-t border-slate-100 leading-relaxed">
-              <li>• 15 fresh dietitian-approved meals</li>
-              <li>• 1-on-1 WhatsApp Dietitian hotline</li>
-            </ul>
-          </div>
-          <button onclick="switchPage('contact')"
-            class="w-full py-3 bg-slate-900 hover:bg-black text-white text-sm font-bold uppercase rounded-lg transition-all shadow-md">Subscribe</button>
-        </div>
-      </div>
-
-      <!-- Plan Feature Comparison Table -->
-      <div class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 space-y-4 shadow-sm">
-        <h3 class="font-bold text-lg uppercase text-slate-800">Feature Matrix</h3>
-        <div class="overflow-x-auto">
-          <table class="w-full border-collapse border border-slate-150 text-left text-sm">
-            <thead>
-              <tr class="bg-slate-50 border-b border-slate-200">
-                <th class="p-3.5 font-bold uppercase text-slate-600">Feature</th>
-                <th class="p-3.5 font-bold uppercase text-slate-600 text-center">Active</th>
-                <th class="p-3.5 font-bold uppercase text-slate-600 text-center">Elite</th>
-                <th class="p-3.5 font-bold uppercase text-slate-600 text-center">Champion</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100">
-              <tr>
-                <td class="p-3.5 font-semibold text-slate-700">Custom Meal Portal</td>
-                <td class="p-3.5 text-center text-purple-600 font-bold">✔</td>
-                <td class="p-3.5 text-center text-purple-600 font-bold">✔</td>
-                <td class="p-3.5 text-center text-purple-600 font-bold">✔</td>
-              </tr>
-              <tr>
-                <td class="p-3.5 font-semibold text-slate-700">Allergen Exclusions</td>
-                <td class="p-3.5 text-center text-slate-600">Up to 2</td>
-                <td class="p-3.5 text-center text-slate-600">Unlimited</td>
-                <td class="p-3.5 text-center text-slate-600">Unlimited</td>
-              </tr>
-              <tr>
-                <td class="p-3.5 font-semibold text-slate-700">Weight-Matched Portioning</td>
-                <td class="p-3.5 text-center text-slate-405">✕</td>
-                <td class="p-3.5 text-center text-purple-600 font-bold">✔</td>
-                <td class="p-3.5 text-center text-purple-600 font-bold">✔</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <!-- PAGE 3: MENU LAYOUT -->
-    <div id="page-menu" class="page-container hidden space-y-12">
-
-      <div class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 text-center space-y-2 shadow-sm">
-        <span class="text-[10px] text-purple-600 font-bold uppercase tracking-widest">Rotating Schedule</span>
-        <h2 class="text-3xl font-extrabold uppercase text-slate-900">Current Week Recipes</h2>
-      </div>
-
-      <!-- Weekly Schedule Day Picker -->
-      <div class="flex flex-wrap gap-2.5 justify-center border-b border-slate-100 pb-4">
-        <span
-          class="px-4 py-2 bg-purple-600 text-white text-sm font-bold uppercase rounded-full cursor-pointer shadow">Mon</span>
-        <span
-          class="px-4 py-2 border border-slate-200 text-slate-500 hover:text-slate-900 hover:bg-slate-50 text-sm font-bold uppercase rounded-full cursor-pointer bg-white transition-all">Tue</span>
-        <span
-          class="px-4 py-2 border border-slate-200 text-slate-500 hover:text-slate-900 hover:bg-slate-50 text-sm font-bold uppercase rounded-full cursor-pointer bg-white transition-all">Wed</span>
-        <span
-          class="px-4 py-2 border border-slate-200 text-slate-500 hover:text-slate-900 hover:bg-slate-50 text-sm font-bold uppercase rounded-full cursor-pointer bg-white transition-all">Thu</span>
-        <span
-          class="px-4 py-2 border border-slate-200 text-slate-500 hover:text-slate-900 hover:bg-slate-50 text-sm font-bold uppercase rounded-full cursor-pointer bg-white transition-all">Fri</span>
-      </div>
-
-      <!-- Category Filter layout -->
-      <div class="flex justify-center gap-6 text-sm font-bold border-b border-slate-100 pb-3">
-        <span class="text-purple-600 border-b-2 border-purple-600 pb-1.5 cursor-pointer uppercase">All Protein
-          Dishes</span>
-        <span class="text-slate-400 hover:text-slate-700 cursor-pointer uppercase">Vegetarian</span>
-        <span class="text-slate-400 hover:text-slate-700 cursor-pointer uppercase">Keto</span>
-      </div>
-
-      <!-- 8 Food items grid layout -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <!-- Meal item 1 -->
-        <div
-          class="bg-white rounded-2xl border border-slate-100 p-5 space-y-4 flex flex-col justify-between hover:shadow-md transition-all">
-          <div class="space-y-3">
-            <span class="material-symbols-outlined text-purple-600 text-4xl">restaurant</span>
-            <div class="flex justify-between items-center pt-2">
-              <h4 class="font-bold text-base text-slate-900 uppercase">Garlic Flank Steak</h4>
-              <span
-                class="text-sm font-bold border border-purple-200 px-2 py-0.5 rounded bg-purple-50 text-purple-700">610
-                Cal</span>
-            </div>
-            <p class="text-sm text-slate-500 leading-relaxed">Steak slices served over purple-skin mash and roasted
-              green asparagus.</p>
-          </div>
-          <!-- Custom Macro graphs -->
-          <div class="space-y-2 pt-3 border-t border-slate-100">
-            <div class="flex items-center justify-between text-xs font-bold text-slate-400"><span>P: 42g</span>
-              <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                <div class="h-full bg-purple-600" style="width: 84%"></div>
-              </div>
-            </div>
-            <div class="flex items-center justify-between text-xs font-bold text-slate-400"><span>C: 30g</span>
-              <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                <div class="h-full bg-indigo-500" style="width: 50%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Meal item 2 -->
-        <div
-          class="bg-white rounded-2xl border border-slate-100 p-5 space-y-4 flex flex-col justify-between hover:shadow-md transition-all">
-          <div class="space-y-3">
-            <span class="material-symbols-outlined text-purple-600 text-4xl">flatware</span>
-            <div class="flex justify-between items-center pt-2">
-              <h4 class="font-bold text-base text-slate-900 uppercase">Glazed Salmon</h4>
-              <span
-                class="text-sm font-bold border border-purple-200 px-2 py-0.5 rounded bg-purple-50 text-purple-700">520
-                Cal</span>
-            </div>
-            <p class="text-sm text-slate-500 leading-relaxed">Wild salmon baked with wild purple-skin carrots & red
-              quinoa.</p>
-          </div>
-          <div class="space-y-2 pt-3 border-t border-slate-100">
-            <div class="flex items-center justify-between text-xs font-bold text-slate-400"><span>P: 38g</span>
-              <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                <div class="h-full bg-purple-600" style="width: 76%"></div>
-              </div>
-            </div>
-            <div class="flex items-center justify-between text-xs font-bold text-slate-400"><span>C: 32g</span>
-              <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                <div class="h-full bg-indigo-500" style="width: 55%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Meal item 3 -->
-        <div
-          class="bg-white rounded-2xl border border-slate-100 p-5 space-y-4 flex flex-col justify-between hover:shadow-md transition-all">
-          <div class="space-y-3">
-            <span class="material-symbols-outlined text-purple-600 text-4xl">eco</span>
-            <div class="flex justify-between items-center pt-2">
-              <h4 class="font-bold text-base text-slate-900 uppercase">Sesame Tofu Bowl</h4>
-              <span
-                class="text-sm font-bold border border-purple-200 px-2 py-0.5 rounded bg-purple-50 text-purple-700">410
-                Cal</span>
-            </div>
-            <p class="text-sm text-slate-500 leading-relaxed">Crisp sesame tofu cubes over organic quinoa and purple
-              cabbage slaw.</p>
-          </div>
-          <div class="space-y-2 pt-3 border-t border-slate-100">
-            <div class="flex items-center justify-between text-xs font-bold text-slate-400"><span>P: 24g</span>
-              <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                <div class="h-full bg-purple-600" style="width: 48%"></div>
-              </div>
-            </div>
-            <div class="flex items-center justify-between text-xs font-bold text-slate-400"><span>C: 48g</span>
-              <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                <div class="h-full bg-indigo-500" style="width: 80%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Meal item 4 -->
-        <div
-          class="bg-white rounded-2xl border border-slate-100 p-5 space-y-4 flex flex-col justify-between hover:shadow-md transition-all">
-          <div class="space-y-3">
-            <span class="material-symbols-outlined text-purple-600 text-4xl">dinner_dining</span>
-            <div class="flex justify-between items-center pt-2">
-              <h4 class="font-bold text-base text-slate-900 uppercase">Chicken Wild Rice</h4>
-              <span
-                class="text-sm font-bold border border-purple-200 px-2 py-0.5 rounded bg-purple-50 text-purple-700">495
-                Cal</span>
-            </div>
-            <p class="text-sm text-slate-500 leading-relaxed">Chicken breast slices with steamed broccoli cuts and wild
-              black rice.</p>
-          </div>
-          <div class="space-y-2 pt-3 border-t border-slate-100">
-            <div class="flex items-center justify-between text-xs font-bold text-slate-400"><span>P: 44g</span>
-              <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                <div class="h-full bg-purple-600" style="width: 88%"></div>
-              </div>
-            </div>
-            <div class="flex items-center justify-between text-xs font-bold text-slate-400"><span>C: 28g</span>
-              <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                <div class="h-full bg-indigo-500" style="width: 46%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- PAGE 4: RESULTS LAYOUT -->
-    <div id="page-results" class="page-container hidden space-y-12">
-
-      <div class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 text-center space-y-2 shadow-sm">
-        <span class="text-[10px] text-purple-600 font-bold uppercase tracking-widest">Transformations</span>
-        <h2 class="text-3xl font-extrabold uppercase text-slate-900">Success Stories</h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div
-          class="bg-white rounded-2xl border border-slate-100 p-6 space-y-5 hover:shadow-sm transition-all shadow-sm">
-          <div class="grid grid-cols-2 gap-4 text-center">
-            <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl shadow-inner">
-              <span class="text-[10px] text-slate-400 font-bold block">WEEK 1</span>
-              <span class="text-2xl md:text-3xl font-extrabold text-slate-800">195 lbs</span>
-            </div>
-            <div class="p-4 bg-purple-50 border border-purple-100 rounded-xl shadow-inner">
-              <span class="text-[10px] text-purple-700 font-bold block">WEEK 8</span>
-              <span class="text-2xl md:text-3xl font-extrabold text-purple-900">178 lbs</span>
-            </div>
-          </div>
-          <div class="pt-4 border-t border-slate-100">
-            <h4 class="font-bold text-base text-slate-900 uppercase">Alex M. — fat loss</h4>
-            <p class="text-sm text-slate-500 mt-2 leading-relaxed">"The portion control was exactly what I needed.
-              Weight slid off once nutrition was standardized."</p>
-          </div>
-        </div>
-
-        <div
-          class="bg-white rounded-2xl border border-slate-100 p-6 space-y-5 hover:shadow-sm transition-all shadow-sm">
-          <div class="grid grid-cols-2 gap-4 text-center">
-            <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl shadow-inner">
-              <span class="text-[10px] text-slate-400 font-bold block">WEEK 1</span>
-              <span class="text-2xl md:text-3xl font-extrabold text-slate-800">132 lbs</span>
-            </div>
-            <div class="p-4 bg-purple-50 border border-purple-100 rounded-xl shadow-inner">
-              <span class="text-[10px] text-purple-700 font-bold block">WEEK 12</span>
-              <span class="text-2xl md:text-3xl font-extrabold text-purple-900">143 lbs</span>
-            </div>
-          </div>
-          <div class="pt-4 border-t border-slate-100">
-            <h4 class="font-bold text-base text-slate-900 uppercase">Sarah J. — muscle build</h4>
-            <p class="text-sm text-slate-505 mt-2 leading-relaxed">"Flank steak and turkey burgers made it easy to fuel
-              intensive running workouts without bloating."</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- PAGE 5: BLOG LAYOUT -->
-    <div id="page-blog" class="page-container hidden space-y-12">
-
-      <div class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 text-center space-y-2 shadow-sm">
-        <span class="text-[10px] text-purple-600 font-bold uppercase tracking-widest">Library</span>
-        <h2 class="text-3xl font-extrabold uppercase text-slate-900">Nutrition Science</h2>
-      </div>
-
-      <div
-        class="bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-md transition-all space-y-4 cursor-pointer shadow-sm">
-        <span class="text-xs bg-purple-50 text-purple-700 px-3 py-1 rounded uppercase font-bold inline-block">Featured
-          Article</span>
-        <h3 class="font-bold text-xl text-slate-900 uppercase leading-snug">The Myth of Extreme Calorie Cuts</h3>
-        <p class="text-sm text-slate-505 leading-relaxed">Why starving deceleration blocks thyroid conversion, and how
-          moderate deficits yield optimal metrics without sluggish energy output.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white border border-slate-100 rounded-xl p-5 space-y-3 shadow-sm">
-          <span class="text-[10px] uppercase text-purple-600 font-extrabold">Sleep Science</span>
-          <h4 class="font-bold text-base text-slate-900 uppercase">How Rest Blocks Fat Growth</h4>
-          <p class="text-sm text-slate-500 leading-relaxed">Elevated cortisol from poor sleep cycles stops GH releases,
-            encouraging lipids tracking and sweet food cravings.</p>
-        </div>
-        <div class="bg-white border border-slate-100 rounded-xl p-5 space-y-3 shadow-sm">
-          <span class="text-[10px] uppercase text-purple-600 font-extrabold">Hydration</span>
-          <h4 class="font-bold text-base text-slate-900 uppercase">Electrolytes on Cardio Runs</h4>
-          <p class="text-sm text-slate-500 leading-relaxed">Sweating expels key sodium stores. Learn how cycling organic
-            sea salts protects cellular electrical output.</p>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- PAGE 6: CONTACT LAYOUT -->
-    <div id="page-contact" class="page-container hidden space-y-12">
-
-      <div class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 text-center space-y-2 shadow-sm">
-        <span class="text-[10px] text-purple-600 font-bold uppercase tracking-widest">Inquiries</span>
-        <h2 class="text-3xl font-extrabold uppercase text-slate-900">Inquiry & Order System</h2>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-
-        <!-- Form Left -->
-        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-100 p-6 md:p-8 space-y-6 shadow-sm">
-          <h3 class="font-bold text-base md:text-lg uppercase text-slate-800">Direct Message</h3>
-
-          <form class="space-y-4"
-            onsubmit="event.preventDefault(); alert('Message sent! Our support team will respond shortly.');">
-            <div class="space-y-1.5">
-              <label class="block text-xs font-bold uppercase text-slate-500 tracking-wider">Full Name</label>
-              <input required type="text" placeholder="Sarah Jenkins"
-                class="w-full h-11 px-4 rounded-lg border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white text-sm font-semibold">
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div class="space-y-1.5">
-                <label class="block text-xs font-bold uppercase text-slate-500 tracking-wider">Mobile Number</label>
-                <input required type="tel" placeholder="+1 (555) 019-2834"
-                  class="w-full h-11 px-4 rounded-lg border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white text-sm font-semibold">
-              </div>
-              <div class="space-y-1.5">
-                <label class="block text-xs font-bold uppercase text-slate-500 tracking-wider">Goal Target</label>
-                <select
-                  class="w-full h-11 px-3 rounded-lg border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white text-sm font-semibold">
-                  <option>Weight Loss / Fat Burn</option>
-                  <option>Lean Muscle Growth</option>
-                  <option>Clean Eating Habits</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="space-y-1.5">
-              <label class="block text-xs font-bold uppercase text-slate-500 tracking-wider">Message</label>
-              <textarea placeholder="e.g. Any customized dairy-free exclusions needed..."
-                class="w-full h-24 p-4 rounded-lg border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white text-sm font-semibold resize-none"></textarea>
-            </div>
-
-            <button
-              class="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold uppercase rounded-lg shadow transition-all h-11">Submit
-              Inquiry</button>
-          </form>
-        </div>
-
-        <!-- Info details right -->
-        <div class="lg:col-span-5 flex flex-col justify-between gap-6">
-          <div class="bg-white rounded-2xl border border-slate-100 p-6 space-y-6 shadow-sm">
-            <h3 class="font-bold text-base md:text-lg uppercase text-slate-800">Support Coordinates</h3>
-
-            <div class="space-y-4 text-sm font-semibold leading-relaxed">
-              <div class="border-b border-slate-100 pb-3">
-                <span class="block text-[10px] font-bold text-purple-500 uppercase tracking-widest mb-0.5">WhatsApp
-                  Order</span>
-                <span class="text-slate-900 text-base font-bold">+91 91765 43210</span>
-              </div>
-              <div class="border-b border-slate-100 pb-3">
-                <span class="block text-[10px] font-bold text-purple-500 uppercase tracking-widest mb-0.5">Email</span>
-                <span class="text-slate-900 text-base font-bold">nutrition@fitpanther.com</span>
-              </div>
-              <div>
-                <span class="block text-[10px] font-bold text-purple-500 uppercase tracking-widest mb-0.5">Kitchen
-                  Address</span>
-                <span class="text-slate-900 text-base font-bold">789 Perundurai Road, Erode, Tamil Nadu 638011</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-purple-50 border border-purple-100 rounded-2xl p-6 text-center shadow-inner">
-            <span class="material-symbols-outlined text-purple-600 text-3xl">pin_drop</span>
-            <h4 class="font-bold text-sm uppercase text-purple-900 mt-3">Delivery Radius Limit</h4>
-            <p class="text-sm text-purple-600 mt-2 leading-relaxed">We service a 20km coordinate radius surrounding
-              Erode kitchens.</p>
-          </div>
-        </div>
-
-      </div>
     </div>
 
   </main>
@@ -1432,13 +915,10 @@
           <span class="font-extrabold text-sm uppercase text-slate-900 tracking-wider">FitPanther</span>
         </div>
         <div class="flex flex-wrap justify-center gap-6 text-sm font-semibold text-slate-400">
-          <a href="#" onclick="switchPage('plans'); return false;"
-            class="hover:text-purple-600 transition-all">Pricing</a>
-          <a href="#" onclick="switchPage('menu'); return false;" class="hover:text-purple-600 transition-all">Menu</a>
-          <a href="#" onclick="switchPage('results'); return false;"
-            class="hover:text-purple-600 transition-all">Results</a>
-          <a href="#" onclick="switchPage('contact'); return false;"
-            class="hover:text-purple-600 transition-all">Contact</a>
+          <a href="plans.html" class="hover:text-purple-600 transition-all">Pricing</a>
+          <a href="menu.html" class="hover:text-purple-600 transition-all">Menu</a>
+          <a href="results.html" class="hover:text-purple-600 transition-all">Results</a>
+          <a href="contact.html" class="hover:text-purple-600 transition-all">Contact</a>
         </div>
       </div>
 
@@ -1449,7 +929,7 @@
           <a href="#" aria-label="Instagram" class="text-slate-400 hover:text-purple-600 transition-all">
             <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path
-                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051C.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051C.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.000 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
             </svg>
           </a>
           <a href="#" aria-label="Facebook" class="text-slate-400 hover:text-purple-600 transition-all">
@@ -1470,146 +950,10 @@
     </div>
   </footer>
 
-  <!-- Page switching & mobile scripts -->
-  <script>
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobile-menu');
-      const icon = document.getElementById('menu-btn-icon');
-      if (menu.classList.contains('hidden')) {
-        menu.classList.remove('hidden');
-        icon.textContent = 'close';
-      } else {
-        menu.classList.add('hidden');
-        icon.textContent = 'menu';
-      }
-    }
-
-    function switchPage(pageId) {
-      // 1. Hide all page divs
-      const pages = document.querySelectorAll('.page-container');
-      pages.forEach(p => p.classList.add('hidden'));
-
-      // 2. Show requested page div
-      document.getElementById('page-' + pageId).classList.remove('hidden');
-
-      // 3. Remove active class from all nav buttons
-      const tabs = document.querySelectorAll('nav button');
-      tabs.forEach(t => {
-        t.classList.remove('tab-active');
-        t.classList.add('text-slate-505', 'hover:text-slate-900');
-      });
-
-      // 4. Add active class to active tab button
-      const activeTab = document.getElementById('tab-' + pageId);
-      if (activeTab) {
-        activeTab.classList.add('tab-active');
-        activeTab.classList.remove('text-slate-505', 'hover:text-slate-900');
-      }
-
-      // 5. Scroll window back to top on page swap
-      window.scrollTo(0, 0);
-    }
-
-    // FAQ Toggle Script
-    function toggleFaq(id) {
-      const ans = document.getElementById('faq-ans-' + id);
-      const icon = document.getElementById('faq-icon-' + id);
-
-      if (ans.classList.contains('hidden')) {
-        ans.classList.remove('hidden');
-        icon.textContent = '−';
-      } else {
-        ans.classList.add('hidden');
-        icon.textContent = '+';
-      }
-    }
-
-    // Home Calculator Multi-Step Script
-    let calcUserData = {};
-
-    function goToStep2(event) {
-      event.preventDefault();
-
-      // Store Step 1 Data
-      calcUserData.pincode = document.getElementById('calc-pincode').value;
-      calcUserData.name = document.getElementById('calc-name').value;
-      calcUserData.email = document.getElementById('calc-email').value;
-      calcUserData.phone = document.getElementById('calc-phone').value;
-
-      // Swap Steps
-      document.getElementById('calc-step-1').classList.add('hidden');
-      document.getElementById('calc-step-2').classList.remove('hidden');
-    }
-
-    function backToStep1() {
-      document.getElementById('calc-step-2').classList.add('hidden');
-      document.getElementById('calc-step-1').classList.remove('hidden');
-    }
-
-    function calculateMacrosFinal(event) {
-      event.preventDefault();
-
-      const goal = document.querySelector('input[name="goal"]:checked').value;
-
-      let calories = 0;
-      let protein = 0;
-      let carbs = 0;
-      let planName = "";
-      let goalBadge = "";
-
-      // Portion targets based on standard human metrics (simulated target for weight 70kg-80kg)
-      if (goal === "weight-loss") {
-        calories = 1450;
-        protein = 120;
-        carbs = 130;
-        planName = "Lean Panther Fat Loss (Avg. 450 kcal / meal)";
-        goalBadge = "Weight Loss";
-      } else if (goal === "muscle-gain") {
-        calories = 2400;
-        protein = 165;
-        carbs = 230;
-        planName = "Champion Panther Muscle Gain (Avg. 800 kcal / meal)";
-        goalBadge = "Muscle Gain";
-      } else { // maintenance
-        calories = 1850;
-        protein = 140;
-        carbs = 180;
-        planName = "Active Panther Balanced (Avg. 600 kcal / meal)";
-        goalBadge = "Maintenance";
-      }
-
-      // Populate results
-      document.getElementById('res-user-name').textContent = calcUserData.name;
-      document.getElementById('res-calories').textContent = calories + " kcal";
-      document.getElementById('res-protein').textContent = protein + "g";
-      document.getElementById('res-carbs').textContent = carbs + "g / Lipids";
-      document.getElementById('res-plan-name').textContent = planName;
-      document.getElementById('res-badge').textContent = goalBadge;
-
-      // Swap views
-      document.getElementById('calc-step-2').classList.add('hidden');
-      document.getElementById('calc-step-results').classList.remove('hidden');
-    }
-
-    function resetCalculator() {
-      document.getElementById('home-calc-form-1').reset();
-      document.getElementById('home-calc-form-2').reset();
-      calcUserData = {};
-
-      document.getElementById('calc-step-results').classList.add('hidden');
-      document.getElementById('calc-step-2').classList.add('hidden');
-      document.getElementById('calc-step-1').classList.remove('hidden');
-    }
-
-    // Fade out page loader on load
-    window.addEventListener('load', () => {
-      const loader = document.getElementById('page-loader');
-      loader.classList.add('opacity-0', 'pointer-events-none');
-      setTimeout(() => {
-        loader.classList.add('hidden');
-      }, 500); // Wait for transition to complete
-    });
-  </script>
+  <!-- Common Main JS script -->
+  <script src="assets/js/main.js"></script>
+  <!-- Page Specific Scripts -->
+  <script src="assets/js/calculator.js"></script>
 </body>
 
 </html>
