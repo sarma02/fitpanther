@@ -74,3 +74,20 @@ function resetCalculator() {
   document.getElementById('calc-step-2').classList.add('hidden');
   document.getElementById('calc-step-1').classList.remove('hidden');
 }
+
+// Select goal and scroll helper to guide user from cards to form
+function selectGoalAndScroll(goalId) {
+  const radio = document.querySelector('input[name="goal"][value="' + goalId + '"]');
+  if (radio) {
+    radio.checked = true;
+  }
+  const form = document.getElementById('home-calc-form-1');
+  if (form) {
+    form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const firstInput = document.getElementById('calc-pincode');
+    if (firstInput) {
+      setTimeout(() => firstInput.focus(), 800);
+    }
+  }
+}
+

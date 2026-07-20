@@ -89,7 +89,7 @@
     class="fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center transition-all duration-500 ease-out">
     <div class="relative flex items-center justify-center">
       <!-- Rotating outer ring -->
-      <div class="w-20 h-20 border-4 border-slate-50 border-t-purple-600 rounded-full animate-spin"></div>
+      <div class="w-20 h-20 border-4 border-slate-50 border-t-purple-900 rounded-full animate-spin"></div>
       <!-- Pulse logo inside -->
       <img src="assets/logo.jpg" alt="FitPanther Loader"
         class="w-12 h-12 rounded-full object-cover absolute animate-pulse shadow-md">
@@ -118,12 +118,15 @@
 
   <!-- Sticky Header Navbar -->
   <header class="bg-white/80 backdrop-blur border-b border-slate-100 sticky top-0 z-50 transition-all">
-    <div class="max-w-[92%] lg:max-w-[1400px] mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+    <div class="max-w-[92%] lg:max-w-[1400px] mx-auto px-4 md:px-8 py-3.5 flex items-center justify-between">
 
-      <!-- Brand Logo -->
-      <a href="index.html" class="flex items-center cursor-pointer">
-        <img src="assets/logo.jpg" alt="FitPanther Logo"
-          class="w-14 h-14 rounded-full object-cover shadow shadow-purple-200">
+      <!-- Brand Logo & Name (Fitted to Mockup) -->
+      <a href="index.html" class="flex items-center gap-3 cursor-pointer">
+        <img src="assets/logo.jpg" alt="FitPanther Logo" class="w-12 h-12 rounded-full object-cover">
+        <div class="flex flex-col text-left">
+          <span class="font-black text-lg uppercase tracking-tight text-slate-900 leading-none">FitPanther</span>
+          <span class="text-[9px] font-bold text-slate-400 tracking-widest uppercase">Your Health Partner</span>
+        </div>
       </a>
 
       <!-- Desktop Capsule Navigation Menu -->
@@ -154,10 +157,10 @@
         </a>
       </nav>
 
-      <!-- Desktop WhatsApp Action -->
+      <!-- Desktop WhatsApp Action (Mock Yellow Pill shape) -->
       <a href="https://wa.me/1234567890" target="_blank"
-        class="hidden md:flex items-center gap-2 text-slate-700 hover:text-purple-600 text-sm font-bold uppercase transition-all">
-        <span class="material-symbols-outlined text-emerald-500 text-xl">chat</span>
+        class="hidden md:flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-slate-950 text-xs font-black uppercase py-2.5 px-5 rounded-full shadow-md shadow-yellow-100 transition-all hover:scale-[1.02]">
+        <span class="material-symbols-outlined text-base">chat</span>
         WhatsApp Order
       </a>
 
@@ -173,7 +176,7 @@
     <div id="mobile-menu"
       class="hidden md:hidden bg-white border-t border-slate-100 px-6 py-4 flex flex-col gap-3 shadow-lg">
       <a href="index.html"
-        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-purple-600">Home</a>
+        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-purple-900">Home</a>
       <a href="plans.html"
         class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-500 hover:text-slate-900">Plans</a>
       <a href="menu.html"
@@ -185,7 +188,7 @@
       <a href="contact.html"
         class="text-left text-sm font-bold py-2.5 uppercase tracking-wider text-slate-500 hover:text-slate-900">Contact</a>
       <a href="https://wa.me/1234567890" target="_blank"
-        class="flex items-center justify-center gap-2 mt-2 w-full py-3 bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold uppercase rounded-lg shadow-md shadow-emerald-100 transition-all">
+        class="flex items-center justify-center gap-2 mt-2 w-full py-3 bg-yellow-400 hover:bg-yellow-500 text-slate-950 text-xs font-bold uppercase rounded-full shadow-md shadow-yellow-100 transition-all">
         <span class="material-symbols-outlined text-white text-lg">chat</span>
         WhatsApp Order
       </a>
@@ -251,12 +254,12 @@
           <!-- Hero Copy Left -->
           <div class="lg:col-span-7 space-y-6">
             <span
-              class="inline-block text-[11px] md:text-xs font-bold uppercase tracking-widest text-purple-600 bg-purple-50 border border-purple-150 px-3.5 py-1 rounded-full">
+              class="inline-block text-[11px] md:text-xs font-black uppercase tracking-widest text-purple-900 bg-purple-50 px-3.5 py-1 rounded-full">
               Dietitian Prepared Subscriptions
             </span>
             <h2
               class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-none">
-              Eat clean. <br>Maximize performance.
+              Eat clean. <br><span class="text-purple-900 brush-underline">Maximize</span> performance.
             </h2>
             <p class="text-base md:text-lg text-slate-500 leading-relaxed max-w-xl">
               Fresh, portion-controlled healthy meals calculated strictly for your body weight and metrics. Cooked daily
@@ -264,48 +267,97 @@
             </p>
 
             <div class="flex flex-wrap gap-4 pt-2">
-              <a href="plans.html"
-                class="px-7 py-3.5 bg-purple-600 hover:bg-purple-700 text-white text-xs sm:text-sm font-bold uppercase rounded-xl shadow-md shadow-purple-100 transition-all hover:scale-[1.02] text-center inline-block">
-                Choose Plan
+              <a href="#home-calc-form-1"
+                class="px-7 py-3.5 bg-purple-900 hover:bg-purple-950 text-white text-xs sm:text-sm font-black uppercase rounded-full shadow-md shadow-purple-100 transition-all hover:scale-[1.02] text-center inline-flex items-center gap-2">
+                Choose Plan <span class="material-symbols-outlined text-base">arrow_forward</span>
               </a>
               <a href="menu.html"
-                class="px-7 py-3.5 border border-purple-200 text-purple-700 hover:bg-purple-50 text-xs sm:text-sm font-bold uppercase rounded-xl transition-all bg-white shadow-sm hover:scale-[1.02] text-center inline-block">
-                Weekly Menu
+                class="px-7 py-3.5 border border-slate-350 text-slate-800 hover:bg-slate-50 text-xs sm:text-sm font-black uppercase rounded-full transition-all bg-white shadow-sm hover:scale-[1.02] text-center inline-flex items-center gap-2">
+                Weekly Menu <span class="material-symbols-outlined text-base">calendar_today</span>
               </a>
+            </div>
+
+            <!-- Icon Badges Row (Replaces standard cards) -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-6 border-t border-slate-150/80">
+              <div class="flex items-center gap-2 p-1">
+                <span class="material-symbols-outlined text-purple-900 text-2xl">soup_kitchen</span>
+                <div class="text-left">
+                  <span class="block text-[10px] font-black uppercase text-purple-900 leading-none">Dietitian</span>
+                  <span class="block text-[8px] font-bold text-slate-400 uppercase tracking-wider mt-0.5">Approved</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 p-1">
+                <span class="material-symbols-outlined text-purple-900 text-2xl">fitness_center</span>
+                <div class="text-left">
+                  <span class="block text-[10px] font-black uppercase text-purple-900 leading-none">High</span>
+                  <span class="block text-[8px] font-bold text-slate-400 uppercase tracking-wider mt-0.5">Protein</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 p-1">
+                <span class="material-symbols-outlined text-purple-900 text-2xl">eco</span>
+                <div class="text-left">
+                  <span class="block text-[10px] font-black uppercase text-purple-900 leading-none">Clean</span>
+                  <span class="block text-[8px] font-bold text-slate-400 uppercase tracking-wider mt-0.5">Ingredients</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 p-1">
+                <span class="material-symbols-outlined text-purple-900 text-2xl">local_shipping</span>
+                <div class="text-left">
+                  <span class="block text-[10px] font-black uppercase text-purple-900 leading-none">Delivered</span>
+                  <span class="block text-[8px] font-bold text-slate-400 uppercase tracking-wider mt-0.5">Chilled</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Hero Video Section Right -->
-          <div class="lg:col-span-5">
+          <!-- Hero Video Section Right (Matching mock structure) -->
+          <div class="lg:col-span-5 relative">
             <div
-              class="aspect-[4/3] rounded-2xl bg-slate-950 border border-slate-800 shadow-xl relative overflow-hidden group flex flex-col items-center justify-center p-6">
-              <!-- Animated Background Gradient representing cooking -->
-              <div class="absolute inset-0 bg-gradient-to-tr from-purple-900/60 to-slate-900/90 mix-blend-overlay">
+              class="aspect-square rounded-3xl bg-purple-900 shadow-xl relative overflow-hidden flex flex-col justify-between p-6">
+              
+              <!-- Yellow Pulse badge top left -->
+              <div class="absolute top-4 left-4 bg-yellow-400 text-slate-950 px-4 py-2 rounded-full shadow-lg text-left max-w-[140px] z-20 cursor-pointer" onclick="alert('Playing FitPanther Kitchen Tour...');">
+                <span class="block text-[9px] font-black uppercase tracking-tight leading-none text-purple-950">FitPanther</span>
+                <span class="block text-[9px] font-black uppercase tracking-tight leading-none">Kitchen Tour</span>
+                <span class="block text-[7px] font-bold text-purple-900 uppercase mt-0.5">Watch Prep (1:15)</span>
               </div>
 
-              <!-- Clean Play Button with Pulsing Shadow -->
-              <div
-                class="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-lg shadow-white/20 transition-all group-hover:scale-110 relative z-10 cursor-pointer"
-                onclick="alert('Playing FitPanther Kitchen Tour Mock Video...');">
-                <span class="material-symbols-outlined text-purple-600 text-3xl">play_arrow</span>
+              <!-- Round Plate Image with Play button -->
+              <div class="flex-grow flex items-center justify-center relative mt-6">
+                <div class="relative w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
+                  <img src="assets/hero_dish.png" alt="Gourmet Meal Prep Dish" class="w-full h-full object-cover">
+                  <!-- Play Icon Overlay -->
+                  <button onclick="alert('Playing FitPanther Kitchen Tour Mock Video...');" 
+                    class="absolute inset-0 m-auto w-16 h-16 bg-white hover:scale-110 transition-all duration-300 rounded-full shadow-xl flex items-center justify-center text-purple-900 focus:outline-none">
+                    <span class="material-symbols-outlined text-purple-900 text-3xl pl-1">play_arrow</span>
+                  </button>
+                </div>
               </div>
-              <span class="text-sm text-white/95 font-semibold uppercase tracking-wider mt-3.5 relative z-10">FitPanther
-                Kitchen Tour</span>
-              <span class="text-xs text-white/50 tracking-widest uppercase mt-1 relative z-10">Watch Chef Prep
-                (1:15)</span>
-            </div>
 
-            <!-- Video Thumbnails below -->
-            <div class="grid grid-cols-4 gap-2 mt-3.5">
-              <button onclick="alert('Loading Kitchen Tour...');"
-                class="border border-slate-100 bg-white p-2 text-center text-[10px] md:text-xs font-bold text-slate-505 rounded-lg uppercase hover:bg-purple-50 hover:text-purple-700 shadow-sm transition-all">Kitchen</button>
-              <button onclick="alert('Loading Chef Prep...');"
-                class="border border-slate-100 bg-white p-2 text-center text-[10px] md:text-xs font-bold text-slate-505 rounded-lg uppercase hover:bg-purple-50 hover:text-purple-700 shadow-sm transition-all">Chef
-                Prep</button>
-              <button onclick="alert('Loading Delivery Info...');"
-                class="border border-slate-100 bg-white p-2 text-center text-[10px] md:text-xs font-bold text-slate-505 rounded-lg uppercase hover:bg-purple-50 hover:text-purple-700 shadow-sm transition-all">Delivery</button>
-              <button onclick="alert('Loading Quality Test...');"
-                class="border border-slate-100 bg-white p-2 text-center text-[10px] md:text-xs font-bold text-slate-505 rounded-lg uppercase hover:bg-purple-50 hover:text-purple-700 shadow-sm transition-all">Audits</button>
+              <!-- Sub navigation tabs below dish -->
+              <div class="grid grid-cols-4 gap-1 bg-purple-950/60 p-1 rounded-2xl border border-white/10 z-10 w-full mt-2">
+                <button onclick="alert('Loading Kitchen Tour...');"
+                  class="flex flex-col items-center gap-1.5 py-2 px-1 text-white hover:bg-white/10 rounded-xl transition-all">
+                  <span class="material-symbols-outlined text-lg">soup_kitchen</span>
+                  <span class="text-[8px] font-black uppercase tracking-wider">Kitchen</span>
+                </button>
+                <button onclick="alert('Loading Chef Prep...');"
+                  class="flex flex-col items-center gap-1.5 py-2 px-1 text-white hover:bg-white/10 rounded-xl transition-all">
+                  <span class="material-symbols-outlined text-lg">restaurant</span>
+                  <span class="text-[8px] font-black uppercase tracking-wider">Chef Prep</span>
+                </button>
+                <button onclick="alert('Loading Delivery Info...');"
+                  class="flex flex-col items-center gap-1.5 py-2 px-1 text-white hover:bg-white/10 rounded-xl transition-all">
+                  <span class="material-symbols-outlined text-lg">local_shipping</span>
+                  <span class="text-[8px] font-black uppercase tracking-wider">Delivery</span>
+                </button>
+                <button onclick="alert('Loading Quality Test...');"
+                  class="flex flex-col items-center gap-1.5 py-2 px-1 text-white hover:bg-white/10 rounded-xl transition-all">
+                  <span class="material-symbols-outlined text-lg">verified</span>
+                  <span class="text-[8px] font-black uppercase tracking-wider">Audits</span>
+                </button>
+              </div>
+
             </div>
           </div>
 
@@ -314,249 +366,335 @@
       </div>
 
       <!-- Section: Problem & Solution -->
-      <div
-        class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 space-y-6 shadow-sm hover:border-purple-50 hover:shadow-md transition-all duration-300">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-          <!-- Column 1: Problem List -->
-          <div class="space-y-4">
-            <h3 class="font-extrabold text-slate-800 text-xl tracking-tight flex items-center gap-2.5">
-              <span class="material-symbols-outlined text-rose-500 text-xl">cancel</span>
+        <!-- Column 1: Daily Cooking Struggle -->
+        <div class="bg-purple-50/30 rounded-3xl border border-purple-100 p-8 md:p-10 space-y-6 relative overflow-hidden shadow-sm hover:border-purple-200 transition-all duration-300">
+          
+          <!-- Silhouette Background (stressed man outline drawing inline SVG) -->
+          <div class="absolute right-0 bottom-0 w-48 h-48 opacity-[0.06] pointer-events-none z-0">
+            <svg class="w-full h-full text-purple-900" fill="currentColor" viewBox="0 0 100 100">
+              <path d="M50,10 C30,10 15,25 15,45 C15,55 20,65 30,70 L30,90 L70,90 L70,70 C80,65 85,55 85,45 C85,25 70,10 50,10 Z M35,40 C35,35 40,30 45,30 C50,30 55,35 55,40 M45,55 L55,55"/>
+            </svg>
+          </div>
+
+          <div class="relative z-10 space-y-5">
+            <h3 class="font-black text-purple-900 text-lg uppercase tracking-wider flex items-center gap-3">
+              <span class="material-symbols-outlined text-purple-900 text-2xl">cancel</span>
               The Daily Cooking Struggle
             </h3>
-            <ul class="space-y-3.5 text-base text-slate-505 leading-relaxed font-medium">
-              <li class="flex items-start gap-2.5">
-                <span class="text-rose-400 mt-1.5">•</span>
+            <ul class="space-y-4 text-sm text-slate-600 font-bold leading-relaxed">
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-purple-900 text-lg mt-0.5">cancel</span>
                 <span>Hours wasted planning, shopping, and scrubbing dishes.</span>
               </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-rose-400 mt-1.5">•</span>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-purple-900 text-lg mt-0.5">cancel</span>
                 <span>Repetitive, dry chicken breast meals leading to cheating.</span>
               </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-rose-400 mt-1.5">•</span>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-purple-900 text-lg mt-0.5">cancel</span>
                 <span>Inaccurate portion weights stalling your visual progress.</span>
               </li>
             </ul>
           </div>
+        </div>
 
-          <!-- Column 2: Solution Matcher -->
-          <div class="space-y-4">
-            <h3 class="font-extrabold text-slate-800 text-xl tracking-tight flex items-center gap-2.5">
-              <span class="material-symbols-outlined text-purple-600 text-xl">check_circle</span>
+        <!-- Column 2: FitPanther Solution -->
+        <div class="bg-amber-50/20 rounded-3xl border border-amber-200/60 p-8 md:p-10 space-y-6 relative overflow-hidden shadow-sm hover:border-amber-300 transition-all duration-300">
+          
+          <!-- Silhouette Background (athletic man outline drawing inline SVG) -->
+          <div class="absolute right-0 bottom-0 w-48 h-48 opacity-[0.06] pointer-events-none z-0">
+            <svg class="w-full h-full text-amber-900" fill="currentColor" viewBox="0 0 100 100">
+              <path d="M50,15 C45,15 40,20 40,25 C40,30 45,35 50,35 C55,35 60,30 60,25 C60,20 55,15 50,15 Z M30,45 C25,45 20,50 20,60 C20,70 30,85 50,85 C70,85 80,70 80,60 C80,50 75,45 70,45 L65,55 L50,45 L35,55 L30,45 Z"/>
+            </svg>
+          </div>
+
+          <div class="relative z-10 space-y-5">
+            <h3 class="font-black text-amber-600 text-lg uppercase tracking-wider flex items-center gap-3">
+              <span class="material-symbols-outlined text-amber-500 text-2xl">check_circle</span>
               The FitPanther Solution
             </h3>
-            <ul class="space-y-3.5 text-base text-slate-505 leading-relaxed font-medium">
-              <li class="flex items-start gap-2.5">
-                <span class="text-purple-400 mt-1.5">•</span>
+            <ul class="space-y-4 text-sm text-slate-600 font-bold leading-relaxed">
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-amber-500 text-lg mt-0.5">check_circle</span>
                 <span>Gourmet dietitian-approved meals cooked fresh daily.</span>
               </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-purple-400 mt-1.5">•</span>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-amber-500 text-lg mt-0.5">check_circle</span>
                 <span>Globally inspired rotating menu ready in 2 minutes.</span>
               </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-purple-400 mt-1.5">•</span>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-amber-500 text-lg mt-0.5">check_circle</span>
                 <span>Exact macronutrient details tracked on every label.</span>
               </li>
             </ul>
           </div>
-
         </div>
+
       </div>
 
       <!-- Section: How It Works -->
-      <div class="space-y-8">
+      <div class="space-y-12">
         <div class="text-center space-y-2">
-          <span class="text-[10px] text-purple-600 font-bold uppercase tracking-widest">Four Quick Steps</span>
-          <h3 class="font-extrabold text-3xl text-slate-900 uppercase">Seamless Setup</h3>
+          <span class="text-[10px] text-purple-600 font-black uppercase tracking-widest flex items-center justify-center gap-2">
+            <span>—›</span> Four Quick Steps <span>‹—</span>
+          </span>
+          <h3 class="font-black text-3xl text-slate-900 uppercase">Seamless Setup</h3>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+          
           <!-- Step 1 -->
-          <div
-            class="bg-slate-50/50 border border-slate-100 rounded-xl p-8 text-center space-y-3 shadow-sm transition-all hover:bg-purple-50/30 hover:-translate-y-1 duration-300">
-            <span class="material-symbols-outlined text-purple-600 text-3xl">analytics</span>
-            <h4 class="font-bold text-base text-slate-800 uppercase">1. Pick Program</h4>
-            <p class="text-sm text-slate-400 leading-relaxed">Select a calorie budget aligned with your weight goals.</p>
+          <div class="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-4 items-center sm:items-start text-center sm:text-left relative">
+            <div class="flex-shrink-0 relative">
+              <div class="w-16 h-16 rounded-full bg-purple-900 text-white flex items-center justify-center border-4 border-white shadow shadow-purple-200/50 outline-dashed outline-2 outline-offset-4 outline-purple-200">
+                <span class="material-symbols-outlined text-2xl">assignment</span>
+              </div>
+            </div>
+            <div class="space-y-1">
+              <div class="flex items-center justify-center sm:justify-start gap-2">
+                <span class="text-xs font-black text-purple-900">01</span>
+                <h4 class="font-black text-xs uppercase text-slate-800 tracking-wider">Pick Program</h4>
+              </div>
+              <p class="text-xs text-slate-400 font-bold leading-relaxed">Select a calorie budget aligned with your weight goals.</p>
+            </div>
+            <!-- Arrow pointing right -->
+            <div class="hidden lg:block absolute -right-6 top-5 text-slate-300">
+              <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </div>
           </div>
+
           <!-- Step 2 -->
-          <div
-            class="bg-slate-50/50 border border-slate-100 rounded-xl p-8 text-center space-y-3 shadow-sm transition-all hover:bg-purple-50/30 hover:-translate-y-1 duration-300">
-            <span class="material-symbols-outlined text-purple-600 text-3xl">dining</span>
-            <h4 class="font-bold text-base text-slate-800 uppercase">2. We Prepare</h4>
-            <p class="text-sm text-slate-400 leading-relaxed">Our commercial kitchens slice and prepare items fresh.</p>
+          <div class="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-4 items-center sm:items-start text-center sm:text-left relative">
+            <div class="flex-shrink-0 relative">
+              <div class="w-16 h-16 rounded-full bg-purple-900 text-white flex items-center justify-center border-4 border-white shadow shadow-purple-200/50 outline-dashed outline-2 outline-offset-4 outline-purple-200">
+                <span class="material-symbols-outlined text-2xl">soup_kitchen</span>
+              </div>
+            </div>
+            <div class="space-y-1">
+              <div class="flex items-center justify-center sm:justify-start gap-2">
+                <span class="text-xs font-black text-purple-900">02</span>
+                <h4 class="font-black text-xs uppercase text-slate-800 tracking-wider">We Prepare</h4>
+              </div>
+              <p class="text-xs text-slate-400 font-bold leading-relaxed">Our commercial kitchens slice and prepare items fresh.</p>
+            </div>
+            <!-- Arrow pointing right -->
+            <div class="hidden lg:block absolute -right-6 top-5 text-slate-300">
+              <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </div>
           </div>
+
           <!-- Step 3 -->
-          <div
-            class="bg-slate-50/50 border border-slate-100 rounded-xl p-8 text-center space-y-3 shadow-sm transition-all hover:bg-purple-50/30 hover:-translate-y-1 duration-300">
-            <span class="material-symbols-outlined text-purple-600 text-3xl">local_shipping</span>
-            <h4 class="font-bold text-base text-slate-800 uppercase">3. Cold Delivery</h4>
-            <p class="text-sm text-slate-400 leading-relaxed">Insulated cooling bags keep items cold on your porch.</p>
+          <div class="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-4 items-center sm:items-start text-center sm:text-left relative">
+            <div class="flex-shrink-0 relative">
+              <div class="w-16 h-16 rounded-full bg-purple-900 text-white flex items-center justify-center border-4 border-white shadow shadow-purple-200/50 outline-dashed outline-2 outline-offset-4 outline-purple-200">
+                <span class="material-symbols-outlined text-2xl">local_mall</span>
+              </div>
+            </div>
+            <div class="space-y-1">
+              <div class="flex items-center justify-center sm:justify-start gap-2">
+                <span class="text-xs font-black text-purple-900">03</span>
+                <h4 class="font-black text-xs uppercase text-slate-800 tracking-wider">Cool Delivery</h4>
+              </div>
+              <p class="text-xs text-slate-400 font-bold leading-relaxed">Insulated cooling bags keep items cold on your porch.</p>
+            </div>
+            <!-- Arrow pointing right -->
+            <div class="hidden lg:block absolute -right-6 top-5 text-slate-300">
+              <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </div>
           </div>
+
           <!-- Step 4 -->
-          <div
-            class="bg-slate-50/50 border border-slate-100 rounded-xl p-8 text-center space-y-3 shadow-sm transition-all hover:bg-purple-50/30 hover:-translate-y-1 duration-300">
-            <span class="material-symbols-outlined text-purple-600 text-3xl">restaurant</span>
-            <h4 class="font-bold text-base text-slate-800 uppercase">4. Heat & Eat</h4>
-            <p class="text-sm text-slate-400 leading-relaxed">Pop the tray in the microwave. Gourmet eating in 2 mins.</p>
+          <div class="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-4 items-center sm:items-start text-center sm:text-left relative">
+            <div class="flex-shrink-0 relative">
+              <div class="w-16 h-16 rounded-full bg-purple-900 text-white flex items-center justify-center border-4 border-white shadow shadow-purple-200/50 outline-dashed outline-2 outline-offset-4 outline-purple-200">
+                <span class="material-symbols-outlined text-2xl">microwave</span>
+              </div>
+            </div>
+            <div class="space-y-1">
+              <div class="flex items-center justify-center sm:justify-start gap-2">
+                <span class="text-xs font-black text-purple-900">04</span>
+                <h4 class="font-black text-xs uppercase text-slate-800 tracking-wider">Heat & Eat</h4>
+              </div>
+              <p class="text-xs text-slate-400 font-bold leading-relaxed">Pop the tray in the microwave. Gourmet eating in 2 mins.</p>
+            </div>
           </div>
+
         </div>
       </div>
 
       <!-- Section: Choose Your Goal -->
-      <div class="space-y-8">
+      <div class="space-y-12">
         <div class="text-center space-y-2">
-          <span class="text-[10px] text-purple-600 font-bold uppercase tracking-widest">Meal Structures</span>
-          <h3 class="font-extrabold text-3xl text-slate-900 uppercase">Portion Options</h3>
+          <span class="text-[10px] text-purple-600 font-black uppercase tracking-widest block">Meal Structures</span>
+          <h3 class="font-black text-3xl text-slate-900 uppercase">Portion Options</h3>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <!-- Card A -->
-          <div
-            class="bg-white rounded-2xl border border-slate-100 p-8 flex flex-col justify-between space-y-5 hover:shadow-lg hover:border-purple-100/50 hover:-translate-y-1 transition-all duration-300">
-            <div class="space-y-4">
-              <span
-                class="text-xs font-bold text-purple-700 bg-purple-50 border border-purple-100 px-3.5 py-1.5 rounded-full inline-block uppercase tracking-wider font-bold">Lean Panther</span>
-              <p class="text-sm text-slate-500 leading-relaxed">Fat burn target. Low carbohydrate, high protein ratios designed to protect muscle during active deficits.</p>
-              <div
-                class="bg-slate-50 rounded-xl p-4 text-center text-slate-800 text-sm font-bold uppercase tracking-wide">
-                Avg. 450 Kcal • 45% P • 25% C • 30% F
-              </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch pt-6">
+          
+          <!-- Card A: Lean Panther (Image overlaps left) -->
+          <div class="bg-white rounded-3xl border border-slate-150 p-6 shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row items-center gap-6 relative overflow-visible">
+            <div class="w-28 h-28 sm:-ml-12 flex-shrink-0 rounded-full overflow-hidden border-4 border-white shadow-lg relative z-10">
+              <img src="assets/lean_panther_dish.png" alt="Lean Panther" class="w-full h-full object-cover">
             </div>
-            <a href="plans.html"
-              class="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold uppercase rounded-lg transition-all mt-2 text-center inline-block">Choose Goal</a>
-          </div>
-          <!-- Card B -->
-          <div
-            class="bg-white rounded-2xl border-2 border-purple-500 p-8 flex flex-col justify-between space-y-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative shadow-lg shadow-purple-50">
-            <span
-              class="absolute -top-3.5 left-4 px-3 py-1 bg-purple-600 text-white text-xs font-bold uppercase rounded-full border border-purple-500 tracking-wider">Popular Choice</span>
-            <div class="space-y-4">
-              <span
-                class="text-xs font-bold text-purple-700 bg-purple-50 border border-purple-100 px-3.5 py-1.5 rounded-full inline-block uppercase tracking-wider font-bold">Active Panther</span>
-              <p class="text-sm text-slate-505 leading-relaxed">Maintenance & vitality focus. Complex carbohydrates matched to steady all-day work energy.</p>
-              <div
-                class="bg-purple-50/50 rounded-xl p-4 text-center text-purple-900 text-sm font-bold uppercase tracking-wide">
-                Avg. 600 Kcal • 35% P • 40% C • 25% F
-              </div>
+            <div class="flex-grow space-y-3.5 text-left relative z-10">
+              <span class="text-[9px] font-black uppercase tracking-wider text-purple-900 bg-purple-50 px-2.5 py-0.5 rounded-full inline-block">Lean Panther</span>
+              <p class="text-xs text-slate-500 font-bold leading-relaxed">Fat burn target. Low carbohydrate, high protein ratios designed to protect muscle during active deficits.</p>
+              <div class="text-[9px] font-black text-purple-950 uppercase tracking-wide">Avg. 450 Kcal • 45% P • 25% C • 30% F</div>
+              <button onclick="selectGoalAndScroll('weight-loss')" class="px-5 py-2.5 bg-purple-900 hover:bg-purple-950 text-white text-[9px] font-black uppercase rounded-full transition-all tracking-wider shadow">Choose Goal</button>
             </div>
-            <a href="plans.html"
-              class="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold uppercase rounded-lg transition-all mt-2 text-center inline-block">Choose Goal</a>
           </div>
-          <!-- Card C -->
-          <div
-            class="bg-white rounded-2xl border border-slate-100 p-8 flex flex-col justify-between space-y-5 hover:shadow-lg hover:border-purple-100/50 hover:-translate-y-1 transition-all duration-300">
-            <div class="space-y-4">
-              <span
-                class="text-xs font-bold text-purple-700 bg-purple-50 border border-purple-100 px-3.5 py-1.5 rounded-full inline-block uppercase tracking-wider font-bold">Champion Panther</span>
-              <p class="text-sm text-slate-500 leading-relaxed">Athletic muscle gain focus. Energy-dense, clean grains and heavy protein cuts to support hypertrophy.</p>
-              <div
-                class="bg-slate-50 rounded-xl p-4 text-center text-slate-800 text-sm font-bold uppercase tracking-wide">
-                Avg. 800 Kcal • 35% P • 45% C • 20% F
-              </div>
+
+          <!-- Card B: Active Panther (Middle highlighted) -->
+          <div class="bg-white rounded-3xl border-2 border-yellow-400 p-6 shadow-lg shadow-purple-50/50 hover:shadow-xl transition-all flex flex-col justify-between relative overflow-visible min-h-[220px]">
+            <span class="absolute -top-3 left-6 px-3 py-1 bg-yellow-400 text-slate-950 text-[9px] font-black uppercase rounded-full tracking-wider shadow-sm">Popular Choice</span>
+            <div class="space-y-3 text-left pt-2">
+              <span class="text-[9px] font-black uppercase tracking-wider text-purple-900 bg-purple-50 px-2.5 py-0.5 rounded-full inline-block">Active Panther</span>
+              <p class="text-xs text-slate-500 font-bold leading-relaxed">Maintenance & vitality focus. Complex carbohydrates matched to steady all-day work energy.</p>
+              <div class="text-[9px] font-black text-purple-950 uppercase tracking-wide">Avg. 600 Kcal • 35% P • 40% C • 25% F</div>
             </div>
-            <a href="plans.html"
-              class="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold uppercase rounded-lg transition-all mt-2 text-center inline-block">Choose Goal</a>
+            <div class="pt-4">
+              <button onclick="selectGoalAndScroll('maintenance')" class="w-full py-2.5 bg-yellow-400 hover:bg-yellow-500 text-slate-950 text-[9px] font-black uppercase rounded-full transition-all tracking-wider shadow">Choose Goal</button>
+            </div>
           </div>
+
+          <!-- Card C: Champion Panther (Image overlaps right) -->
+          <div class="bg-white rounded-3xl border border-slate-150 p-6 shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row items-center gap-6 relative overflow-visible">
+            <div class="flex-grow space-y-3.5 text-left order-2 sm:order-1 relative z-10">
+              <span class="text-[9px] font-black uppercase tracking-wider text-purple-900 bg-purple-50 px-2.5 py-0.5 rounded-full inline-block">Champion Panther</span>
+              <p class="text-xs text-slate-500 font-bold leading-relaxed">Athletic muscle gain focus. Energy-dense, clean grains and heavy protein cuts to support hypertrophy.</p>
+              <div class="text-[9px] font-black text-purple-950 uppercase tracking-wide">Avg. 800 Kcal • 35% P • 45% C • 20% F</div>
+              <button onclick="selectGoalAndScroll('muscle-gain')" class="px-5 py-2.5 bg-purple-900 hover:bg-purple-950 text-white text-[9px] font-black uppercase rounded-full transition-all tracking-wider shadow">Choose Goal</button>
+            </div>
+            <div class="w-28 h-28 sm:-mr-12 flex-shrink-0 rounded-full overflow-hidden border-4 border-white shadow-lg order-1 sm:order-2 relative z-10">
+              <img src="assets/champion_panther_dish.png" alt="Champion Panther" class="w-full h-full object-cover">
+            </div>
+          </div>
+
         </div>
       </div>
-
       <!-- Section: Why Choose FitPanther -->
-      <div
-        class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 space-y-8 shadow-sm hover:border-purple-50 hover:shadow-md transition-all duration-300">
-        <div class="text-center">
-          <h3 class="font-extrabold text-3xl text-slate-900 uppercase">Redefining Healthy Nutrition</h3>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white rounded-3xl border border-slate-150 p-6 md:p-8 shadow-sm">
+        
+        <!-- Left features: 2x2 Grid -->
+        <div class="lg:col-span-8 space-y-6">
+          <div class="text-left space-y-1">
+            <span class="text-[9px] text-purple-900 font-black uppercase tracking-widest">Core Values</span>
+            <h3 class="font-black text-2xl text-slate-900 uppercase">Redefining Healthy Nutrition</h3>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
+            <div class="flex items-start gap-4 p-2">
+              <span class="material-symbols-outlined text-yellow-500 text-3xl flex-shrink-0">soup_kitchen</span>
+              <div class="space-y-1">
+                <h4 class="font-black text-sm text-slate-800 uppercase tracking-wide">100% Freshly Cooked</h4>
+                <p class="text-xs text-slate-400 font-bold leading-relaxed">Never frozen. Prepared using raw ingredients, vacuum-sealed to preserve nutrients.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-2">
+              <span class="material-symbols-outlined text-yellow-500 text-3xl flex-shrink-0">scale</span>
+              <div class="space-y-1">
+                <h4 class="font-black text-sm text-slate-800 uppercase tracking-wide">Dietitian Balanced</h4>
+                <p class="text-xs text-slate-400 font-bold leading-relaxed">All portions weight-audited to match clinical nutrition targets accurately.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-2">
+              <span class="material-symbols-outlined text-yellow-500 text-3xl flex-shrink-0">eco</span>
+              <div class="space-y-1">
+                <h4 class="font-black text-sm text-slate-800 uppercase tracking-wide">Organic & Clean</h4>
+                <p class="text-xs text-slate-400 font-bold leading-relaxed">Zero artificial preservatives, additives, or refined sugars. Pure fueling only.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-2">
+              <span class="material-symbols-outlined text-yellow-500 text-3xl flex-shrink-0">event_repeat</span>
+              <div class="space-y-1">
+                <h4 class="font-black text-sm text-slate-800 uppercase tracking-wide">Cancel Anytime</h4>
+                <p class="text-xs text-slate-400 font-bold leading-relaxed">Complete control. Pause, skip weeks, or swap dishes via dashboard or WhatsApp.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-          <div class="space-y-2 p-2">
-            <span class="material-symbols-outlined text-purple-600 text-4xl">soup_kitchen</span>
-            <h4 class="font-bold text-base text-slate-800 uppercase">100% Freshly Cooked</h4>
-            <p class="text-sm text-slate-400 leading-relaxed">Never frozen. Prepared using raw ingredients, vacuum-sealed to preserve nutrients.</p>
-          </div>
-          <div class="space-y-2 p-2">
-            <span class="material-symbols-outlined text-purple-600 text-4xl">verified</span>
-            <h4 class="font-bold text-base text-slate-800 uppercase">Dietitian Balanced</h4>
-            <p class="text-sm text-slate-400 leading-relaxed">All portions weight-audited to match clinical nutrition targets accurately.</p>
-          </div>
-          <div class="space-y-2 p-2">
-            <span class="material-symbols-outlined text-purple-600 text-4xl">eco</span>
-            <h4 class="font-bold text-base text-slate-800 uppercase">Organic & Clean</h4>
-            <p class="text-sm text-slate-400 leading-relaxed">Zero artificial preservatives, additives, or refined sugars. Pure fueling only.</p>
-          </div>
-          <div class="space-y-2 p-2">
-            <span class="material-symbols-outlined text-purple-600 text-4xl">event_repeat</span>
-            <h4 class="font-bold text-base text-slate-800 uppercase">Cancel Anytime</h4>
-            <p class="text-sm text-slate-400 leading-relaxed">Complete control. Pause, skip weeks, or swap dishes via dashboard or WhatsApp.</p>
-          </div>
+        <!-- Right image card -->
+        <div class="lg:col-span-4 bg-slate-50 border border-slate-100 rounded-3xl p-4 flex items-center justify-center shadow-inner relative overflow-hidden">
+          <img src="assets/meal_prep_box.png" alt="FitPanther Meal Prep Box and Purple Shaker Bottle" class="w-full h-auto rounded-2xl object-cover">
         </div>
+
       </div>
-
       <!-- Section: Crave Menu Gallery -->
-      <div
-        class="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 space-y-6 shadow-sm hover:border-purple-50 hover:shadow-md transition-all duration-300">
+      <div class="bg-white rounded-3xl border border-slate-150 p-6 md:p-8 space-y-8 shadow-sm">
+        
         <div class="text-center space-y-2">
-          <span class="text-[10px] text-purple-600 font-bold uppercase tracking-widest">Rotating Specialties</span>
-          <h3 class="font-extrabold text-3xl text-slate-900 uppercase">This Week's Signature Selection</h3>
+          <span class="text-[9px] text-purple-900 font-black uppercase tracking-widest flex items-center justify-center gap-2">
+            <span>—›</span> Rotating Specialties <span>‹—</span>
+          </span>
+          <h3 class="font-black text-2xl text-slate-900 uppercase">This Week's Signature Selection</h3>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           <!-- Dish 1 -->
-          <div
-            class="bg-slate-50 border border-slate-100 rounded-xl p-6 text-center flex flex-col justify-between items-center hover:shadow-lg hover:border-purple-100/50 hover:-translate-y-1 transition-all duration-300">
-            <span class="material-symbols-outlined text-purple-600 text-4xl">restaurant</span>
-            <div class="mt-4">
-              <h5 class="font-bold text-base uppercase text-slate-900">Royal Flank Steak</h5>
-              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">610 Cal</span>
+          <div class="bg-slate-50 border border-slate-100 rounded-2xl p-3 text-center flex flex-col justify-between items-center hover:shadow-md transition-all duration-300">
+            <div class="w-full aspect-square rounded-xl overflow-hidden shadow-inner bg-slate-100 mb-3">
+              <img src="assets/royal_steak.png" alt="Royal Flank Steak" class="w-full h-full object-cover">
+            </div>
+            <div class="space-y-1">
+              <h5 class="font-black text-[10px] uppercase text-slate-800 tracking-tight leading-tight">Royal Flank Steak</h5>
+              <span class="text-[10px] text-purple-900 font-black block">610 Cal</span>
             </div>
           </div>
           <!-- Dish 2 -->
-          <div
-            class="bg-slate-50 border border-slate-100 rounded-xl p-6 text-center flex flex-col justify-between items-center hover:shadow-lg hover:border-purple-100/50 hover:-translate-y-1 transition-all duration-300">
-            <span class="material-symbols-outlined text-purple-600 text-4xl">flatware</span>
-            <div class="mt-4">
-              <h5 class="font-bold text-base uppercase text-slate-900">Lavender Salmon</h5>
-              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">520 Cal</span>
+          <div class="bg-slate-50 border border-slate-100 rounded-2xl p-3 text-center flex flex-col justify-between items-center hover:shadow-md transition-all duration-300">
+            <div class="w-full aspect-square rounded-xl overflow-hidden shadow-inner bg-slate-100 mb-3">
+              <img src="assets/lavender_salmon.png" alt="Lavender Salmon" class="w-full h-full object-cover">
+            </div>
+            <div class="space-y-1">
+              <h5 class="font-black text-[10px] uppercase text-slate-800 tracking-tight leading-tight">Lavender Salmon</h5>
+              <span class="text-[10px] text-purple-900 font-black block">520 Cal</span>
             </div>
           </div>
           <!-- Dish 3 -->
-          <div
-            class="bg-slate-50 border border-slate-100 rounded-xl p-6 text-center flex flex-col justify-between items-center hover:shadow-lg hover:border-purple-100/50 hover:-translate-y-1 transition-all duration-300">
-            <span class="material-symbols-outlined text-purple-600 text-4xl">eco</span>
-            <div class="mt-4">
-              <h5 class="font-bold text-base uppercase text-slate-900">Sesame Veggie Bowl</h5>
-              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">410 Cal</span>
+          <div class="bg-slate-50 border border-slate-100 rounded-2xl p-3 text-center flex flex-col justify-between items-center hover:shadow-md transition-all duration-300">
+            <div class="w-full aspect-square rounded-xl overflow-hidden shadow-inner bg-slate-100 mb-3">
+              <img src="assets/sesame_bowl.png" alt="Sesame Veggie Bowl" class="w-full h-full object-cover">
+            </div>
+            <div class="space-y-1">
+              <h5 class="font-black text-[10px] uppercase text-slate-800 tracking-tight leading-tight">Sesame Veggie Bowl</h5>
+              <span class="text-[10px] text-purple-900 font-black block">410 Cal</span>
             </div>
           </div>
           <!-- Dish 4 -->
-          <div
-            class="bg-slate-50 border border-slate-100 rounded-xl p-6 text-center flex flex-col justify-between items-center hover:shadow-lg hover:border-purple-100/50 hover:-translate-y-1 transition-all duration-300">
-            <span class="material-symbols-outlined text-purple-600 text-4xl">dinner_dining</span>
-            <div class="mt-4">
-              <h5 class="font-bold text-base uppercase text-slate-900">Wild Rice Chicken</h5>
-              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">495 Cal</span>
+          <div class="bg-slate-50 border border-slate-100 rounded-2xl p-3 text-center flex flex-col justify-between items-center hover:shadow-md transition-all duration-300">
+            <div class="w-full aspect-square rounded-xl overflow-hidden shadow-inner bg-slate-100 mb-3">
+              <img src="assets/wild_chicken.png" alt="Wild Rice Chicken" class="w-full h-full object-cover">
+            </div>
+            <div class="space-y-1">
+              <h5 class="font-black text-[10px] uppercase text-slate-800 tracking-tight leading-tight">Wild Rice Chicken</h5>
+              <span class="text-[10px] text-purple-900 font-black block">495 Cal</span>
             </div>
           </div>
           <!-- Dish 5 -->
-          <div
-            class="bg-slate-50 border border-slate-100 rounded-xl p-6 text-center flex flex-col justify-between items-center hover:shadow-lg hover:border-purple-100/50 hover:-translate-y-1 transition-all duration-300">
-            <span class="material-symbols-outlined text-purple-600 text-4xl">lunch_dining</span>
-            <div class="mt-4">
-              <h5 class="font-bold text-base uppercase text-slate-900">Lean Turkey Burger</h5>
-              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">540 Cal</span>
+          <div class="bg-slate-50 border border-slate-100 rounded-2xl p-3 text-center flex flex-col justify-between items-center hover:shadow-md transition-all duration-300">
+            <div class="w-full aspect-square rounded-xl overflow-hidden shadow-inner bg-slate-100 mb-3">
+              <img src="assets/turkey_burger.png" alt="Lean Turkey Burger" class="w-full h-full object-cover">
+            </div>
+            <div class="space-y-1">
+              <h5 class="font-black text-[10px] uppercase text-slate-800 tracking-tight leading-tight">Lean Turkey Burger</h5>
+              <span class="text-[10px] text-purple-900 font-black block">540 Cal</span>
             </div>
           </div>
           <!-- Dish 6 -->
-          <div
-            class="bg-slate-50 border border-slate-100 rounded-xl p-6 text-center flex flex-col justify-between items-center hover:shadow-lg hover:border-purple-100/50 hover:-translate-y-1 transition-all duration-300">
-            <span class="material-symbols-outlined text-purple-600 text-4xl">water_drop</span>
-            <div class="mt-4">
-              <h5 class="font-bold text-base uppercase text-slate-900">Amethyst Shake</h5>
-              <span class="text-sm bg-purple-50 text-purple-700 font-extrabold px-3 py-1 rounded inline-block mt-2">320 Cal</span>
+          <div class="bg-slate-50 border border-slate-100 rounded-2xl p-3 text-center flex flex-col justify-between items-center hover:shadow-md transition-all duration-300">
+            <div class="w-full aspect-square rounded-xl overflow-hidden shadow-inner bg-slate-100 mb-3">
+              <img src="assets/amethyst_shake.png" alt="Amethyst Shake" class="w-full h-full object-cover">
+            </div>
+            <div class="space-y-1">
+              <h5 class="font-black text-[10px] uppercase text-slate-800 tracking-tight leading-tight">Amethyst Shake</h5>
+              <span class="text-[10px] text-purple-900 font-black block">320 Cal</span>
             </div>
           </div>
         </div>
+
       </div>
 
       <!-- Section: Testimonials & Stats -->
@@ -905,48 +1043,76 @@
   </main>
 
   <!-- Global Footer -->
-  <footer class="bg-slate-50 border-t border-slate-150 py-12 mt-16 relative z-10">
-    <div class="max-w-[92%] lg:max-w-[1400px] mx-auto px-4 md:px-8 space-y-6">
+  <footer class="bg-slate-900 text-white py-12 mt-16 relative z-10">
+    <div class="max-w-[92%] lg:max-w-[1400px] mx-auto px-4 md:px-8 space-y-8">
 
-      <div class="flex flex-col sm:flex-row justify-between items-center border-b border-slate-100 pb-6 gap-6">
+      <!-- Main Footer Links Grid -->
+      <div class="flex flex-col sm:flex-row justify-between items-center border-b border-white/10 pb-6 gap-6">
         <div class="flex items-center gap-3">
-          <img src="assets/logo.jpg" alt="FitPanther Logo"
-            class="w-7 h-7 rounded-full object-cover shadow shadow-purple-100">
-          <span class="font-extrabold text-sm uppercase text-slate-900 tracking-wider">FitPanther</span>
+          <img src="assets/logo.jpg" alt="FitPanther Logo" class="w-8 h-8 rounded-full object-cover">
+          <span class="font-black text-sm uppercase tracking-wider">FitPanther</span>
         </div>
-        <div class="flex flex-wrap justify-center gap-6 text-sm font-semibold text-slate-400">
-          <a href="plans.html" class="hover:text-purple-600 transition-all">Pricing</a>
-          <a href="menu.html" class="hover:text-purple-600 transition-all">Menu</a>
-          <a href="results.html" class="hover:text-purple-600 transition-all">Results</a>
-          <a href="contact.html" class="hover:text-purple-600 transition-all">Contact</a>
+        <div class="flex flex-wrap justify-center gap-6 text-sm font-bold text-slate-400">
+          <a href="plans.html" class="hover:text-yellow-400 transition-all">Pricing</a>
+          <a href="menu.html" class="hover:text-yellow-400 transition-all">Menu</a>
+          <a href="results.html" class="hover:text-yellow-400 transition-all">Results</a>
+          <a href="contact.html" class="hover:text-yellow-400 transition-all">Contact</a>
         </div>
       </div>
 
-      <div
-        class="flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 font-bold uppercase gap-4">
+      <!-- Social and Copyright Block -->
+      <div class="flex flex-col sm:flex-row justify-between items-center text-[10px] text-slate-500 font-bold uppercase gap-4 pb-4">
         <span>© 2026 FitPanther Group. FDA Audited Portions.</span>
         <div class="flex gap-5 items-center">
-          <a href="#" aria-label="Instagram" class="text-slate-400 hover:text-purple-600 transition-all">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051C.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.000 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
-            </svg>
-          </a>
-          <a href="#" aria-label="Facebook" class="text-slate-400 hover:text-purple-600 transition-all">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-            </svg>
-          </a>
-          <a href="#" aria-label="Twitter (X)" class="text-slate-400 hover:text-purple-600 transition-all">
+          <a href="#" aria-label="Instagram" class="text-slate-500 hover:text-yellow-450 transition-all">
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051C.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.000 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="text-slate-500 hover:text-yellow-450 transition-all">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
             </svg>
           </a>
         </div>
       </div>
 
+    </div>
+
+    <!-- Bottom sub-footer (Perfect Match to Mockup) -->
+    <div class="bg-purple-950 py-4 mt-4 border-t border-purple-900">
+      <div class="max-w-[92%] lg:max-w-[1400px] mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold text-purple-200">
+        
+        <!-- Left: Dietitian approved badges -->
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">soup_kitchen</span>
+            <span class="text-[9px] uppercase tracking-wide">Dietitian Approved</span>
+          </div>
+          <span>|</span>
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">fitness_center</span>
+            <span class="text-[9px] uppercase tracking-wide">High Protein</span>
+          </div>
+          <span>|</span>
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">eco</span>
+            <span class="text-[9px] uppercase tracking-wide">Balanced Nutrition</span>
+          </div>
+          <span>|</span>
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">local_shipping</span>
+            <span class="text-[9px] uppercase tracking-wide">Delivered Chilled</span>
+          </div>
+        </div>
+
+        <!-- Right: Brand script and paw icon -->
+        <div class="flex items-center gap-2 text-yellow-400 font-serif italic text-sm">
+          <span>We are your Health Partner</span>
+          <span class="material-symbols-outlined text-base">pets</span>
+        </div>
+
+      </div>
     </div>
   </footer>
 

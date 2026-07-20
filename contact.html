@@ -89,13 +89,12 @@
     class="fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center transition-all duration-500 ease-out">
     <div class="relative flex items-center justify-center">
       <!-- Rotating outer ring -->
-      <div class="w-20 h-20 border-4 border-slate-50 border-t-purple-600 rounded-full animate-spin"></div>
+      <div class="w-20 h-20 border-4 border-slate-50 border-t-purple-900 rounded-full animate-spin"></div>
       <!-- Pulse logo inside -->
       <img src="assets/logo.jpg" alt="FitPanther Loader"
         class="w-12 h-12 rounded-full object-cover absolute animate-pulse shadow-md">
     </div>
-    <span class="text-xs font-bold uppercase tracking-widest text-slate-400 mt-5 animate-pulse">Calculating
-      Portions...</span>
+    <span class="text-xs font-bold uppercase tracking-widest text-slate-400 mt-5 animate-pulse">Calculating Portions...</span>
   </div>
 
   <!-- Trendy Ambient Background Blobs -->
@@ -118,12 +117,15 @@
 
   <!-- Sticky Header Navbar -->
   <header class="bg-white/80 backdrop-blur border-b border-slate-100 sticky top-0 z-50 transition-all">
-    <div class="max-w-[92%] lg:max-w-[1400px] mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+    <div class="max-w-[92%] lg:max-w-[1400px] mx-auto px-4 md:px-8 py-3.5 flex items-center justify-between">
 
-      <!-- Brand Logo -->
-      <a href="index.html" class="flex items-center cursor-pointer">
-        <img src="assets/logo.jpg" alt="FitPanther Logo"
-          class="w-14 h-14 rounded-full object-cover shadow shadow-purple-200">
+      <!-- Brand Logo & Name (Fitted to Mockup) -->
+      <a href="index.html" class="flex items-center gap-3 cursor-pointer">
+        <img src="assets/logo.jpg" alt="FitPanther Logo" class="w-12 h-12 rounded-full object-cover">
+        <div class="flex flex-col text-left">
+          <span class="font-black text-lg uppercase tracking-tight text-slate-900 leading-none">FitPanther</span>
+          <span class="text-[9px] font-bold text-slate-400 tracking-widest uppercase">Your Health Partner</span>
+        </div>
       </a>
 
       <!-- Desktop Capsule Navigation Menu -->
@@ -149,15 +151,15 @@
           Blog
         </a>
         <a href="contact.html" id="tab-contact"
-          class="px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all rounded-full tab-active">
+          class="px-5 py-2 text-xs font-bold uppercase tracking-wider tab-active">
           Contact
         </a>
       </nav>
 
-      <!-- Desktop WhatsApp Action -->
+      <!-- Desktop WhatsApp Action (Mock Yellow Pill shape) -->
       <a href="https://wa.me/1234567890" target="_blank"
-        class="hidden md:flex items-center gap-2 text-slate-700 hover:text-purple-600 text-sm font-bold uppercase transition-all">
-        <span class="material-symbols-outlined text-emerald-500 text-xl">chat</span>
+        class="hidden md:flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-slate-950 text-xs font-black uppercase py-2.5 px-5 rounded-full shadow-md shadow-yellow-100 transition-all hover:scale-[1.02]">
+        <span class="material-symbols-outlined text-base">chat</span>
         WhatsApp Order
       </a>
 
@@ -173,19 +175,19 @@
     <div id="mobile-menu"
       class="hidden md:hidden bg-white border-t border-slate-100 px-6 py-4 flex flex-col gap-3 shadow-lg">
       <a href="index.html"
-        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-500 hover:text-slate-900">Home</a>
+        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-550 hover:text-slate-900">Home</a>
       <a href="plans.html"
-        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-500 hover:text-slate-900">Plans</a>
+        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-550 hover:text-slate-900">Plans</a>
       <a href="menu.html"
-        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-500 hover:text-slate-900">Menu</a>
+        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-550 hover:text-slate-900">Menu</a>
       <a href="results.html"
-        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-500 hover:text-slate-900">Results</a>
+        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-555 hover:text-slate-900">Results</a>
       <a href="blog.html"
-        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-500 hover:text-slate-900">Blog</a>
+        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider border-b border-slate-50 text-slate-555 hover:text-slate-900">Blog</a>
       <a href="contact.html"
-        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider text-purple-600">Contact</a>
+        class="text-left text-sm font-bold py-2.5 uppercase tracking-wider text-purple-900">Contact</a>
       <a href="https://wa.me/1234567890" target="_blank"
-        class="flex items-center justify-center gap-2 mt-2 w-full py-3 bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold uppercase rounded-lg shadow-md shadow-emerald-100 transition-all">
+        class="flex items-center justify-center gap-2 mt-2 w-full py-3 bg-yellow-400 hover:bg-yellow-500 text-slate-950 text-xs font-bold uppercase rounded-full shadow-md shadow-yellow-100 transition-all">
         <span class="material-symbols-outlined text-white text-lg">chat</span>
         WhatsApp Order
       </a>
@@ -277,49 +279,79 @@
 
   </main>
 
-  <!-- Global Footer -->
-  <footer class="bg-slate-50 border-t border-slate-150 py-12 mt-16 relative z-10">
-    <div class="max-w-[92%] lg:max-w-[1400px] mx-auto px-4 md:px-8 space-y-6">
 
-      <div class="flex flex-col sm:flex-row justify-between items-center border-b border-slate-100 pb-6 gap-6">
+
+  <!-- Global Footer -->
+  <footer class="bg-slate-900 text-white py-12 mt-16 relative z-10">
+    <div class="max-w-[92%] lg:max-w-[1400px] mx-auto px-4 md:px-8 space-y-8">
+
+      <!-- Main Footer Links Grid -->
+      <div class="flex flex-col sm:flex-row justify-between items-center border-b border-white/10 pb-6 gap-6">
         <div class="flex items-center gap-3">
-          <img src="assets/logo.jpg" alt="FitPanther Logo"
-            class="w-7 h-7 rounded-full object-cover shadow shadow-purple-100">
-          <span class="font-extrabold text-sm uppercase text-slate-900 tracking-wider">FitPanther</span>
+          <img src="assets/logo.jpg" alt="FitPanther Logo" class="w-8 h-8 rounded-full object-cover">
+          <span class="font-black text-sm uppercase tracking-wider">FitPanther</span>
         </div>
-        <div class="flex flex-wrap justify-center gap-6 text-sm font-semibold text-slate-400">
-          <a href="plans.html" class="hover:text-purple-600 transition-all">Pricing</a>
-          <a href="menu.html" class="hover:text-purple-600 transition-all">Menu</a>
-          <a href="results.html" class="hover:text-purple-600 transition-all">Results</a>
-          <a href="contact.html" class="hover:text-purple-600 transition-all">Contact</a>
+        <div class="flex flex-wrap justify-center gap-6 text-sm font-bold text-slate-400">
+          <a href="plans.html" class="hover:text-yellow-400 transition-all">Pricing</a>
+          <a href="menu.html" class="hover:text-yellow-400 transition-all">Menu</a>
+          <a href="results.html" class="hover:text-yellow-400 transition-all">Results</a>
+          <a href="contact.html" class="hover:text-yellow-400 transition-all">Contact</a>
         </div>
       </div>
 
-      <div
-        class="flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 font-bold uppercase gap-4">
+      <!-- Social and Copyright Block -->
+      <div class="flex flex-col sm:flex-row justify-between items-center text-[10px] text-slate-500 font-bold uppercase gap-4 pb-4">
         <span>© 2026 FitPanther Group. FDA Audited Portions.</span>
         <div class="flex gap-5 items-center">
-          <a href="#" aria-label="Instagram" class="text-slate-400 hover:text-purple-600 transition-all">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051C.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.000 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
-            </svg>
-          </a>
-          <a href="#" aria-label="Facebook" class="text-slate-400 hover:text-purple-600 transition-all">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-            </svg>
-          </a>
-          <a href="#" aria-label="Twitter (X)" class="text-slate-400 hover:text-purple-600 transition-all">
+          <a href="#" aria-label="Instagram" class="text-slate-505 hover:text-yellow-450 transition-all">
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051C.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.000 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="text-slate-505 hover:text-yellow-450 transition-all">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
             </svg>
           </a>
         </div>
       </div>
 
+    </div>
+
+    <!-- Bottom sub-footer (Perfect Match to Mockup) -->
+    <div class="bg-purple-950 py-4 mt-4 border-t border-purple-900">
+      <div class="max-w-[92%] lg:max-w-[1400px] mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold text-purple-200">
+        
+        <!-- Left: Dietitian approved badges -->
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">soup_kitchen</span>
+            <span class="text-[9px] uppercase tracking-wide">Dietitian Approved</span>
+          </div>
+          <span>|</span>
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">fitness_center</span>
+            <span class="text-[9px] uppercase tracking-wide">High Protein</span>
+          </div>
+          <span>|</span>
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">eco</span>
+            <span class="text-[9px] uppercase tracking-wide">Balanced Nutrition</span>
+          </div>
+          <span>|</span>
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">local_shipping</span>
+            <span class="text-[9px] uppercase tracking-wide">Delivered Chilled</span>
+          </div>
+        </div>
+
+        <!-- Right: Brand script and paw icon -->
+        <div class="flex items-center gap-2 text-yellow-400 font-serif italic text-sm">
+          <span>We are your Health Partner</span>
+          <span class="material-symbols-outlined text-base">pets</span>
+        </div>
+
+      </div>
     </div>
   </footer>
 
