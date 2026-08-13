@@ -1,4 +1,13 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .font-poppins {
   font-family: 'Poppins', sans-serif;
 }
 
@@ -45,4 +54,55 @@ body {
   z-index: -1;
   transform: rotate(-1.5deg);
 }
+
+/* Readability and contrast enhancements for dim slate text on light backgrounds */
+.text-slate-500 {
+  color: #334155; /* Slate 700 (Very readable dark slate) */
+}
+.text-slate-400 {
+  color: #475569; /* Slate 600 (Readable medium slate) */
+}
+
+/* Restore lighter colors for dark footer to keep text perfectly legible */
+footer .text-slate-500,
+footer .text-slate-500 a {
+  color: #94a3b8; /* Slate 400 */
+}
+footer .text-slate-400,
+footer .text-slate-400 a {
+  color: #cbd5e1; /* Slate 300 */
+}
+
+/* Accessibility: Ensure all primary CTA buttons and form submits are scaled up for full thumb-touch targets */
+#mobile-menu a[href^="https://wa.me/"],
+form button[type="submit"],
+a[href="contact.html"].block,
+a[href="plans.html"].block,
+a[href="plans.html"][class*="py-"],
+a[href="contact.html"][class*="py-"] {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+  font-size: 0.875rem !important; /* text-sm */
+  font-weight: 900 !important; /* font-black */
+  min-height: 48px !important;
+  height: auto !important;
+  border-radius: 0.75rem !important; /* rounded-xl */
+}
+
+/* Lightbox Video Modal */
+.video-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.85); /* Slate 900 with high opacity */
+  z-index: 99999;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+}
+
+.video-modal.active {
+  display: flex;
+}
+
 
