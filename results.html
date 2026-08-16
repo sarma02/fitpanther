@@ -82,7 +82,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body class="bg-[#f8fafc] text-slate-800 antialiased min-h-screen flex flex-col relative overflow-x-clip">
+<body class="bg-[#f8fafc] text-slate-800 antialiased min-h-screen flex flex-col relative overflow-x-hidden">
 
   <!-- Premium Page Loader Screen -->
   <div id="page-loader"
@@ -98,14 +98,10 @@
   </div>
 
   <!-- Trendy Ambient Background Blobs -->
-  <div
-    class="absolute top-[15%] left-[-10%] w-96 h-96 rounded-full bg-purple-100/40 blur-[100px] pointer-events-none z-0">
-  </div>
-  <div
-    class="absolute top-[45%] right-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-50/50 blur-[120px] pointer-events-none z-0">
-  </div>
-  <div
-    class="absolute bottom-[20%] left-[5%] w-80 h-80 rounded-full bg-fuchsia-50/40 blur-[90px] pointer-events-none z-0">
+  <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+    <div class="absolute top-[15%] left-[-10%] w-96 h-96 rounded-full bg-purple-100/40 blur-[100px]"></div>
+    <div class="absolute top-[45%] right-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-50/50 blur-[120px]"></div>
+    <div class="absolute bottom-[20%] left-[5%] w-80 h-80 rounded-full bg-fuchsia-50/40 blur-[90px]"></div>
   </div>
 
   <!-- Promo Top Bar -->
@@ -121,7 +117,7 @@
 
       <!-- Brand Logo & Name (Fitted to Mockup) -->
       <a href="index.html" class="flex items-center cursor-pointer">
-        <img src="assets/Back%20Side%20logo.png" alt="FitPanther Logo" class="h-12 w-auto object-contain invert">
+        <img src="assets/Back%20Side%20logo.png" alt="FitPanther Logo" class="h-12 w-auto object-contain" style="filter: invert(1);">
       </a>
 
       <!-- Desktop Capsule Navigation Menu -->

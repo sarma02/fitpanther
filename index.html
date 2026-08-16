@@ -86,7 +86,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body class="bg-[#f8fafc] text-slate-800 antialiased min-h-screen flex flex-col relative overflow-x-clip">
+<body class="bg-[#f8fafc] text-slate-800 antialiased min-h-screen flex flex-col relative overflow-x-hidden">
 
   <!-- Premium Page Loader Screen -->
   <div id="page-loader"
@@ -103,14 +103,10 @@
   </div>
 
   <!-- Trendy Ambient Background Blobs -->
-  <div
-    class="absolute top-[15%] left-[-10%] w-96 h-96 rounded-full bg-purple-100/40 blur-[100px] pointer-events-none z-0">
-  </div>
-  <div
-    class="absolute top-[45%] right-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-50/50 blur-[120px] pointer-events-none z-0">
-  </div>
-  <div
-    class="absolute bottom-[20%] left-[5%] w-80 h-80 rounded-full bg-fuchsia-50/40 blur-[90px] pointer-events-none z-0">
+  <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+    <div class="absolute top-[15%] left-[-10%] w-96 h-96 rounded-full bg-purple-100/40 blur-[100px]"></div>
+    <div class="absolute top-[45%] right-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-50/50 blur-[120px]"></div>
+    <div class="absolute bottom-[20%] left-[5%] w-80 h-80 rounded-full bg-fuchsia-50/40 blur-[90px]"></div>
   </div>
 
   <!-- Promo Top Bar -->
@@ -126,7 +122,7 @@
 
       <!-- Brand Logo & Name (Fitted to Mockup) -->
       <a href="index.html" class="flex items-center cursor-pointer">
-        <img src="assets/Back%20Side%20logo.png" alt="FitPanther Logo" class="h-12 w-auto object-contain invert">
+        <img src="assets/Back%20Side%20logo.png" alt="FitPanther Logo" class="h-12 w-auto object-contain" style="filter: invert(1);">
       </a>
 
       <!-- Desktop Capsule Navigation Menu -->
@@ -1286,13 +1282,13 @@
 
   <!-- Floating WhatsApp Action Button -->
   <a href="https://wa.me/919176543210" target="_blank" aria-label="Chat on WhatsApp"
-    class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group">
-    <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+    class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group">
+    <svg class="w-6 h-6 md:w-8 md:h-8 fill-current" viewBox="0 0 24 24">
       <path
         d="M12.012 2c-5.506 0-9.988 4.482-9.988 9.988 0 1.76.46 3.415 1.258 4.869l-1.336 4.887 5.006-1.313c1.408.767 3.013 1.205 4.717 1.205 5.506 0 9.988-4.482 9.988-9.988 0-5.506-4.482-9.988-9.988-9.988zm6.54 14.19c-.272.766-1.378 1.403-1.9 1.488-.507.085-1.168.163-3.238-.684-2.483-1.017-4.088-3.54-4.212-3.708-.124-.168-1.002-1.335-1.002-2.545 0-1.21.633-1.803.86-2.043.226-.24.5-.3.666-.3a.56.56 0 0 1 .4.19c.164.24.568 1.385.617 1.485.048.1.08.216.015.347-.066.13-.1.21-.2.32-.1.11-.21.248-.3.354-.1.11-.2.23-.086.43.115.2.51 2.093 1.105 2.623.766.68 1.413.89 1.61.99.198.1.314.084.43-.05.116-.135.5-1.127.633-1.517.135-.39.273-.32.46-.25.19.07 1.2.566 1.406.67.206.1.343.15.39.23.05.08.05.46-.172 1.227z" />
     </svg>
     <span
-      class="absolute right-16 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none uppercase tracking-wide">
+      class="absolute right-14 md:right-16 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none uppercase tracking-wide">
       Chat with Us!
     </span>
   </a>
